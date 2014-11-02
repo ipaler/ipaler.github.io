@@ -1,0 +1,50 @@
+# Configurations
+markdown: kramdown
+markdown_ext:  markdown,mkdown,mkdn,mkd,md
+highlighter: pygments
+
+# Permalinks
+permalink:        /blog/:year/:month/:day/:title
+
+# Setup
+title:            'ipaler'
+tagline:          'Tangled web dairy of ipaler'
+description:      'This is personal site of ipaler'
+url:              'http://ipaler.com'
+baseurl:          ''
+
+# Navigation
+navigation:
+- text: About
+  url: /about/
+- text: Resume
+  url: /resume/
+- text: Blog
+  url: /blog/
+- text: Tags
+  url: /tags/
+- text: Archive
+  url : /archive/
+- text: Search
+  url: /search/
+
+# Author Details
+author:         'ipaler'
+linkedin:       'https://ae.linkedin.com/in/ipaler/'
+twitter:        'https://twitter.com/ipaler'
+facebook:       'https://www.facebook.com/ipaler'
+gplus:          'https://plus.google.com/100425464897246255887/'
+
+# Google Analytics
+gahandler: 'UA-53220404-1'
+
+# Disqus
+disqushandler: 'ipaler'
+
+# Blog Configurations
+paginate: 10 # Posts per page on the blog index
+paginate_path: '/blog/page:num'
+destination: ./_site
+
+# Custom vars
+version:          0.1.10
