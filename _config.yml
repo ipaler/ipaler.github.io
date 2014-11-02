@@ -7,10 +7,10 @@ highlighter: pygments
 permalink:        /blog/:year/:month/:day/:title
 
 # Setup
-title:            'ipaler'
+title:            '不开心你好我叫没烦恼'
 tagline:          'Tangled web dairy of ipaler'
-description:      'This is personal site of ipaler'
-url:              'http://ipaler.com'
+description:      'This is personal site of ipaler,不开心你好我叫没烦恼,ipaler.com'
+url:              'http://ipaler.com/'
 baseurl:          ''
 
 # Navigation
