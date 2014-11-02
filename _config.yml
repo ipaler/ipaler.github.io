@@ -10,7 +10,7 @@ permalink:        /blog/:year/:month/:day/:title
 title:            '不开心你好我叫没烦恼'
 tagline:          'Tangled web dairy of ipaler'
 description:      'This is personal site of ipaler,不开心你好我叫没烦恼,ipaler.com'
-url:              'ipaler.com'
+url:              '//ipaler.com'
 baseurl:          ''
 
 # Navigation
