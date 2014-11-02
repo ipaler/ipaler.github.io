@@ -8,8 +8,8 @@ permalink:        /blog/:year/:month/:day/:title
 
 # Setup
 title:            '不开心你好我叫没烦恼'
-tagline:          'Tangled web dairy of ipaler'
-description:      'This is personal site of ipaler,不开心你好我叫没烦恼,ipaler.com'
+tagline:          'Ipaler.com'
+description:      'ipaler.com,This is personal site of ipaler,不开心你好我叫没烦恼'
 url:              '//ipaler.com'
 baseurl:          ''
 
@@ -33,7 +33,7 @@ author:         'ipaler'
 linkedin:       'https://ae.linkedin.com/in/ipaler/'
 twitter:        'https://twitter.com/ipaler'
 facebook:       'https://www.facebook.com/ipaler'
-gplus:          'https://plus.google.com/100425464897246255887/'
+gplus:          'https://plus.google.com/100425/'
 
 # Google Analytics
 gahandler: 'UA-53220404-1'
