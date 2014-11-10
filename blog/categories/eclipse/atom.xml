@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: eclipse | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/eclipse/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: eclipse | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/eclipse/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Mac下Eclipse快捷键]]></title>
-    <link href="http://cnhalo.com/blog/2014/04/05/shortcuts-of-eclipse-on-mac/"/>
+    <link href="http://ipaler.com/blog/2014/04/05/shortcuts-of-eclipse-on-mac/"/>
     <updated>2014-04-05T21:29:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2014/04/05/shortcuts-of-eclipse-on-mac</id>
+    <id>http://ipaler.com/blog/2014/04/05/shortcuts-of-eclipse-on-mac</id>
     <content type="html"><![CDATA[<p>实在是记不住，虽然windows下的和mac下的差不多，但是还是有那么点区别。</p>
 
 <p><code>

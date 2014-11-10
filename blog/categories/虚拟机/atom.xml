@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: 虚拟机 | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/虚拟机/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: 虚拟机 | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/虚拟机/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[新手]VMware网络配置]]></title>
-    <link href="http://cnhalo.com/blog/2013/02/20/vmware-network-config/"/>
+    <link href="http://ipaler.com/blog/2013/02/20/vmware-network-config/"/>
     <updated>2013-02-20T22:24:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/02/20/vmware-network-config</id>
+    <id>http://ipaler.com/blog/2013/02/20/vmware-network-config</id>
     <content type="html"><![CDATA[<p>这个问题以前一直没专门去想过，只是网络不通了我才去折腾，实在不行就问别人，今天总算好好的去理解了一下。这篇文章能写出来，最需要感谢的是华叔。</p>
 
 <h3><strong>首先，是对三种模式的理解：</strong></h3>
@@ -43,7 +43,7 @@
 
 <h4><strong>1.三种类型的大概描述:</strong></h4>
 
-<p><img src="http://cnhalo.qiniudn.com/20121126/virtual_network_editor.jpg" alt="Virtual Network Editor" /></p>
+<p><img src="http://ipaler.qiniudn.com/20121126/virtual_network_editor.jpg" alt="Virtual Network Editor" /></p>
 
 <p>其中<strong>Bridged</strong>和<strong>NAT</strong>必须有，而且只能是一个。</p>
 
@@ -56,7 +56,7 @@
 
 <p><strong>Bridged</strong>的<strong>Bridged to</strong>最好不要设置成自动:</p>
 
-<p><img src="http://cnhalo.qiniudn.com/20121126/bridged_information.jpg" alt="Bridged_to" /></p>
+<p><img src="http://ipaler.qiniudn.com/20121126/bridged_information.jpg" alt="Bridged_to" /></p>
 
 <br>
 
@@ -65,17 +65,17 @@
 
 <p><strong>NAT</strong>模式下，需要将虚拟机里的网关设置成<strong>NAT Setting</strong>里的<strong>GatewayIP</strong>：</p>
 
-<p><img src="http://cnhalo.qiniudn.com/20121126/nat_settings.jpg" alt="Nat_settings" /></p>
+<p><img src="http://ipaler.qiniudn.com/20121126/nat_settings.jpg" alt="Nat_settings" /></p>
 
 <p><strong>NAT</strong>和<strong>Host-only</strong>选择后，下面的勾选框就成可编辑状态:</p>
 
-<p><img src="http://cnhalo.qiniudn.com/20121126/nat_host_only_information.jpg" alt="Nat_HostOnly" /></p>
+<p><img src="http://ipaler.qiniudn.com/20121126/nat_host_only_information.jpg" alt="Nat_HostOnly" /></p>
 
 <p><strong>Subnet IP</strong>配成某个网段后，虚拟机和主机只要在这个网段，在对应的模式下就可以通信了。</p>
 
 <p>勾选<strong>Connect a host_virtual adapter to this network</strong>后，主机就会出来虚拟网卡:</p>
 
-<p><img src="http://cnhalo.qiniudn.com/20121126/virtual_interface.jpg" alt="virtual_interface" /></p>
+<p><img src="http://ipaler.qiniudn.com/20121126/virtual_interface.jpg" alt="virtual_interface" /></p>
 ]]></content>
   </entry>
   

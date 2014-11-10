@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://cnhalo.com/sitemap.xml 
+Sitemap: http://ipaler.com/sitemap.xml 

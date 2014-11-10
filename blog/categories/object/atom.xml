@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: object | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/object/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: object | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/object/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[JAVA对象equals的技巧]]></title>
-    <link href="http://cnhalo.com/blog/2013/12/06/java-object-equals/"/>
+    <link href="http://ipaler.com/blog/2013/12/06/java-object-equals/"/>
     <updated>2013-12-06T21:40:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/12/06/java-object-equals</id>
+    <id>http://ipaler.com/blog/2013/12/06/java-object-equals</id>
     <content type="html"><![CDATA[<h3>1.   测试</h3>
 
 <p>又一次在写代码，突然想到这么个问题：java里的equals比较对象的顺序不同会有什么不同的效果？于是乎写了以下测试代码：</p>
@@ -25,7 +25,7 @@
 <p>```java</p>
 
 <p>/<em>*
- * cnhalo.mrhuang.equalstest.Main <TODO>
+ * ipaler.mrhuang.equalstest.Main <TODO>
  *
  * @author  huangyijie
  * @date    2013年12月6日 下午9:33:33

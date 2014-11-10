@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: observer | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/observer/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: observer | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/observer/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[设计模式学习笔记]观察者模式]]></title>
-    <link href="http://cnhalo.com/blog/2013/11/12/design-patterns-observer/"/>
+    <link href="http://ipaler.com/blog/2013/11/12/design-patterns-observer/"/>
     <updated>2013-11-12T22:41:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/11/12/design-patterns-observer</id>
+    <id>http://ipaler.com/blog/2013/11/12/design-patterns-observer</id>
     <content type="html"><![CDATA[<h3>1. 模式定义</h3>
 
 <p>观察者模式（Observer Pattern）也叫做发布订阅模式（Publish/subscribe），它使一个在项目中经常使用的模式。</p>

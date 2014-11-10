@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: 电影 | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/电影/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: 电影 | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/电影/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[写在《钢铁侠3》之后]]></title>
-    <link href="http://cnhalo.com/blog/2013/05/05/after-film-iron-man/"/>
+    <link href="http://ipaler.com/blog/2013/05/05/after-film-iron-man/"/>
     <updated>2013-05-05T23:30:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/05/05/after-film-iron-man</id>
+    <id>http://ipaler.com/blog/2013/05/05/after-film-iron-man</id>
     <content type="html"><![CDATA[<p>  周末，一如既往的放松。</p>
 
 <p>  中午吃完饭，和朋友以及朋友的朋友一起去梅赛德斯那的电影院看电影，还是团购的，我们的目标是最近很火的《致青春》。</p>

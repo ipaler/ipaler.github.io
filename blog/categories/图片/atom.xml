@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: 图片 | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/图片/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: 图片 | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/图片/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[远处的教堂]]></title>
-    <link href="http://cnhalo.com/blog/2013/03/30/distant-church/"/>
+    <link href="http://ipaler.com/blog/2013/03/30/distant-church/"/>
     <updated>2013-03-30T15:14:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/03/30/distant-church</id>
+    <id>http://ipaler.com/blog/2013/03/30/distant-church</id>
     <content type="html"><![CDATA[<p> 受到胡伟同学给我看的一张图的拍摄方法的启示，就用一个下午在家，拍摄了多个时段的，用的手头的MX2，可以看出，白天拍摄效果还是不错的，但是夜拍就不怎么给力了。</p>
 
 <p><img src="http://githubimg.qiniudn.com/a_weekend/duoshiduan.jpg" title="远处的教堂（多时段）" alt="远处的教堂（多时段）" /></p>
@@ -28,10 +28,10 @@
   
   <entry>
     <title type="html"><![CDATA[马克西姆可可粉]]></title>
-    <link href="http://cnhalo.com/blog/2012/11/07/maxim-coco/"/>
+    <link href="http://ipaler.com/blog/2012/11/07/maxim-coco/"/>
     <updated>2012-11-07T19:57:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2012/11/07/maxim-coco</id>
-    <content type="html"><![CDATA[<p><img title="马克西姆可可粉" src="http://cnhalo.qiniudn.com/20121107/makeximu.jpeg" alt="马克西姆可可粉" /></p>
+    <id>http://ipaler.com/blog/2012/11/07/maxim-coco</id>
+    <content type="html"><![CDATA[<p><img title="马克西姆可可粉" src="http://ipaler.qiniudn.com/20121107/makeximu.jpeg" alt="马克西姆可可粉" /></p>
 
 
 <p>这罐马克西姆的可可粉放了有一段时间了，一直忘了解决它。</p>

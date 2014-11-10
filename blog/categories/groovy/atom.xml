@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Groovy | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/groovy/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: Groovy | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/groovy/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Groovy开始]]></title>
-    <link href="http://cnhalo.com/blog/2014/10/28/groovy-starting/"/>
+    <link href="http://ipaler.com/blog/2014/10/28/groovy-starting/"/>
     <updated>2014-10-28T19:54:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2014/10/28/groovy-starting</id>
+    <id>http://ipaler.com/blog/2014/10/28/groovy-starting</id>
     <content type="html"><![CDATA[<p>之前看了《Java程序员修炼之道》，第三部分JVM上的多语言编程里面讲到JVM上面的一些脚本语言，有Groovy，Scala，Clojure，没有等。于是这两天学了一下Groovy，发现还真是方便，最明显的（当然我是处在比较初级阶段的认识）他的闭包Closure。</p>
 
 <p>平时在用Java编程的时候，写着写着总是有点烦，一个很简单的方法都要写一堆代码，其实具体逻辑就一行，想着用闭包多好，那么Groovy完全就可以用得上。</p>

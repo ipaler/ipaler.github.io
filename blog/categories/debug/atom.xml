@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: debug | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/debug/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: debug | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/debug/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Tomcat打开远程调试]]></title>
-    <link href="http://cnhalo.com/blog/2013/10/29/tomcat-remote-debug/"/>
+    <link href="http://ipaler.com/blog/2013/10/29/tomcat-remote-debug/"/>
     <updated>2013-10-29T22:59:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/10/29/tomcat-remote-debug</id>
+    <id>http://ipaler.com/blog/2013/10/29/tomcat-remote-debug</id>
     <content type="html"><![CDATA[<h2>配置</h2>
 
 <h3>1.   Linux下</h3>

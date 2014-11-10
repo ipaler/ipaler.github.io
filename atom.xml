@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[CNHALO]]></title>
-  <link href="http://cnhalo.com/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[ipaler]]></title>
+  <link href="http://ipaler.com/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
-    <name><![CDATA[HENRY_HUANGS]]></name>
-    <email><![CDATA[huangyijie1989@gmail.com]]></email>
+    <name><![CDATA[ipaler]]></name>
+    <email><![CDATA[wangmingzhong.cncq@gmail.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
     <title type="html"><![CDATA[Groovy开始]]></title>
-    <link href="http://cnhalo.com/blog/2014/10/28/groovy-starting/"/>
+    <link href="http://ipaler.com/blog/2014/10/28/groovy-starting/"/>
     <updated>2014-10-28T19:54:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2014/10/28/groovy-starting</id>
+    <id>http://ipaler.com/blog/2014/10/28/groovy-starting</id>
     <content type="html"><![CDATA[<p>之前看了《Java程序员修炼之道》，第三部分JVM上的多语言编程里面讲到JVM上面的一些脚本语言，有Groovy，Scala，Clojure，没有等。于是这两天学了一下Groovy，发现还真是方便，最明显的（当然我是处在比较初级阶段的认识）他的闭包Closure。</p>
 
 <p>平时在用Java编程的时候，写着写着总是有点烦，一个很简单的方法都要写一堆代码，其实具体逻辑就一行，想着用闭包多好，那么Groovy完全就可以用得上。</p>
@@ -134,14 +134,14 @@ piece of code that is defined and then executed at a later point. It has some sp
   
   <entry>
     <title type="html"><![CDATA[[设计模式学习笔记]油漆工模式]]></title>
-    <link href="http://cnhalo.com/blog/2014/08/16/design-pattern-decorator/"/>
+    <link href="http://ipaler.com/blog/2014/08/16/design-pattern-decorator/"/>
     <updated>2014-08-16T19:17:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2014/08/16/design-pattern-decorator</id>
+    <id>http://ipaler.com/blog/2014/08/16/design-pattern-decorator</id>
     <content type="html"><![CDATA[<h1>设计模式之Decorator(油漆工)</h1>
 
 <p>文章转自 <a href="http://www.jdon.com">解道</a></p>
 
-<p>查看 <a href="https://github.com/henryhuang/designpatterns/tree/master/src/cnhalo/twoa/designpatterns/structure/decorator">代码</a></p>
+<p>查看 <a href="https://github.com/henryhuang/designpatterns/tree/master/src/ipaler/twoa/designpatterns/structure/decorator">代码</a></p>
 
 <p>装饰模式:Decorator常被翻译成&#8221;装饰&#8221;,我觉得翻译成&#8221;油漆工&#8221;更形象点,油漆工(decorator)是用来刷油漆的,那么被刷油漆的对象我们称decoratee.这两种实体在Decorator模式中是必须的.</p>
 
@@ -372,9 +372,9 @@ BufferedReader br = new BufferedReader(fr);</p>
   
   <entry>
     <title type="html"><![CDATA[跑步]]></title>
-    <link href="http://cnhalo.com/blog/2014/05/18/running/"/>
+    <link href="http://ipaler.com/blog/2014/05/18/running/"/>
     <updated>2014-05-18T22:57:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2014/05/18/running</id>
+    <id>http://ipaler.com/blog/2014/05/18/running</id>
     <content type="html"><![CDATA[<p>俗话说得好：五月不减肥，六月徒伤悲，七月徒伤悲，八月徒伤悲。。。</p>
 
 <p>在今年过完春节，就给自己下了今年的一个目标，减肥，减到正常体重。说到减肥，或许对于很多人来说首先想到的就是从吃下手，少吃，甚至不吃，对此我表示很荒谬，从吃这里下手，是可以达到目的，但是反弹很容易的，稍微不注意就会多吃，然后就反弹，再者就没动力了。</p>
@@ -423,9 +423,9 @@ BufferedReader br = new BufferedReader(fr);</p>
   
   <entry>
     <title type="html"><![CDATA[Mac下Eclipse快捷键]]></title>
-    <link href="http://cnhalo.com/blog/2014/04/05/shortcuts-of-eclipse-on-mac/"/>
+    <link href="http://ipaler.com/blog/2014/04/05/shortcuts-of-eclipse-on-mac/"/>
     <updated>2014-04-05T21:29:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2014/04/05/shortcuts-of-eclipse-on-mac</id>
+    <id>http://ipaler.com/blog/2014/04/05/shortcuts-of-eclipse-on-mac</id>
     <content type="html"><![CDATA[<p>实在是记不住，虽然windows下的和mac下的差不多，但是还是有那么点区别。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -502,9 +502,9 @@ BufferedReader br = new BufferedReader(fr);</p>
   
   <entry>
     <title type="html"><![CDATA[JAVA对象equals的技巧]]></title>
-    <link href="http://cnhalo.com/blog/2013/12/06/java-object-equals/"/>
+    <link href="http://ipaler.com/blog/2013/12/06/java-object-equals/"/>
     <updated>2013-12-06T21:40:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/12/06/java-object-equals</id>
+    <id>http://ipaler.com/blog/2013/12/06/java-object-equals</id>
     <content type="html"><![CDATA[<h3>1.   测试</h3>
 
 <p>又一次在写代码，突然想到这么个问题：java里的equals比较对象的顺序不同会有什么不同的效果？于是乎写了以下测试代码：</p>
@@ -554,7 +554,7 @@ BufferedReader br = new BufferedReader(fr);</p>
 <span class='line-number'>43</span>
 <span class='line-number'>44</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * cnhalo.mrhuang.equalstest.Main &lt;TODO&gt;</span>
+</span><span class='line'><span class="cm"> * ipaler.mrhuang.equalstest.Main &lt;TODO&gt;</span>
 </span><span class='line'><span class="cm"> *</span>
 </span><span class='line'><span class="cm"> * @author   huangyijie</span>
 </span><span class='line'><span class="cm"> * @date 2013年12月6日 下午9:33:33</span>
@@ -619,9 +619,9 @@ BufferedReader br = new BufferedReader(fr);</p>
   
   <entry>
     <title type="html"><![CDATA[MAC下JDK版本的切换]]></title>
-    <link href="http://cnhalo.com/blog/2013/12/02/jdk-version-switch-in-mac/"/>
+    <link href="http://ipaler.com/blog/2013/12/02/jdk-version-switch-in-mac/"/>
     <updated>2013-12-02T19:31:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/12/02/jdk-version-switch-in-mac</id>
+    <id>http://ipaler.com/blog/2013/12/02/jdk-version-switch-in-mac</id>
     <content type="html"><![CDATA[<p>原来系统里安装的是1.6的，这是最后一个由提供的jdk，1.7开始Oracle提供mac平台的jdk了。</p>
 
 <p>现在安装了1.7的，觉得需要进行多个版本的切换，以下是方法：</p>
@@ -692,9 +692,9 @@ BufferedReader br = new BufferedReader(fr);</p>
   
   <entry>
     <title type="html"><![CDATA[Java使用反射设置值]]></title>
-    <link href="http://cnhalo.com/blog/2013/11/25/java-reflect-set-value/"/>
+    <link href="http://ipaler.com/blog/2013/11/25/java-reflect-set-value/"/>
     <updated>2013-11-25T17:37:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/11/25/java-reflect-set-value</id>
+    <id>http://ipaler.com/blog/2013/11/25/java-reflect-set-value</id>
     <content type="html"><![CDATA[<p>今天敲代码，遇到个问题，需要实现一个方法：给一个类的成员变量设置值，数字类型的设置为0，布尔类型的设置为false，其他设置为null，变量不知道是什么类型的。</p>
 
 <p>这里面有几个要点：</p>
@@ -854,7 +854,7 @@ NullPointerException - 如果指定的 Class 参数为 null。
 <span class='line-number'>33</span>
 <span class='line-number'>34</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * cnhalo.mrhuang.field.Config &lt;示例&gt;</span>
+</span><span class='line'><span class="cm"> * ipaler.mrhuang.field.Config &lt;示例&gt;</span>
 </span><span class='line'><span class="cm"> *</span>
 </span><span class='line'><span class="cm"> * @author   huangyijie</span>
 </span><span class='line'><span class="cm"> * @date 2013年11月25日 下午3:35:57</span>
@@ -974,7 +974,7 @@ NullPointerException - 如果指定的 Class 参数为 null。
 <span class='line-number'>80</span>
 <span class='line-number'>81</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * cnhalo.mrhuang.field.Main &lt;示例&gt;</span>
+</span><span class='line'><span class="cm"> * ipaler.mrhuang.field.Main &lt;示例&gt;</span>
 </span><span class='line'><span class="cm"> *</span>
 </span><span class='line'><span class="cm"> * @author   huangyijie</span>
 </span><span class='line'><span class="cm"> * @date 2013年11月25日 下午3:35:04</span>
@@ -1118,9 +1118,9 @@ NullPointerException - 如果指定的 Class 参数为 null。
   
   <entry>
     <title type="html"><![CDATA[VIM对于文件字符编码的转换]]></title>
-    <link href="http://cnhalo.com/blog/2013/11/18/vim-encoding-convert/"/>
+    <link href="http://ipaler.com/blog/2013/11/18/vim-encoding-convert/"/>
     <updated>2013-11-18T16:29:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/11/18/vim-encoding-convert</id>
+    <id>http://ipaler.com/blog/2013/11/18/vim-encoding-convert</id>
     <content type="html"><![CDATA[<h3>使用vim自己的方式</h3>
 
 <h4>fenc, enc</h4>
@@ -1182,9 +1182,9 @@ NullPointerException - 如果指定的 Class 参数为 null。
   
   <entry>
     <title type="html"><![CDATA[Java中使用Markdown]]></title>
-    <link href="http://cnhalo.com/blog/2013/11/16/java-markdown-lib/"/>
+    <link href="http://ipaler.com/blog/2013/11/16/java-markdown-lib/"/>
     <updated>2013-11-16T00:39:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/11/16/java-markdown-lib</id>
+    <id>http://ipaler.com/blog/2013/11/16/java-markdown-lib</id>
     <content type="html"><![CDATA[<p>由于需要将输入的markdown内容转换成html，所以找到了这个包：<a href="http://markdown.tautua.org/">MarkdownPapers</a></p>
 
 <p>Maven依赖：</p>
@@ -1221,9 +1221,9 @@ NullPointerException - 如果指定的 Class 参数为 null。
   
   <entry>
     <title type="html"><![CDATA[[设计模式学习笔记]观察者模式]]></title>
-    <link href="http://cnhalo.com/blog/2013/11/12/design-patterns-observer/"/>
+    <link href="http://ipaler.com/blog/2013/11/12/design-patterns-observer/"/>
     <updated>2013-11-12T22:41:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/11/12/design-patterns-observer</id>
+    <id>http://ipaler.com/blog/2013/11/12/design-patterns-observer</id>
     <content type="html"><![CDATA[<h3>1. 模式定义</h3>
 
 <p>观察者模式（Observer Pattern）也叫做发布订阅模式（Publish/subscribe），它使一个在项目中经常使用的模式。</p>
@@ -1406,9 +1406,9 @@ NullPointerException - 如果指定的 Class 参数为 null。
   
   <entry>
     <title type="html"><![CDATA[Tomcat打开远程调试]]></title>
-    <link href="http://cnhalo.com/blog/2013/10/29/tomcat-remote-debug/"/>
+    <link href="http://ipaler.com/blog/2013/10/29/tomcat-remote-debug/"/>
     <updated>2013-10-29T22:59:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/10/29/tomcat-remote-debug</id>
+    <id>http://ipaler.com/blog/2013/10/29/tomcat-remote-debug</id>
     <content type="html"><![CDATA[<h2>配置</h2>
 
 <h3>1.   Linux下</h3>
@@ -1441,9 +1441,9 @@ NullPointerException - 如果指定的 Class 参数为 null。
   
   <entry>
     <title type="html"><![CDATA[LESS学习]]></title>
-    <link href="http://cnhalo.com/blog/2013/08/10/learn-less/"/>
+    <link href="http://ipaler.com/blog/2013/08/10/learn-less/"/>
     <updated>2013-08-10T14:59:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/08/10/learn-less</id>
+    <id>http://ipaler.com/blog/2013/08/10/learn-less</id>
     <content type="html"><![CDATA[<p>今天下午没事学了一下less，发现用来写样式表真是方便。</p>
 
 <h3>1. 什么是LESS</h3>
@@ -1491,9 +1491,9 @@ NullPointerException - 如果指定的 Class 参数为 null。
   
   <entry>
     <title type="html"><![CDATA[JAVA中判断日期是上午还是下午]]></title>
-    <link href="http://cnhalo.com/blog/2013/08/01/java-date-am-or-pm/"/>
+    <link href="http://ipaler.com/blog/2013/08/01/java-date-am-or-pm/"/>
     <updated>2013-08-01T17:11:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/08/01/java-date-am-or-pm</id>
+    <id>http://ipaler.com/blog/2013/08/01/java-date-am-or-pm</id>
     <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">GregorianCalendar</span> <span class="n">cal</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GregorianCalendar</span><span class="o">();</span>
@@ -1507,9 +1507,9 @@ NullPointerException - 如果指定的 Class 参数为 null。
   
   <entry>
     <title type="html"><![CDATA[macvim配置]]></title>
-    <link href="http://cnhalo.com/blog/2013/08/01/macvim-config/"/>
+    <link href="http://ipaler.com/blog/2013/08/01/macvim-config/"/>
     <updated>2013-08-01T17:04:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/08/01/macvim-config</id>
+    <id>http://ipaler.com/blog/2013/08/01/macvim-config</id>
     <content type="html"><![CDATA[<p>虽然我还没用，但是记下总是好的吧，这种东西网站一输如就能找到，就不放到笔记里了。</p>
 
 <!-- more -->
@@ -2098,16 +2098,16 @@ NullPointerException - 如果指定的 Class 参数为 null。
   
   <entry>
     <title type="html"><![CDATA[怎么突然下雨了]]></title>
-    <link href="http://cnhalo.com/blog/2013/07/21/sudden-rain/"/>
+    <link href="http://ipaler.com/blog/2013/07/21/sudden-rain/"/>
     <updated>2013-07-21T21:02:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/07/21/sudden-rain</id>
+    <id>http://ipaler.com/blog/2013/07/21/sudden-rain</id>
     <content type="html"><![CDATA[<p>怎么就突然下雨了？前一阵来台风还只是刮风不下雨，估计现在是高温吸水太多了，该排掉再吸了。</p>
 
-<p><img src="http://img.cnhalo.com/u/78119169/images/20130721/sky.jpg" title="来台风那阵" alt="来台风那阵" /></p>
+<p><img src="http://img.ipaler.com/u/78119169/images/20130721/sky.jpg" title="来台风那阵" alt="来台风那阵" /></p>
 
 <p>说到高温，还是有点好处的，比如最近新闻关于撞伤人的新闻基本没了，因为你想想，把人“撞倒”在地上，那地面的温度看还敢躺下不。</p>
 
-<p><img src="http://img.cnhalo.com/u/78119169/images/20130721/morning.jpg" title="早上" alt="早上" /></p>
+<p><img src="http://img.ipaler.com/u/78119169/images/20130721/morning.jpg" title="早上" alt="早上" /></p>
 
 <p>好久没写博客了，前一阵子着实很忙，经历了周末加班，还是来了个通宵，那种感觉就想我初一的时候人生的第一次网吧通宵，当晚和爸妈说不回家的电话还历历在目。</p>
 
@@ -2119,9 +2119,9 @@ NullPointerException - 如果指定的 Class 参数为 null。
   
   <entry>
     <title type="html"><![CDATA[Eclipse创建Maven的Web工程]]></title>
-    <link href="http://cnhalo.com/blog/2013/06/29/eclipse-maven-web-project/"/>
+    <link href="http://ipaler.com/blog/2013/06/29/eclipse-maven-web-project/"/>
     <updated>2013-06-29T01:03:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/06/29/eclipse-maven-web-project</id>
+    <id>http://ipaler.com/blog/2013/06/29/eclipse-maven-web-project</id>
     <content type="html"><![CDATA[<p>折腾很长时间，终于弄出可以调试的了，遇到了很多问题，但是一步一步查资料，求助，终于弄出来了。</p>
 
 <p>首先，因为Eclipse更新到了4.3Kepler，所以一开始我就下的它来使用，结果里面的maven插件包括了m2e-wtp，这实在让人头疼。按照步骤也算是整出来了一个，但是，在使用Server打开的时候，却总是找不到类，找了很多解决方法也没不好解决，说是Server读的class的位置和项目的class位置不一样类似的原因，于是我想是不是因为m2e-wtp创建的项目会有所特殊，需要特别配置什么的，找资料也找不到解决的方法，于是就想着不要这个插件了，刚好有Juno版本的包，就重新安装了。</p>
@@ -2143,9 +2143,9 @@ NullPointerException - 如果指定的 Class 参数为 null。
   
   <entry>
     <title type="html"><![CDATA[Python配置ini，大小写敏感]]></title>
-    <link href="http://cnhalo.com/blog/2013/06/21/python-ini/"/>
+    <link href="http://ipaler.com/blog/2013/06/21/python-ini/"/>
     <updated>2013-06-21T22:56:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/06/21/python-ini</id>
+    <id>http://ipaler.com/blog/2013/06/21/python-ini</id>
     <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -2185,9 +2185,9 @@ NullPointerException - 如果指定的 Class 参数为 null。
   
   <entry>
     <title type="html"><![CDATA[Wicket使用Link加JS的Confirm]]></title>
-    <link href="http://cnhalo.com/blog/2013/06/21/wicket-link-confirm/"/>
+    <link href="http://ipaler.com/blog/2013/06/21/wicket-link-confirm/"/>
     <updated>2013-06-21T22:42:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/06/21/wicket-link-confirm</id>
+    <id>http://ipaler.com/blog/2013/06/21/wicket-link-confirm</id>
     <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -2217,9 +2217,9 @@ NullPointerException - 如果指定的 Class 参数为 null。
   
   <entry>
     <title type="html"><![CDATA[随便说说应用的界面]]></title>
-    <link href="http://cnhalo.com/blog/2013/06/05/say-about-app-ui-design/"/>
+    <link href="http://ipaler.com/blog/2013/06/05/say-about-app-ui-design/"/>
     <updated>2013-06-05T00:49:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/06/05/say-about-app-ui-design</id>
+    <id>http://ipaler.com/blog/2013/06/05/say-about-app-ui-design</id>
     <content type="html"><![CDATA[<p>整天拿着手机没事，当然就是安装应用来玩玩。随着应用安装多了，总能感觉到不同公司对于应用的设计理念的不同，下面就以我个人的角度，还随便说说这些感想。</p>
 
 <p>总的来说，我是比较喜欢网易的应用设计，而不是很喜欢腾讯的，甚至因为这一点，现在很少去用微信和手机QQ了，而新浪在我心目中就介于两者之间了。</p>
@@ -2271,9 +2271,9 @@ NullPointerException - 如果指定的 Class 参数为 null。
   
   <entry>
     <title type="html"><![CDATA[多浏览器支持pre固定宽度]]></title>
-    <link href="http://cnhalo.com/blog/2013/05/28/pre-tag-in-html-with-fixed-width/"/>
+    <link href="http://ipaler.com/blog/2013/05/28/pre-tag-in-html-with-fixed-width/"/>
     <updated>2013-05-28T11:18:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/05/28/pre-tag-in-html-with-fixed-width</id>
+    <id>http://ipaler.com/blog/2013/05/28/pre-tag-in-html-with-fixed-width</id>
     <content type="html"><![CDATA[<p>之前将pre设置css属性width：xpx，一直使用的chrome来测试，还没发现有问题，放到ie下就没用了，通过以下解决：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>

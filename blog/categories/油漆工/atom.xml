@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: 油漆工 | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/油漆工/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: 油漆工 | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/油漆工/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,14 +15,14 @@
   
   <entry>
     <title type="html"><![CDATA[[设计模式学习笔记]油漆工模式]]></title>
-    <link href="http://cnhalo.com/blog/2014/08/16/design-pattern-decorator/"/>
+    <link href="http://ipaler.com/blog/2014/08/16/design-pattern-decorator/"/>
     <updated>2014-08-16T19:17:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2014/08/16/design-pattern-decorator</id>
+    <id>http://ipaler.com/blog/2014/08/16/design-pattern-decorator</id>
     <content type="html"><![CDATA[<h1>设计模式之Decorator(油漆工)</h1>
 
 <p>文章转自 <a href="http://www.jdon.com">解道</a></p>
 
-<p>查看 <a href="https://github.com/henryhuang/designpatterns/tree/master/src/cnhalo/twoa/designpatterns/structure/decorator">代码</a></p>
+<p>查看 <a href="https://github.com/henryhuang/designpatterns/tree/master/src/ipaler/twoa/designpatterns/structure/decorator">代码</a></p>
 
 <p>装饰模式:Decorator常被翻译成"装饰",我觉得翻译成"油漆工"更形象点,油漆工(decorator)是用来刷油漆的,那么被刷油漆的对象我们称decoratee.这两种实体在Decorator模式中是必须的.</p>
 

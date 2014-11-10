@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: 周末 | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/周末/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: 周末 | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/周末/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[远处的教堂]]></title>
-    <link href="http://cnhalo.com/blog/2013/03/30/distant-church/"/>
+    <link href="http://ipaler.com/blog/2013/03/30/distant-church/"/>
     <updated>2013-03-30T15:14:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/03/30/distant-church</id>
+    <id>http://ipaler.com/blog/2013/03/30/distant-church</id>
     <content type="html"><![CDATA[<p> 受到胡伟同学给我看的一张图的拍摄方法的启示，就用一个下午在家，拍摄了多个时段的，用的手头的MX2，可以看出，白天拍摄效果还是不错的，但是夜拍就不怎么给力了。</p>
 
 <p><img src="http://githubimg.qiniudn.com/a_weekend/duoshiduan.jpg" title="远处的教堂（多时段）" alt="远处的教堂（多时段）" /></p>
@@ -28,9 +28,9 @@
   
   <entry>
     <title type="html"><![CDATA[一个周末的随感]]></title>
-    <link href="http://cnhalo.com/blog/2013/03/10/yi-ge-zhou-mo/"/>
+    <link href="http://ipaler.com/blog/2013/03/10/yi-ge-zhou-mo/"/>
     <updated>2013-03-10T23:26:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/03/10/yi-ge-zhou-mo</id>
+    <id>http://ipaler.com/blog/2013/03/10/yi-ge-zhou-mo</id>
     <content type="html"><![CDATA[<p>  似乎现在去KTV唱歌的频率增多了，今天两个月内就唱了两次，突然发现我好喜欢唱歌。</p>
 
 <p>  唱歌可以放松自己，放纵自己，使自己发泄，使自己自由的吼。</p>

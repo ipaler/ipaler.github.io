@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: 游记 | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/游记/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: 游记 | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/游记/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[北京游]]></title>
-    <link href="http://cnhalo.com/blog/2013/03/03/to-beijing/"/>
+    <link href="http://ipaler.com/blog/2013/03/03/to-beijing/"/>
     <updated>2013-03-03T14:52:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/03/03/to-beijing</id>
+    <id>http://ipaler.com/blog/2013/03/03/to-beijing</id>
     <content type="html"><![CDATA[<p>我爱北京天安门，天安门上太阳升～</p>
 
 <pre>

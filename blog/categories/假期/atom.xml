@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: 假期 | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/假期/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: 假期 | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/假期/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[只是最近]]></title>
-    <link href="http://cnhalo.com/blog/2013/04/28/recent/"/>
+    <link href="http://ipaler.com/blog/2013/04/28/recent/"/>
     <updated>2013-04-28T21:05:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/04/28/recent</id>
+    <id>http://ipaler.com/blog/2013/04/28/recent</id>
     <content type="html"><![CDATA[<p>  从北京回来，就一直很忙。</p>
 
 <p>  连上七天班了，终于可以休息了，伴随着这七天班，我一直在骂gwy的安排假期的，真是没脑子至极了。</p>

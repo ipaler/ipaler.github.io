@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: 工作 | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/工作/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: 工作 | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/工作/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[第一次来北京]]></title>
-    <link href="http://cnhalo.com/blog/2013/02/26/beijing-first-time/"/>
+    <link href="http://ipaler.com/blog/2013/02/26/beijing-first-time/"/>
     <updated>2013-02-26T20:46:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/02/26/beijing-first-time</id>
+    <id>http://ipaler.com/blog/2013/02/26/beijing-first-time</id>
     <content type="html"><![CDATA[<p>由于工作出差，第一次来到北京，作为一个程序猿，也来吸一吸北京著名的空气。</p>
 
 <p>没错，下车的第一感觉就让我感受到了北京的便宜交通，据说全程2块，不会上涨，好爽啊。</p>

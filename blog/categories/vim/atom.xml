@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: vim | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/vim/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: vim | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/vim/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[VIM对于文件字符编码的转换]]></title>
-    <link href="http://cnhalo.com/blog/2013/11/18/vim-encoding-convert/"/>
+    <link href="http://ipaler.com/blog/2013/11/18/vim-encoding-convert/"/>
     <updated>2013-11-18T16:29:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/11/18/vim-encoding-convert</id>
+    <id>http://ipaler.com/blog/2013/11/18/vim-encoding-convert</id>
     <content type="html"><![CDATA[<h3>使用vim自己的方式</h3>
 
 <h4>fenc, enc</h4>
@@ -79,9 +79,9 @@
   
   <entry>
     <title type="html"><![CDATA[macvim配置]]></title>
-    <link href="http://cnhalo.com/blog/2013/08/01/macvim-config/"/>
+    <link href="http://ipaler.com/blog/2013/08/01/macvim-config/"/>
     <updated>2013-08-01T17:04:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/08/01/macvim-config</id>
+    <id>http://ipaler.com/blog/2013/08/01/macvim-config</id>
     <content type="html"><![CDATA[<p>虽然我还没用，但是记下总是好的吧，这种东西网站一输如就能找到，就不放到笔记里了。</p>
 
 <!-- more -->

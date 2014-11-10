@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ini | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/ini/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: ini | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/ini/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Python配置ini，大小写敏感]]></title>
-    <link href="http://cnhalo.com/blog/2013/06/21/python-ini/"/>
+    <link href="http://ipaler.com/blog/2013/06/21/python-ini/"/>
     <updated>2013-06-21T22:56:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/06/21/python-ini</id>
+    <id>http://ipaler.com/blog/2013/06/21/python-ini</id>
     <content type="html"><![CDATA[<p>```python
 import ConfigParser, string</p>
 

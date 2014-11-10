@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: UI | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/ui/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: UI | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/ui/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[随便说说应用的界面]]></title>
-    <link href="http://cnhalo.com/blog/2013/06/05/say-about-app-ui-design/"/>
+    <link href="http://ipaler.com/blog/2013/06/05/say-about-app-ui-design/"/>
     <updated>2013-06-05T00:49:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/06/05/say-about-app-ui-design</id>
+    <id>http://ipaler.com/blog/2013/06/05/say-about-app-ui-design</id>
     <content type="html"><![CDATA[<p>整天拿着手机没事，当然就是安装应用来玩玩。随着应用安装多了，总能感觉到不同公司对于应用的设计理念的不同，下面就以我个人的角度，还随便说说这些感想。</p>
 
 <p>总的来说，我是比较喜欢网易的应用设计，而不是很喜欢腾讯的，甚至因为这一点，现在很少去用微信和手机QQ了，而新浪在我心目中就介于两者之间了。</p>

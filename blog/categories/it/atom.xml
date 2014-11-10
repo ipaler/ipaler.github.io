@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: it | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/it/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: it | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/it/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[LESS学习]]></title>
-    <link href="http://cnhalo.com/blog/2013/08/10/learn-less/"/>
+    <link href="http://ipaler.com/blog/2013/08/10/learn-less/"/>
     <updated>2013-08-10T14:59:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/08/10/learn-less</id>
+    <id>http://ipaler.com/blog/2013/08/10/learn-less</id>
     <content type="html"><![CDATA[<p>今天下午没事学了一下less，发现用来写样式表真是方便。</p>
 
 <h3>1. 什么是LESS</h3>
@@ -57,9 +57,9 @@ border: 1px @divColor solid;
   
   <entry>
     <title type="html"><![CDATA[JAVA中判断日期是上午还是下午]]></title>
-    <link href="http://cnhalo.com/blog/2013/08/01/java-date-am-or-pm/"/>
+    <link href="http://ipaler.com/blog/2013/08/01/java-date-am-or-pm/"/>
     <updated>2013-08-01T17:11:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/08/01/java-date-am-or-pm</id>
+    <id>http://ipaler.com/blog/2013/08/01/java-date-am-or-pm</id>
     <content type="html"><![CDATA[<p><code>java
 GregorianCalendar cal = new GregorianCalendar();
 System.out.println((cal.get(GregorianCalendar.AM_PM) == GregorianCalendar.PM)? "下午" : "上午");
@@ -71,9 +71,9 @@ System.out.println((cal.get(GregorianCalendar.AM_PM) == GregorianCalendar.PM)? "
   
   <entry>
     <title type="html"><![CDATA[macvim配置]]></title>
-    <link href="http://cnhalo.com/blog/2013/08/01/macvim-config/"/>
+    <link href="http://ipaler.com/blog/2013/08/01/macvim-config/"/>
     <updated>2013-08-01T17:04:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/08/01/macvim-config</id>
+    <id>http://ipaler.com/blog/2013/08/01/macvim-config</id>
     <content type="html"><![CDATA[<p>虽然我还没用，但是记下总是好的吧，这种东西网站一输如就能找到，就不放到笔记里了。</p>
 
 <!-- more -->

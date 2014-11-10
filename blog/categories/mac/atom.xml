@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: mac | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/mac/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: mac | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/mac/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Mac下Eclipse快捷键]]></title>
-    <link href="http://cnhalo.com/blog/2014/04/05/shortcuts-of-eclipse-on-mac/"/>
+    <link href="http://ipaler.com/blog/2014/04/05/shortcuts-of-eclipse-on-mac/"/>
     <updated>2014-04-05T21:29:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2014/04/05/shortcuts-of-eclipse-on-mac</id>
+    <id>http://ipaler.com/blog/2014/04/05/shortcuts-of-eclipse-on-mac</id>
     <content type="html"><![CDATA[<p>实在是记不住，虽然windows下的和mac下的差不多，但是还是有那么点区别。</p>
 
 <p><code>
@@ -61,9 +61,9 @@ Option + Command + Z：重构的后悔药（Undo）
   
   <entry>
     <title type="html"><![CDATA[MAC下JDK版本的切换]]></title>
-    <link href="http://cnhalo.com/blog/2013/12/02/jdk-version-switch-in-mac/"/>
+    <link href="http://ipaler.com/blog/2013/12/02/jdk-version-switch-in-mac/"/>
     <updated>2013-12-02T19:31:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/12/02/jdk-version-switch-in-mac</id>
+    <id>http://ipaler.com/blog/2013/12/02/jdk-version-switch-in-mac</id>
     <content type="html"><![CDATA[<p>原来系统里安装的是1.6的，这是最后一个由提供的jdk，1.7开始Oracle提供mac平台的jdk了。</p>
 
 <p>现在安装了1.7的，觉得需要进行多个版本的切换，以下是方法：</p>
@@ -121,9 +121,9 @@ source ~/.bash_profile
   
   <entry>
     <title type="html"><![CDATA[VIM对于文件字符编码的转换]]></title>
-    <link href="http://cnhalo.com/blog/2013/11/18/vim-encoding-convert/"/>
+    <link href="http://ipaler.com/blog/2013/11/18/vim-encoding-convert/"/>
     <updated>2013-11-18T16:29:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/11/18/vim-encoding-convert</id>
+    <id>http://ipaler.com/blog/2013/11/18/vim-encoding-convert</id>
     <content type="html"><![CDATA[<h3>使用vim自己的方式</h3>
 
 <h4>fenc, enc</h4>

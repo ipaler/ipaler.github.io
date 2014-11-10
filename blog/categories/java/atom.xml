@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: java | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/java/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: java | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/java/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[JAVA对象equals的技巧]]></title>
-    <link href="http://cnhalo.com/blog/2013/12/06/java-object-equals/"/>
+    <link href="http://ipaler.com/blog/2013/12/06/java-object-equals/"/>
     <updated>2013-12-06T21:40:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/12/06/java-object-equals</id>
+    <id>http://ipaler.com/blog/2013/12/06/java-object-equals</id>
     <content type="html"><![CDATA[<h3>1.   测试</h3>
 
 <p>又一次在写代码，突然想到这么个问题：java里的equals比较对象的顺序不同会有什么不同的效果？于是乎写了以下测试代码：</p>
@@ -25,7 +25,7 @@
 <p>```java</p>
 
 <p>/<em>*
- * cnhalo.mrhuang.equalstest.Main <TODO>
+ * ipaler.mrhuang.equalstest.Main <TODO>
  *
  * @author  huangyijie
  * @date    2013年12月6日 下午9:33:33
@@ -91,9 +91,9 @@ public static void test2(TestObject a1, TestObject a2) {
   
   <entry>
     <title type="html"><![CDATA[MAC下JDK版本的切换]]></title>
-    <link href="http://cnhalo.com/blog/2013/12/02/jdk-version-switch-in-mac/"/>
+    <link href="http://ipaler.com/blog/2013/12/02/jdk-version-switch-in-mac/"/>
     <updated>2013-12-02T19:31:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/12/02/jdk-version-switch-in-mac</id>
+    <id>http://ipaler.com/blog/2013/12/02/jdk-version-switch-in-mac</id>
     <content type="html"><![CDATA[<p>原来系统里安装的是1.6的，这是最后一个由提供的jdk，1.7开始Oracle提供mac平台的jdk了。</p>
 
 <p>现在安装了1.7的，觉得需要进行多个版本的切换，以下是方法：</p>
@@ -151,9 +151,9 @@ source ~/.bash_profile
   
   <entry>
     <title type="html"><![CDATA[Java使用反射设置值]]></title>
-    <link href="http://cnhalo.com/blog/2013/11/25/java-reflect-set-value/"/>
+    <link href="http://ipaler.com/blog/2013/11/25/java-reflect-set-value/"/>
     <updated>2013-11-25T17:37:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/11/25/java-reflect-set-value</id>
+    <id>http://ipaler.com/blog/2013/11/25/java-reflect-set-value</id>
     <content type="html"><![CDATA[<p>今天敲代码，遇到个问题，需要实现一个方法：给一个类的成员变量设置值，数字类型的设置为0，布尔类型的设置为false，其他设置为null，变量不知道是什么类型的。</p>
 
 <p>这里面有几个要点：</p>
@@ -253,7 +253,7 @@ NullPointerException - 如果指定的 Class 参数为 null。
 <p>```java</p>
 
 <p>/<em>*
- * cnhalo.mrhuang.field.Config &lt;示例>
+ * ipaler.mrhuang.field.Config &lt;示例>
  *
  * @author  huangyijie
  * @date    2013年11月25日 下午3:35:57
@@ -295,7 +295,7 @@ public String toString() {
 <p>```java</p>
 
 <p>/<em>*
- * cnhalo.mrhuang.field.Main &lt;示例>
+ * ipaler.mrhuang.field.Main &lt;示例>
  *
  * @author  huangyijie
  * @date    2013年11月25日 下午3:35:04
@@ -427,9 +427,9 @@ public static boolean isNumeric(String str){
   
   <entry>
     <title type="html"><![CDATA[Java中使用Markdown]]></title>
-    <link href="http://cnhalo.com/blog/2013/11/16/java-markdown-lib/"/>
+    <link href="http://ipaler.com/blog/2013/11/16/java-markdown-lib/"/>
     <updated>2013-11-16T00:39:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/11/16/java-markdown-lib</id>
+    <id>http://ipaler.com/blog/2013/11/16/java-markdown-lib</id>
     <content type="html"><![CDATA[<p>由于需要将输入的markdown内容转换成html，所以找到了这个包：<a href="http://markdown.tautua.org/">MarkdownPapers</a></p>
 
 <p>Maven依赖：</p>
@@ -459,9 +459,9 @@ md.transform(in, out);
   
   <entry>
     <title type="html"><![CDATA[Tomcat打开远程调试]]></title>
-    <link href="http://cnhalo.com/blog/2013/10/29/tomcat-remote-debug/"/>
+    <link href="http://ipaler.com/blog/2013/10/29/tomcat-remote-debug/"/>
     <updated>2013-10-29T22:59:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/10/29/tomcat-remote-debug</id>
+    <id>http://ipaler.com/blog/2013/10/29/tomcat-remote-debug</id>
     <content type="html"><![CDATA[<h2>配置</h2>
 
 <h3>1.   Linux下</h3>

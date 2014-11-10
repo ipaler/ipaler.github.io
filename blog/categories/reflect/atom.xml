@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: reflect | CNHALO]]></title>
-  <link href="http://cnhalo.com/blog/categories/reflect/atom.xml" rel="self"/>
-  <link href="http://cnhalo.com/"/>
+  <title><![CDATA[Category: reflect | ipaler]]></title>
+  <link href="http://ipaler.com/blog/categories/reflect/atom.xml" rel="self"/>
+  <link href="http://ipaler.com/"/>
   <updated>2014-10-30T18:39:13+08:00</updated>
-  <id>http://cnhalo.com/</id>
+  <id>http://ipaler.com/</id>
   <author>
     <name><![CDATA[HENRY_HUANGS]]></name>
     <email><![CDATA[huangyijie1989@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Java使用反射设置值]]></title>
-    <link href="http://cnhalo.com/blog/2013/11/25/java-reflect-set-value/"/>
+    <link href="http://ipaler.com/blog/2013/11/25/java-reflect-set-value/"/>
     <updated>2013-11-25T17:37:00+08:00</updated>
-    <id>http://cnhalo.com/blog/2013/11/25/java-reflect-set-value</id>
+    <id>http://ipaler.com/blog/2013/11/25/java-reflect-set-value</id>
     <content type="html"><![CDATA[<p>今天敲代码，遇到个问题，需要实现一个方法：给一个类的成员变量设置值，数字类型的设置为0，布尔类型的设置为false，其他设置为null，变量不知道是什么类型的。</p>
 
 <p>这里面有几个要点：</p>
@@ -117,7 +117,7 @@ NullPointerException - 如果指定的 Class 参数为 null。
 <p>```java</p>
 
 <p>/<em>*
- * cnhalo.mrhuang.field.Config &lt;示例>
+ * ipaler.mrhuang.field.Config &lt;示例>
  *
  * @author  huangyijie
  * @date    2013年11月25日 下午3:35:57
@@ -159,7 +159,7 @@ public String toString() {
 <p>```java</p>
 
 <p>/<em>*
- * cnhalo.mrhuang.field.Main &lt;示例>
+ * ipaler.mrhuang.field.Main &lt;示例>
  *
  * @author  huangyijie
  * @date    2013年11月25日 下午3:35:04
