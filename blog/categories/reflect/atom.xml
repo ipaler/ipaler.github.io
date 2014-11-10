@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: reflect | CNHALO]]></title>
+  <link href="http://cnhalo.com/blog/categories/reflect/atom.xml" rel="self"/>
+  <link href="http://cnhalo.com/"/>
+  <updated>2014-10-30T18:39:13+08:00</updated>
+  <id>http://cnhalo.com/</id>
+  <author>
+    <name><![CDATA[HENRY_HUANGS]]></name>
+    <email><![CDATA[huangyijie1989@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Java使用反射设置值]]></title>
+    <link href="http://cnhalo.com/blog/2013/11/25/java-reflect-set-value/"/>
+    <updated>2013-11-25T17:37:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/11/25/java-reflect-set-value</id>
+    <content type="html"><![CDATA[<p>今天敲代码，遇到个问题，需要实现一个方法：给一个类的成员变量设置值，数字类型的设置为0，布尔类型的设置为false，其他设置为null，变量不知道是什么类型的。</p>
+
+<p>这里面有几个要点：</p>
+
+<ul>
+<li>给变量设值</li>
+<li>区分变量是什么类型（数字，布尔或其他）</li>
+<li>基本类型的处理情况</li>
+</ul>
+
+
+<!-- more -->
+
+
+<h3>1. 给变量设值</h3>
+
+<p>```java</p>
+
+<pre><code>java.lang.reflect.Field.set(Object obj, Object value);
+</code></pre>
+
+<p>```</p>
+
+<h3>2. 区分变量是什么类型（数字，布尔或其他）</h3>
+
+<p>```java</p>
+
+<pre><code>Class&lt;?&gt; clazz = field.getType();
+
+// 判断是否是数字的, 查看java源码可以知道基本类型里面除了char和boolean，其他的都是   // java.lang。Number 的子类
+if(Number.class.isAssignableFrom(type))
+    field.set(cfg, 0);
+else if(Boolean.class.isAssignableFrom(type))
+    field.set(cfg, false);
+else
+    field.set(cfg, null);
+</code></pre>
+
+<p>```</p>
+
+<p>Class.isAssignableFrom(Class&lt;?> cls)查看源码，得知：</p>
+
+<pre><code>判定此 Class 对象所表示的类或接口与指定的 Class 参数所表示的类或接口是否相同，或是否是其超类或超接口。如果是则返回 true；否则返回 false。如果该 Class 表示一个基本类型，且指定的 Class 参数正是该 Class 对象，则该方法返回 true；否则返回 false。 
+
+特别地，通过身份转换或扩展引用转换，此方法能测试指定 Class 参数所表示的类型能否转换为此 Class 对象所表示的类型。有关详细信息，请参阅 Java Language Specification 的第 5.1.1 和 5.1.4 节。 
+
+
+参数：
+cls - 要检查的 Class 对象 
+返回：
+表明 cls 类型的对象能否赋予此类对象的 boolean 值 
+抛出： 
+NullPointerException - 如果指定的 Class 参数为 null。
+</code></pre>
+
+<h3>3. 基本类型的处理情况</h3>
+
+<p>使用 Class.isAssignableFrom，并不能处理基本类型的情况，找来找去，并没有发现相关的方法，所以就自己写了个方法，来转换基本类型和包装类：</p>
+
+<p>```java</p>
+
+<pre><code>private static Class&lt;?&gt; getWrapperClass(Class&lt;?&gt; primitiveClass) {
+    if(!primitiveClass.isPrimitive())
+        return primitiveClass;
+
+    if(primitiveClass == Boolean.TYPE)
+        return Boolean.class;
+    else if(primitiveClass == Character.TYPE)
+        return Character.class;
+    else if(primitiveClass == Byte.TYPE)
+        return Byte.class;
+    else if(primitiveClass == Short.TYPE)
+        return Short.class;
+    else if(primitiveClass == Integer.TYPE)
+        return Integer.class;
+    else if(primitiveClass == Long.TYPE)
+        return Long.class;
+    else if(primitiveClass == Float.TYPE)
+        return Float.class;
+    else if(primitiveClass == Double.TYPE)
+        return Double.class;
+    else return Void.class;
+
+}
+</code></pre>
+
+<p>```</p>
+
+<p>这样，在获取到Field的类型（Field.getType()）后，可以根据Class.isPrimitive()来判断是不是基本类型，然后再使用此方法进行转换</p>
+
+<h3>4. 完整示例</h3>
+
+<p>以上是关键点的代码，下面是具体的代码实现：</p>
+
+<p>Config.class</p>
+
+<p>```java</p>
+
+<p>/<em>*
+ * cnhalo.mrhuang.field.Config &lt;示例>
+ *
+ * @author  huangyijie
+ * @date    2013年11月25日 下午3:35:57
+ *
+ </em>/
+public class Config {</p>
+
+<pre><code>public double doubleVar = 0.1;
+public Integer integerWrapperVar = 14;
+public String stringVar = "stringVar";
+public boolean booleanVar = true;
+
+private static Config instance = null;
+
+public static Config getInstance() {
+    if(instance == null)
+        instance = new Config();
+    return instance;
+}
+
+/**
+ * Config. &lt;说明&gt;
+ *
+ */
+private Config() {
+}
+
+public String toString() {
+    return doubleVar + ", " + integerWrapperVar + ", " + stringVar + ", " + booleanVar;
+}
+</code></pre>
+
+<p>}</p>
+
+<p>```</p>
+
+<p>Main.class</p>
+
+<p>```java</p>
+
+<p>/<em>*
+ * cnhalo.mrhuang.field.Main &lt;示例>
+ *
+ * @author  huangyijie
+ * @date    2013年11月25日 下午3:35:04
+ *
+ </em>/
+public class Main {</p>
+
+<pre><code>/**
+ * 
+ * main: 实现的功能： &lt;br&gt;
+ * 
+ * 给一个类的成员变量设置值，数字类型的设置为0，布尔类型的设置为false，其他设置为null，变量不知道是什么类型的 &lt;br&gt;
+ *
+ * @param args
+ * @throws SecurityException
+ * @throws NoSuchFieldException
+ * @throws IllegalArgumentException
+ * @throws IllegalAccessException
+ */
+public static void main(String[] args) throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+
+    Config cfg = Config.getInstance();
+    // 打印一下初始值
+    System.out.println(cfg);
+
+    Field[] fields = cfg.getClass().getFields();
+
+    for(Field field : fields) {
+        Class&lt;?&gt; clazz = field.getType();
+        // 如果是基本类型
+        if(clazz.isPrimitive())
+            // 转换为包装类
+            clazz = getWrapperClass(clazz);
+        // 判断为数字类型
+        if(Number.class.isAssignableFrom(clazz))
+            field.set(cfg, 0);
+        else if(Boolean.class.isAssignableFrom(clazz))
+            field.set(cfg, false);
+        else
+            field.set(cfg, null);
+    }
+
+    // 打印一下修改后的值
+    System.out.println(cfg);
+}
+
+/**
+ * 
+ * getWrapperClass: 将基本类型转换为包装类 &lt;br&gt;
+ * 
+ * 我暂时找不到java中相关的方法，如果有的话可以替换，现在先自己写一个 &lt;br&gt;
+ *
+ * @param primitiveClass
+ * @return
+ */
+private static Class&lt;?&gt; getWrapperClass(Class&lt;?&gt; primitiveClass) {
+    if(!primitiveClass.isPrimitive())
+        return primitiveClass;
+
+    if(primitiveClass == Boolean.TYPE)
+        return Boolean.class;
+    else if(primitiveClass == Character.TYPE)
+        return Character.class;
+    else if(primitiveClass == Byte.TYPE)
+        return Byte.class;
+    else if(primitiveClass == Short.TYPE)
+        return Short.class;
+    else if(primitiveClass == Integer.TYPE)
+        return Integer.class;
+    else if(primitiveClass == Long.TYPE)
+        return Long.class;
+    else if(primitiveClass == Float.TYPE)
+        return Float.class;
+    else if(primitiveClass == Double.TYPE)
+        return Double.class;
+    else return Void.class;
+
+}
+</code></pre>
+
+<p>}</p>
+
+<p>```</p>
+
+<h3>5. 相关扩展</h3>
+
+<h4>5.1 [转]Java中判断字符串是否为数字的三种方法</h4>
+
+<p>```java</p>
+
+<p>// 用JAVA自带的函数
+public static boolean isNumeric(String str){
+  for (int i = str.length();--i>=0;){ <br/>
+   if (!Character.isDigit(str.charAt(i))){</p>
+
+<pre><code>return false;
+</code></pre>
+
+<p>   }
+  }
+  return true;
+ }</p>
+
+<p>// 用正则表达式
+public static boolean isNumeric(String str){</p>
+
+<pre><code>Pattern pattern = Pattern.compile("[0-9]*"); 
+return pattern.matcher(str).matches();    
+</code></pre>
+
+<p> }</p>
+
+<p>// 用ascii码
+public static boolean isNumeric(String str){
+   for(int i=str.length();--i>=0;){</p>
+
+<pre><code>  int chr=str.charAt(i);
+  if(chr&lt;48 || chr&gt;57)
+     return false;
+</code></pre>
+
+<p>   }
+   return true;
+}</p>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+</feed>

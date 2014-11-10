@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mac | CNHALO]]></title>
+  <link href="http://cnhalo.com/blog/categories/mac/atom.xml" rel="self"/>
+  <link href="http://cnhalo.com/"/>
+  <updated>2014-10-30T18:39:13+08:00</updated>
+  <id>http://cnhalo.com/</id>
+  <author>
+    <name><![CDATA[HENRY_HUANGS]]></name>
+    <email><![CDATA[huangyijie1989@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Mac下Eclipse快捷键]]></title>
+    <link href="http://cnhalo.com/blog/2014/04/05/shortcuts-of-eclipse-on-mac/"/>
+    <updated>2014-04-05T21:29:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2014/04/05/shortcuts-of-eclipse-on-mac</id>
+    <content type="html"><![CDATA[<p>实在是记不住，虽然windows下的和mac下的差不多，但是还是有那么点区别。</p>
+
+<p><code>
+Command + O：显示大纲
+Command + 1：快速修复
+Command + D：删除当前行
+Command + Option + ↓：复制当前行到下一行
+Command + Option + ↑：复制当前行到上一行
+Option + ↓：当前行和下面一行交互位置
+Option + ↑：当前行和上面一行交互位置
+Option + ←：前一个编辑的页面
+Option + →：下一个编辑的页面
+Option + Return：显示当前选择资源的属性
+Shift + Return：在当前行的下一行插入空行
+Shift + Control + Return：在当前行插入空行
+Control + Q：定位到最后编辑的地方
+Control + M：最大化当前的Edit或View（再按则最小化）
+Control + /：注释当前行，再按则取消注释
+Command + T：快速显示当前类的继承结构
+Command + W：关闭当前Editer
+Command + K：参照当前选中的Word快速定位到下一个
+Command + E：快速显示当前Editer的下拉列表（如果当前页面没有显示的用黑体表示）
+Option + /：代码助手完成一些代码的插入（俗称“智能提示”）
+Command + Shift + E：显示管理当前打开的所有的View的管理器
+Command + J：正向增量查找（按下Command + J后，你所输入的每个字母编辑器都提供快速匹配定位到某个单词，如果没有，则在Stutes Line中显示没有找到了）
+Command + Shift + J：反向增量查找
+Command + Shift + W：关闭所有打开的Editer
+Command + Shift + X：把当前选中的文本全部变为大写
+Command + Shift + Y：把当前选中的文本全部变为小写
+Command + Shift + F：格式化当前代码
+Command + Shift + P：定位到对于的匹配符（譬如{}）（从前面定位后面时，光标要在匹配符里面，后面到前面，则反之）
+Option + Command + R：重命名（尤其是变量和类的Rename效果比较明显）
+Option + Shift + M：抽取方法（这是重构里面最常用的方法之一了，尤其是对一大堆泥团代码有用）
+Option + Command + C：修改函数结构（有N个函数调用了这个方法，修改一次就搞定）
+Option + Command + L：抽取本地变量（可以直接把一些魔法数字和字符串抽取成一个变量，尤其是多处调用的时候）
+Option + Shift + F：把Class中的Local变量变为Field变量（比较实用的功能）
+Option + Command + Z：重构的后悔药（Undo）
+</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MAC下JDK版本的切换]]></title>
+    <link href="http://cnhalo.com/blog/2013/12/02/jdk-version-switch-in-mac/"/>
+    <updated>2013-12-02T19:31:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/12/02/jdk-version-switch-in-mac</id>
+    <content type="html"><![CDATA[<p>原来系统里安装的是1.6的，这是最后一个由提供的jdk，1.7开始Oracle提供mac平台的jdk了。</p>
+
+<p>现在安装了1.7的，觉得需要进行多个版本的切换，以下是方法：</p>
+
+<h3>临时更改版本（单会话有效）</h3>
+
+<p>首先运行：</p>
+
+<p><code>bash
+/usr/libexec/java_home
+</code>
+可以知道当前环境的JAVA_HOME是：</p>
+
+<p><code>bash
+/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home
+</code></p>
+
+<p>这是1.7的JAVA_HOME，我们可以使用 -v 标识来获取1.6的JAVA_HOME</p>
+
+<p>```bash
+/usr/libexec/java_home -v '1.6*'</p>
+
+<p>/Library/Java/JavaVirtualMachines/1.6.0_65-b14-462.jdk/Contents/Home
+```</p>
+
+<p>然后我们可以手动地设置JAVA_HOME</p>
+
+<p>```bash</p>
+
+<p>export JAVA_HOME=<code>/usr/libexec/java_home -v '1.6*'</code></p>
+
+<p>java -version</p>
+
+<p>java version "1.6.0_65"
+Java(TM) SE Runtime Environment (build 1.6.0_65-b14-462-11M4609)
+Java HotSpot(TM) 64-Bit Server VM (build 20.65-b04-462, mixed mode)</p>
+
+<p>```</p>
+
+<h3>所有会话生效</h3>
+
+<p>以上只是在一个终端会话中临时设置的，如果要运用到所有的会话中，则需要在.bash_profile中写入：</p>
+
+<p><code>bash
+export JAVA_HOME=`/usr/libexec/java_home -v '1.6*'`
+</code></p>
+
+<p>然后运行</p>
+
+<p><code>bash
+source ~/.bash_profile
+</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[VIM对于文件字符编码的转换]]></title>
+    <link href="http://cnhalo.com/blog/2013/11/18/vim-encoding-convert/"/>
+    <updated>2013-11-18T16:29:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/11/18/vim-encoding-convert</id>
+    <content type="html"><![CDATA[<h3>使用vim自己的方式</h3>
+
+<h4>fenc, enc</h4>
+
+<p>在Vim中输入:set fenc=编码  即可将文档的编码转换为相应的编码格式,这是只需要保存文档,文档的编码就变了。</p>
+
+<p>如果在Vim中输入:set enc=编码  即可改变Vim的显示编码,这是就可以看到文档中的乱码了,不过这是即使对文档做了修改并保存,文档仍旧以之前的文档编码保存。</p>
+
+<!-- more -->
+
+
+<h4>fileencoding</h4>
+
+<p>Vim中输入:set fileencoding=编码</p>
+
+<h3>使用iconv</h3>
+
+<p>iconv命令用于转换指定文件的编码,默认输出到标准输出设备,亦可指定输出文件。</p>
+
+<h4>用法</h4>
+
+<p>iconv [选项...] [文件...]</p>
+
+<h4>参数</h4>
+
+<ul>
+<li><p>输入/输出格式规范：</p>
+
+<p>  -f, --from-code=名称 原始文本编码</p>
+
+<p>  -t, --to-code=名称 输出编码</p></li>
+<li><p>信息：</p>
+
+<p>  -l, --list 列举所有已知的字符集</p></li>
+<li><p>输出控制：</p>
+
+<p>  -c 从输出中忽略无效的字符</p>
+
+<p>  -o, --output=FILE 输出文件</p>
+
+<p>  -s, --silent 关闭警告</p>
+
+<p>  --verbose 打印进度信息</p></li>
+<li><p>其他：</p>
+
+<p>  -?, --help 给出该系统求助列表</p>
+
+<p>  --usage 给出简要的用法信息</p>
+
+<p>  -V, --version 打印程序版本号</p></li>
+</ul>
+
+
+<h4>示例</h4>
+
+<p>iconv -f utf-8 -t gb2312 filebackupscheme.ini > filebackupscheme2.ini</p>
+]]></content>
+  </entry>
+  
+</feed>

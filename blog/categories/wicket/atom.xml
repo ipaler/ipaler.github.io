@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Wicket | CNHALO]]></title>
+  <link href="http://cnhalo.com/blog/categories/wicket/atom.xml" rel="self"/>
+  <link href="http://cnhalo.com/"/>
+  <updated>2014-10-30T18:39:13+08:00</updated>
+  <id>http://cnhalo.com/</id>
+  <author>
+    <name><![CDATA[HENRY_HUANGS]]></name>
+    <email><![CDATA[huangyijie1989@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Wicket使用Link加JS的Confirm]]></title>
+    <link href="http://cnhalo.com/blog/2013/06/21/wicket-link-confirm/"/>
+    <updated>2013-06-21T22:42:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/06/21/wicket-link-confirm</id>
+    <content type="html"><![CDATA[<p>```java
+Link logoutLink = new Link(LOGOUT_ID) {</p>
+
+<pre><code>private static final long serialVersionUID = 1L;
+public void onClick() {
+    getUbSession().setLogin(false);
+}
+</code></pre>
+
+<p>};
+SimpleAttributeModifier sam = new SimpleAttributeModifier(</p>
+
+<pre><code>"onclick","if(!confirm('确定退出？')) return false;");
+</code></pre>
+
+<p>logoutLink.add(sam);
+add(logoutLink);
+```</p>
+]]></content>
+  </entry>
+  
+</feed>

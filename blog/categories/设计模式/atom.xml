@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 设计模式 | CNHALO]]></title>
+  <link href="http://cnhalo.com/blog/categories/设计模式/atom.xml" rel="self"/>
+  <link href="http://cnhalo.com/"/>
+  <updated>2014-10-30T18:39:13+08:00</updated>
+  <id>http://cnhalo.com/</id>
+  <author>
+    <name><![CDATA[HENRY_HUANGS]]></name>
+    <email><![CDATA[huangyijie1989@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[设计模式学习笔记]油漆工模式]]></title>
+    <link href="http://cnhalo.com/blog/2014/08/16/design-pattern-decorator/"/>
+    <updated>2014-08-16T19:17:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2014/08/16/design-pattern-decorator</id>
+    <content type="html"><![CDATA[<h1>设计模式之Decorator(油漆工)</h1>
+
+<p>文章转自 <a href="http://www.jdon.com">解道</a></p>
+
+<p>查看 <a href="https://github.com/henryhuang/designpatterns/tree/master/src/cnhalo/twoa/designpatterns/structure/decorator">代码</a></p>
+
+<p>装饰模式:Decorator常被翻译成"装饰",我觉得翻译成"油漆工"更形象点,油漆工(decorator)是用来刷油漆的,那么被刷油漆的对象我们称decoratee.这两种实体在Decorator模式中是必须的.</p>
+
+<h3>Decorator定义:</h3>
+
+<p>动态给一个对象添加一些额外的职责,就象在墙上刷油漆.使用Decorator模式相比用生成子类方式达到功能的扩充显得更为灵活.</p>
+
+<!-- more -->
+
+
+<h3>为什么使用Decorator?</h3>
+
+<p>我们通常可以使用继承来实现功能的拓展,如果这些需要拓展的功能的种类很繁多,那么势必生成很多子类,增加系统的复杂性,同时,使用继承实现功能拓展,我们必须可预见这些拓展功能,这些功能是编译时就确定了,是静态的.
+使用Decorator的理由是:这些功能需要由用户动态决定加入的方式和时机.Decorator提供了"即插即用"的方法,在运行期间决定何时增加何种功能.</p>
+
+<h3>如何使用?</h3>
+
+<p>举Adapter中的打桩示例,在Adapter中有两种类:方形桩 圆形桩,Adapter模式展示如何综合使用这两个类,在Decorator模式中,我们是要在打桩时增加一些额外功能,比如,挖坑 在桩上钉木板等,不关心如何使用两个不相关的类.</p>
+
+<p>我们先建立一个接口:</p>
+
+<p>```
+/<em>*
+ *
+ *
+ * @author  HuangYijie
+ * @date    2014年8月6日 下午1:42:20
+ *
+ </em>/
+public interface Work {</p>
+
+<pre><code>public void insert();
+</code></pre>
+
+<p>}</p>
+
+<p>```</p>
+
+<p>接口Work有一个具体实现:插入方形桩或圆形桩,这两个区别对Decorator是无所谓.我们以插入方形桩为例:</p>
+
+<p>```
+/<em>*
+ *
+ *
+ * @author  HuangYijie
+ * @date    2014年8月6日 下午1:42:34
+ *
+ </em>/
+public class SquarePeg implements Work {</p>
+
+<pre><code>@Override
+public void insert() {
+    System.out.println("方形桩插入");
+}
+</code></pre>
+
+<p>}</p>
+
+<p>```</p>
+
+<p>现在有一个应用:需要在桩打入前,挖坑,在打入后,在桩上钉木板,这些额外的功能是动态,可能随意增加调整修改,比如,可能又需要在打桩之后钉架子(只是比喻).</p>
+
+<p>那么我们使用Decorator模式,这里方形桩SquarePeg是decoratee(被刷油漆者),我们需要在decoratee上刷些"油漆",这些油漆就是那些额外的功能.</p>
+
+<p>```
+/<em>*
+ *
+ *
+ * @author  HuangYijie
+ * @date    2014年8月6日 下午1:42:47
+ *
+ </em>/
+public class Decorator implements Work{</p>
+
+<pre><code>private Work work;
+
+// 额外增加的功能被打包在List中
+private List&lt;String&gt; others = new ArrayList&lt;String&gt;();
+
+// 在构造器中使用组合new方式，引入Work对象
+public Decorator(Work work) {
+    this.work = work;
+    others.add("挖坑");
+    others.add("钉木板");
+}
+
+@Override
+public void insert() {
+    newMethod();
+}
+
+//在新方法中，在insert之前增加其他方法，这里次序先后由用户灵活指定
+public void newMethod() {
+    otherMethod();
+    work.insert();
+}
+
+public void otherMethod() {
+    ListIterator&lt;String&gt; iterator = others.listIterator();
+    while (iterator.hasNext()) {
+        System.out.println(iterator.next());
+    }
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>在上例中,我们把挖坑和钉木板都排在了打桩insert前面,这里只是举例说明额外功能次序可以任意安排.</p>
+
+<p>好了,Decorator模式出来了,我们看如何调用:</p>
+
+<p>```
+/<em>*
+ *
+ *
+ * @author  HuangYijie
+ * @date    2014年8月6日 下午2:21:25
+ *
+ </em>/
+public class Main {</p>
+
+<pre><code>public static void main(String[] args) {
+
+    Work squrePeg = new SquarePeg();
+    Work decorator = new Decorator(squrePeg);
+    decorator.insert();
+
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>Decorator模式至此完成.</p>
+
+<p>如果你细心,会发现,上面调用类似我们读取文件时的调用:</p>
+
+<p>FileReader fr = new FileReader(filename);
+BufferedReader br = new BufferedReader(fr);</p>
+
+<p>实际上Java 的I/O API就是使用Decorator实现的,I/O变种很多,如果都采取继承方法,将会产生很多子类,显然相当繁琐.</p>
+
+<h3>Jive中的Decorator实现</h3>
+
+<p>在论坛系统中,有些特别的字是不能出现在论坛中如"打倒XXX",我们需要过滤这些"反动"的字体.不让他们出现或者高亮度显示.</p>
+
+<p>在IBM Java专栏中专门谈Jive的文章中,有谈及Jive中ForumMessageFilter.java使用了Decorator模式,其实,该程序并没有真正使用Decorator,而是提示说:针对特别论坛可以设计额外增加的过滤功能,那么就可以重组ForumMessageFilter作为Decorator模式了.</p>
+
+<p>所以,我们在分辨是否真正是Decorator模式,以及会真正使用Decorator模式,一定要把握好Decorator模式的定义,以及其中参与的角色(Decoratee 和Decorator).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[设计模式学习笔记]观察者模式]]></title>
+    <link href="http://cnhalo.com/blog/2013/11/12/design-patterns-observer/"/>
+    <updated>2013-11-12T22:41:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/11/12/design-patterns-observer</id>
+    <content type="html"><![CDATA[<h3>1. 模式定义</h3>
+
+<p>观察者模式（Observer Pattern）也叫做发布订阅模式（Publish/subscribe），它使一个在项目中经常使用的模式。</p>
+
+<h3>2. 模式各角色</h3>
+
+<p><strong>Subject被观察者</strong>：定义被观察者必须实现的职责，它必须能够动态地增加、取消观察者。它一般是抽象类或者是实现类，仅仅完成作为被观察者必须实现的职责：管理观察者并通知观察者。</p>
+
+<p><strong>Observer观察者</strong>：观察者接收到消息后，即进行update（更新方法）操作，对接收到的信息进行处理。</p>
+
+<p><strong>ConcreteSubject具体的被观察者</strong>：定义被观察者自己的业务逻辑，同时定义对哪些事件进行通知。</p>
+
+<p><strong>ConcreteObserver具体的观察者</strong>：每个观察在接收到消息后的处理反应是不同，各个观察者有自己的处理逻辑。</p>
+
+<h3>3. 模式类图</h3>
+
+<p><img src="http://githubimg.qiniudn.com/designpatterns/patterns_observer.png" alt="观察者模式类图" /></p>
+
+<!-- more -->
+
+
+<h3>4. 通用代码</h3>
+
+<p><strong>被观察者</strong></p>
+
+<p>```java
+public abstract class Subject {</p>
+
+<pre><code>// 定义一个观察者数组
+public Vector&lt;Observer&gt; obsVector = new Vector&lt;Observer&gt;();
+
+public void addObserver(Observer observer) {
+    this.obsVector.add(observer);
+}
+
+// 删除一个观察者
+public void delObserver(Observer observer) {
+    this.obsVector.remove(observer);
+}
+
+// 通知所有观察者
+public void notifyObservers() {
+    for(Observer observer : this.obsVector)
+        observer.update();
+
+}
+</code></pre>
+
+<p>}</p>
+
+<p>```</p>
+
+<p><strong>具体被观察者</strong></p>
+
+<p>```java
+public class ConcreteSubject extends Subject {</p>
+
+<pre><code>// 具体的业务
+public void doSomething() {
+
+    System.out.println("被观察者做点啥");
+
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p><strong>观察者</strong></p>
+
+<p>```java
+public interface Observer {</p>
+
+<pre><code>// 更新方法
+public void update();
+</code></pre>
+
+<p>}
+```</p>
+
+<p><strong>具体观察者</strong></p>
+
+<p>```java
+public class ConcreteObserver implements Observer {</p>
+
+<pre><code>// 实现更新方法
+public void update() {
+    System.out.println("接收到信息，并进行处理！");
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p><strong>场景类</strong></p>
+
+<p>```java
+public class Client {</p>
+
+<pre><code>public static void main(String[] args) {
+
+    // 创建一个被观察者
+    ConcreteSubject subject = new ConcreteSubject();
+
+    // 定义一个观察者
+    Observer observer = new ConcreteObserver();
+
+    // 观察者观察被观察者
+    subject.addObserver(observer);
+
+    // 观察者开始活动
+    subject.doSomething();
+
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>以上摘自秦小波老师的《设计模式之禅》</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[设计模式学习笔记]单例模式]]></title>
+    <link href="http://cnhalo.com/blog/2013/02/20/design-patterns-singleton/"/>
+    <updated>2013-02-20T12:49:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/02/20/design-patterns-singleton</id>
+    <content type="html"><![CDATA[<p>最近在看秦小波的<strong>《设计模式之禅》</strong>，虽然这东西只看是没有用的，但是在实际使用之前学习23种模式的概念，还是很重要！</p>
+
+<h3>单例模式类图（这是饿汉式的）</h3>
+
+<p><img src="http://cnhalo.qiniudn.com/designpatterns/singleton_class.jpg" alt="单例模式类图" /></p>
+
+<h3>单例模式通用代码（饿汉式）</h3>
+
+<!--more-->
+
+
+<p>```java
+public class Singleton {</p>
+
+<pre><code>private static final Singleton singleton = new Singleton();
+
+// 限制产生多个对象
+private Singleton() {
+}
+
+// 通过该方法获取实例对象
+public static Singleton getSingleton(){
+    return singleton;
+}
+
+// 类中其他方法，尽量是static
+public static void doSomething(){
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h3>单例模式通用代码（懒汉式）</h3>
+
+<p>```java
+public class Singleton {</p>
+
+<pre><code>private static Singleton singleton = null;
+
+    public static synchronized Singleton getInstance(){
+    if(singleton==null){
+            singleton = new Singleton();
+    }
+    return singleton;
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h3>两种模式的比较</h3>
+
+<p>饿汉式是线程安全的,在类创建的同时就已经创建好一个静态的对象供系统使用,以后不在改变。懒汉式如果在创建实例对象时不加上synchronized则会导致对对象的访问不是线程安全的，推荐使用第一种。</p>
+
+<h3>单例模式的优点</h3>
+
+<p>1.由于单例模式在内存中只有一个实例，减少了内存开支，特别是一个对象需要频繁地创建，销毁时，而且创建或销毁时性能又无法优化，单例模式的优势就是非常明显。</p>
+
+<p>2.由于单例模式只生成一个实例，所以减少了系统的性能开销，当一个对象的产生需要比较多的资源时，如读取配置、产生其他依赖对象时，则可以通过在应用启动时直接产生一个单例对象，然后用永久驻留内存的方式来解决（在Java EE中采用单例模式时需要注意JVM垃圾回收机制）。</p>
+
+<p>3.单例模式可以避免对资源的多重占用，例如一个写文件动作，由于只有一个实例存在内存中，避免对同一个资源文件的同时写操作。</p>
+
+<p>4.单例模式可以在系统设置全局的访问点，优化和共享资源访问，例如可以设计一个单例类，负责所有数据表的映射处理。</p>
+
+<h3>单例模式的缺点</h3>
+
+<p>1.单例模式一般没有接口，扩展和困难，若要扩展，除了修改代码基本上没有第二种途径可以实现。单例模式为什么不能增加接口呢？因为接口对单例模式是没有任何意义的，它要求“自动实例化”,并且提供单一实例、接口或抽象类是不可能被实例化的。当然在特殊情况下，单例模式可以实现接口、被继承等，需要在系统开发中根据环境判断。</p>
+
+<p>2.单例模式对测试是不利的。在并行开发环境中，如果单例模式没有完成，是不能进行测试的，没有接口也不能使用mock的方式虚拟一个对象。</p>
+
+<p>3.单例模式与单一职责原则有冲突。一个类应该只实现一个逻辑，而不关心它是否是单例的，是不是要单例取决于环境，单例模式把“要单例”和业务逻辑融合在一个类中。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[设计模式学习笔记]工厂方法模式]]></title>
+    <link href="http://cnhalo.com/blog/2013/02/20/design-patterns-factory/"/>
+    <updated>2013-02-20T10:09:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/02/20/design-patterns-factory</id>
+    <content type="html"><![CDATA[<p>首先，看一下比较实用的工厂模式的通用源码。</p>
+
+<h3>工厂方法模式通用类图</h3>
+
+<p><img src="http://cnhalo.qiniudn.com/designpatterns/factory_class.jpg" alt="工厂模式类图" /></p>
+
+<h3>抽象产品类</h3>
+
+<!--more-->
+
+
+<p>```java
+public abstract class Product {</p>
+
+<pre><code>// 产品类的公共方法
+public void method1(){
+    // 业务逻辑处理
+}
+
+// 抽象方法
+public abstract void method2();
+</code></pre>
+
+<p>}
+```</p>
+
+<h3>具体产品类</h3>
+
+<p>```java
+public class ConcreteProduct1 extends Product {</p>
+
+<pre><code>public void method2() {
+    // 业务逻辑处理
+}
+</code></pre>
+
+<p>}</p>
+
+<p>public class ConcreteProduct2 extends Product {</p>
+
+<pre><code>public void method2() {
+    // 业务逻辑处理
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h3>抽象工厂类</h3>
+
+<p>```java
+public abstract class Creator {</p>
+
+<pre><code>/*
+* 创建一个产品对象，其输入参数类型可以自行设置
+* 通过为String、Enum、Class等，当然也可以为空
+*/
+public abstract &lt;T extends Product&gt; T createProduct(Class&lt;T&gt; c);
+</code></pre>
+
+<p>}
+```</p>
+
+<h3>具体工厂类</h3>
+
+<p>```java
+public class ConcreteCreator extends Creator {</p>
+
+<pre><code>public &lt;T extends Product&gt; T createProduct(Class&lt;T&gt; c) {
+    Product product = null;
+    try {
+        product = (Product) Class.forName(c.getName()).newInstance();
+    } catch (Exception e) {
+        // 异常处理
+    }
+    return (T) product;
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h3>场景类</h3>
+
+<p>```java
+public class Client {</p>
+
+<pre><code>public static void main(String[] args) {
+    Creator creator = new ConcreteCreator();
+    Product product1 = creator.createProduct(ConcreteProduct1.class);
+    Product product2 = creator.createProduct(ConcreteProduct2.class);
+
+    /*
+    * 继续业务处理
+    */  
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>以上摘自秦小波老师的《设计模式之禅》</p>
+]]></content>
+  </entry>
+  
+</feed>

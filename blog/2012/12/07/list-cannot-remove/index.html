@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>[JAVA]List不能使用remove() - CNHALO</title>
+  <meta name="author" content="HENRY_HUANGS">
+
+  
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://cnhalo.com/blog/2012/12/07/list-cannot-remove">
+  <link href="/favicon.png" type="image/png" rel="icon">
+  <link href="/atom.xml" rel="alternate" title="CNHALO" type="application/atom+xml">
+
+  <link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+
+  <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+
+  <!--
+  <script src="/javascripts/libs/jquery.i18n.properties-min-1.0.9.js"></script>
+  <script src="/javascripts/i18n/i18n.js"></script>
+  -->
+
+  <link href="/stylesheets/themes/image.css" rel="stylesheet" type="text/css">
+
+
+<script src="/javascripts/libs/jquery/plugins/jquery.scrollUp.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+      $.scrollUp({
+            scrollName: 'scrollUp', // Element ID
+            scrollDistance: 300, // Distance from top/bottom before showing element (px)
+            scrollFrom: 'top', // 'top' or 'bottom'
+            scrollSpeed: 300, // Speed back to top (ms)
+            easingType: 'linear', // Scroll to top easing (see http://easings.net/)
+            animation: 'slide', // Fade, slide, none
+            animationSpeed: 200, // Animation in speed (ms)
+            scrollTrigger: false, // Set a custom triggering element. Can be an HTML string or jQuery object
+            //scrollTarget: false, // Set a custom target element for scrolling to the top
+            scrollText: '', // Text for element, can contain HTML
+            scrollTitle: false, // Set a custom <a> title if required.
+            scrollImg: false, // Set true to use image
+            activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+            zIndex: 2147483647 // Z-Index for the overlay
+      });
+    });
+
+</script>
+
+  
+
+
+  <link href="/stylesheets/codeflower.css" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/d3/d3.js"></script>  
+  <script src="/javascripts/d3/d3.geom.js"></script> 
+  <script src="/javascripts/d3/d3.layout.js"></script> 
+  <script src="/javascripts/d3/CodeFlower.js"></script>
+</head>
+
+  <body   >
+    <div id="wrap">
+      <header role="banner">
+        <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">CNHALO</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/blog/" id="nav_label_blog">博客</a></li>
+                <li><a href="/blog/archives" id="nav_label_archives">归档</a></li>
+                <li><a href="/blog/tags" id="nav_label_archives">标签</a></li>
+                <li><a href="https://gist.github.com/henryhuang" target="_blank" id="nav_label_archives">Gist</a></li>
+<!--                 <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
+                    有点意思
+                    <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a target="_blank" href="/blog/js/d3/codeflower">标签图</a> 
+                        </li> 
+                    </ul>    
+                </li> -->
+            </ul>
+
+            <!--
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="subscribe-rss" href="/atom.xml" title="subscribe via RSS">
+                        <span class="visible-xs">RSS</span>
+                        <img class="hidden-xs" src="/images/rss.png" alt="RSS">
+                    </a>
+                </li>
+                
+            </ul>
+            
+                <form class="search navbar-form navbar-right" action="http://google.com/search" method="GET">
+                    <input type="hidden" name="q" value="site:cnhalo.com">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="q" placeholder="在谷歌搜索">
+                    </div>
+                </form>
+            
+        -->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/about" id="nav_label_about">关于</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
+                    更多
+                    <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a target="_blank" href="http://onecircle.lofter.com">轻博客</a> 
+                        </li>  
+                        <li>
+                            <a target="_blank" href="http://gallery.cnhalo.com">Gallery</a> 
+                        </li>    
+                    </ul>    
+                </li>            
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+      </header>
+      <div id="main" class="container">
+        <div id="content">
+          <div class="row">
+  <div class="page-content col-md-9">
+    <article class="hentry" role="article">
+      
+  <header class="page-header">
+    
+    <h1 class="entry-title">
+        [JAVA]List不能使用remove()
+        
+    </h1>
+    
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2012-12-07T10:01:00+08:00" pubdate data-updated="true">Dec 7<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content clearfix"><p><strong>List是不能使用remove()的，</strong></p>
+
+<p>看以下代码：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">String</span> <span class="o">[]</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="mi">4</span><span class="o">];</span>
+</span><span class='line'><span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;1&quot;</span><span class="o">;</span>
+</span><span class='line'><span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;2&quot;</span><span class="o">;</span>
+</span><span class='line'><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+</span><span class='line'><span class="n">list</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+</span><span class='line'><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这是会报错的：</p>
+
+<!--more-->
+
+
+<blockquote><p><font color="red">Exception in thread &#8220;main&#8221; </font>java.lang.UnsupportedOperationException</p>
+
+<p><font color="red">at java.util.AbstractList.remove(AbstractList.java:172)</font></p>
+
+<p><font color="red">at com.nevol.list.ListTest.main(ListTest.java:27)</font></p></blockquote>
+
+<p><strong>很明显是不支持的操作！</strong></p>
+
+<p>查看源码（AbstractList.java:172）</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="n">E</span> <span class="nf">remove</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="k">throw</span> <span class="k">new</span> <span class="nf">UnsupportedOperationException</span><span class="o">();</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>没有逻辑，直接抛出<strong>UnsupportedOperationException</strong></p>
+
+<p>解决方法，只要将List转成ArrayList就可以了，具体代码如下</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">String</span> <span class="o">[]</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="mi">4</span><span class="o">];</span>
+</span><span class='line'><span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;1&quot;</span><span class="o">;</span>
+</span><span class='line'><span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;2&quot;</span><span class="o">;</span>
+</span><span class='line'><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+</span><span class='line'><span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;(</span><span class="n">list</span><span class="o">);</span>
+</span><span class='line'><span class="n">list</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+</span><span class='line'><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+
+
+      <footer>
+        <p class="meta text-muted">
+          
+  
+
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">HENRY_HUANGS</span></span>
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2012-12-07T10:01:00+08:00" pubdate data-updated="true">Dec 7<span>th</span>, 2012</time>
+        </p>
+        
+          <div class="sharing">
+  
+  
+  
+</div>
+
+        
+        
+          <ul class="meta text-muted pager">
+            
+            <li class="previous"><a href="/blog/2012/11/15/mysql-slave-1/" title="Previous Post: MYSQL主从同步错误解决">&laquo; MYSQL主从同步错误解决</a></li>
+            
+            
+            <li class="next"><a href="/blog/2013/02/12/railsxue-xi-bi-ji/" title="Next Post: Rails学习笔记-11.2">Rails学习笔记-11.2 &raquo;</a></li>
+            
+          </ul>
+        
+      </footer>
+    </article>
+  
+    <section>
+      <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"henryhuang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END --></div>
+    </section>
+  
+  </div>
+  <div class="col-md-3">
+  <div class="bs-sidebar hidden-print affix-top" role="complementary" style="position: fixed;top: 80px;">
+    <div class="page-header">
+      <h3 style="color:#999999;">最新文章</h3>
+    </div>
+    <ul class="nav" id="sidebar">
+      
+        
+      <li>
+        <a href="/blog/2014/10/28/groovy-starting/">Groovy开始</a>
+      </li>
+      
+        
+        
+      <li>
+        <a href="/blog/2014/08/16/design-pattern-decorator/">[设计模式学习笔记]油漆工模式</a>
+      </li>
+      
+        
+        
+      <li>
+        <a href="/blog/2014/05/18/running/">跑步</a>
+      </li>
+      
+        
+        
+      <li>
+        <a href="/blog/2014/04/05/shortcuts-of-eclipse-on-mac/">Mac下Eclipse快捷键</a>
+      </li>
+      
+        
+        
+      <li>
+        <a href="/blog/2013/12/06/java-object-equals/">JAVA对象equals的技巧</a>
+      </li>
+      
+        
+        
+      <li>
+        <a href="/blog/2013/12/02/jdk-version-switch-in-mac/">MAC下JDK版本的切换</a>
+      </li>
+      
+        
+        
+      <li>
+        <a href="/blog/2013/11/25/java-reflect-set-value/">Java使用反射设置值</a>
+      </li>
+      
+        
+    </ul>
+  <div>
+</div>
+</div>
+
+        </div>
+      </div>
+    <footer role="contentinfo"><div class="container">
+    <p class="text-muted credits">
+  Copyright &copy; 2014 - HENRY_HUANGS<br>
+  
+<!--   
+<small>
+    <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+      <span class="credit">customized with <a href="https://github.com/henryhuang/octoplate-cnhalo">Octoplate-cnhalo</a></span>. 
+  </small>
+  -->
+  <!--
+    <a href="#" id="back">Back to Top</a>
+	-->
+
+  <span>沪ICP备12046790号-1</span>
+</p>
+
+<nav id="bottom" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+</nav>
+
+</div>
+</footer>
+    <script src="/javascripts/libs/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
+<script src="/javascripts/libs/bootstrap-3.0.0/js/modal.js"></script>
+<script src="/javascripts/modernizr-2.0.js"></script>
+
+
+
+<div style="display: none">
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F4f39bbcadcf4912235432a7ce6ba5cb2' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
+
+
+
+
+    </div>
+
+  </body>
+</html>

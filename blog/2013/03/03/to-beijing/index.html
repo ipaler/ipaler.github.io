@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>北京游 - CNHALO</title>
+  <meta name="author" content="HENRY_HUANGS">
+
+  
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://cnhalo.com/blog/2013/03/03/to-beijing">
+  <link href="/favicon.png" type="image/png" rel="icon">
+  <link href="/atom.xml" rel="alternate" title="CNHALO" type="application/atom+xml">
+
+  <link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+
+  <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+
+  <!--
+  <script src="/javascripts/libs/jquery.i18n.properties-min-1.0.9.js"></script>
+  <script src="/javascripts/i18n/i18n.js"></script>
+  -->
+
+  <link href="/stylesheets/themes/image.css" rel="stylesheet" type="text/css">
+
+
+<script src="/javascripts/libs/jquery/plugins/jquery.scrollUp.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+      $.scrollUp({
+            scrollName: 'scrollUp', // Element ID
+            scrollDistance: 300, // Distance from top/bottom before showing element (px)
+            scrollFrom: 'top', // 'top' or 'bottom'
+            scrollSpeed: 300, // Speed back to top (ms)
+            easingType: 'linear', // Scroll to top easing (see http://easings.net/)
+            animation: 'slide', // Fade, slide, none
+            animationSpeed: 200, // Animation in speed (ms)
+            scrollTrigger: false, // Set a custom triggering element. Can be an HTML string or jQuery object
+            //scrollTarget: false, // Set a custom target element for scrolling to the top
+            scrollText: '', // Text for element, can contain HTML
+            scrollTitle: false, // Set a custom <a> title if required.
+            scrollImg: false, // Set true to use image
+            activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+            zIndex: 2147483647 // Z-Index for the overlay
+      });
+    });
+
+</script>
+
+  
+
+
+  <link href="/stylesheets/codeflower.css" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/d3/d3.js"></script>  
+  <script src="/javascripts/d3/d3.geom.js"></script> 
+  <script src="/javascripts/d3/d3.layout.js"></script> 
+  <script src="/javascripts/d3/CodeFlower.js"></script>
+</head>
+
+  <body   >
+    <div id="wrap">
+      <header role="banner">
+        <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">CNHALO</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/blog/" id="nav_label_blog">博客</a></li>
+                <li><a href="/blog/archives" id="nav_label_archives">归档</a></li>
+                <li><a href="/blog/tags" id="nav_label_archives">标签</a></li>
+                <li><a href="https://gist.github.com/henryhuang" target="_blank" id="nav_label_archives">Gist</a></li>
+<!--                 <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
+                    有点意思
+                    <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a target="_blank" href="/blog/js/d3/codeflower">标签图</a> 
+                        </li> 
+                    </ul>    
+                </li> -->
+            </ul>
+
+            <!--
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="subscribe-rss" href="/atom.xml" title="subscribe via RSS">
+                        <span class="visible-xs">RSS</span>
+                        <img class="hidden-xs" src="/images/rss.png" alt="RSS">
+                    </a>
+                </li>
+                
+            </ul>
+            
+                <form class="search navbar-form navbar-right" action="http://google.com/search" method="GET">
+                    <input type="hidden" name="q" value="site:cnhalo.com">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="q" placeholder="在谷歌搜索">
+                    </div>
+                </form>
+            
+        -->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/about" id="nav_label_about">关于</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
+                    更多
+                    <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a target="_blank" href="http://onecircle.lofter.com">轻博客</a> 
+                        </li>  
+                        <li>
+                            <a target="_blank" href="http://gallery.cnhalo.com">Gallery</a> 
+                        </li>    
+                    </ul>    
+                </li>            
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+      </header>
+      <div id="main" class="container">
+        <div id="content">
+          <div class="row">
+  <div class="page-content col-md-9">
+    <article class="hentry" role="article">
+      
+  <header class="page-header">
+    
+    <h1 class="entry-title">
+        北京游
+        
+    </h1>
+    
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-03-03T14:52:00+08:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content clearfix"><p>我爱北京天安门，天安门上太阳升～</p>
+
+<pre>
+A君：太阳升？太阳？北京现在能看到太阳？
+B君：就是一首歌，干嘛这么较真呢！小学教的啊！
+A君：怎么小学教的和事实不符啊？！
+B君：靠，我朝又不是一件两件了。。。
+</pre>
+
+
+<p>今天晚上就要走了，早上约了胡伟，郗平同学，一起在北京逛了逛，领略一下首都的风采，谢谢两人的招待！</p>
+
+<p>首先来到了天安门，由于最近“两会”，所以进广场要安检，找了很多个口，发现在周围没有车站的口，基本没人排队。。。</p>
+
+<p>晒几张照片。</p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/maoyeye_1.jpg" title="毛爷爷" alt="毛爷爷" /></p>
+
+<!-- more -->
+
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/hutong_1.jpg" title="胡同" alt="胡同" /></p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/tiananmen_1.jpg" title="天安门" alt="天安门" /></p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/tiananmen_2.jpg" title="长队安检" alt="长队安检" /></p>
+
+<p>到中午了，到了鼓楼，吃吃“姚记炒肝”。</p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/yaoji_1.jpg" title="姚记炒肝" alt="姚记炒肝" /></p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/yaoji_2.jpg" title="吃饭前" alt="吃饭前" /></p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/yaoji_3.jpg" title="吃饭后" alt="吃饭后" /></p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/bingtanghulu_1.jpg" title="山药冰糖葫芦" alt="山药冰糖葫芦" /></p>
+
+<p>吃完就一路走，沿路走着逛，烟斗长街。</p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/tuye_1.jpg" title="创意店" alt="创意店" /></p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/tuye_2.jpg" title="一个橱窗的兔爷" alt="一个橱窗的兔爷" /></p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/tuye_3.jpg" title="北京的兔爷" alt="北京的兔爷" /></p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/youju_1.jpg" title="邮局门前一个小孩" alt="邮局门前一个小孩" /></p>
+
+<p>去了恭王府，这是和申他家。</p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/gongwangfu_1.jpg" title="恭王府" alt="恭王府" /></p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/qiuzishi_1.jpg" title="求子石" alt="求子石" /></p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/changlang_1.jpg" title="长廊1" alt="长廊1" /></p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/changlang_2.jpg" title="长廊2" alt="长廊2" /></p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/futing_1.jpg" title="蝠厅" alt="蝠厅" /></p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/yeya_1.jpg" title="野鸭1" alt="野鸭1" /></p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/yeya_2.jpg" title="野鸭2" alt="野鸭2" /></p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/yushimen_1.jpg" title="玉石门" alt="玉石门" /></p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/wapian_1.jpg" title="瓦片" alt="瓦片" /></p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/zhuanzhong_1.jpg" title="不知道叫啥" alt="不知道叫啥" /></p>
+
+<p>后海。</p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/huabing_1.jpg" title="后海滑冰" alt="后海滑冰" /></p>
+
+<p>夕阳西下，喝了杯咖啡就去火车站，准备离开北京了。</p>
+
+<p><img src="http://githubimg.qiniudn.com/20130302_beijing/xiyang_1.jpg" title="夕阳" alt="夕阳" /></p>
+
+<p>北京之旅，有感觉好的，有感觉坏的，总之，事物没有完美的一面。</p>
+</div>
+
+
+      <footer>
+        <p class="meta text-muted">
+          
+  
+
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">HENRY_HUANGS</span></span>
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-03-03T14:52:00+08:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2013</time>
+        </p>
+        
+          <div class="sharing">
+  
+  
+  
+</div>
+
+        
+        
+          <ul class="meta text-muted pager">
+            
+            <li class="previous"><a href="/blog/2013/02/26/beijing-first-time/" title="Previous Post: 第一次来北京">&laquo; 第一次来北京</a></li>
+            
+            
+            <li class="next"><a href="/blog/2013/03/10/yi-ge-zhou-mo/" title="Next Post: 一个周末的随感">一个周末的随感 &raquo;</a></li>
+            
+          </ul>
+        
+      </footer>
+    </article>
+  
+    <section>
+      <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"henryhuang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END --></div>
+    </section>
+  
+  </div>
+  <div class="col-md-3">
+  <div class="bs-sidebar hidden-print affix-top" role="complementary" style="position: fixed;top: 80px;">
+    <div class="page-header">
+      <h3 style="color:#999999;">最新文章</h3>
+    </div>
+    <ul class="nav" id="sidebar">
+      
+        
+      <li>
+        <a href="/blog/2014/10/28/groovy-starting/">Groovy开始</a>
+      </li>
+      
+        
+        
+      <li>
+        <a href="/blog/2014/08/16/design-pattern-decorator/">[设计模式学习笔记]油漆工模式</a>
+      </li>
+      
+        
+        
+      <li>
+        <a href="/blog/2014/05/18/running/">跑步</a>
+      </li>
+      
+        
+        
+      <li>
+        <a href="/blog/2014/04/05/shortcuts-of-eclipse-on-mac/">Mac下Eclipse快捷键</a>
+      </li>
+      
+        
+        
+      <li>
+        <a href="/blog/2013/12/06/java-object-equals/">JAVA对象equals的技巧</a>
+      </li>
+      
+        
+        
+      <li>
+        <a href="/blog/2013/12/02/jdk-version-switch-in-mac/">MAC下JDK版本的切换</a>
+      </li>
+      
+        
+        
+      <li>
+        <a href="/blog/2013/11/25/java-reflect-set-value/">Java使用反射设置值</a>
+      </li>
+      
+        
+    </ul>
+  <div>
+</div>
+</div>
+
+        </div>
+      </div>
+    <footer role="contentinfo"><div class="container">
+    <p class="text-muted credits">
+  Copyright &copy; 2014 - HENRY_HUANGS<br>
+  
+<!--   
+<small>
+    <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+      <span class="credit">customized with <a href="https://github.com/henryhuang/octoplate-cnhalo">Octoplate-cnhalo</a></span>. 
+  </small>
+  -->
+  <!--
+    <a href="#" id="back">Back to Top</a>
+	-->
+
+  <span>沪ICP备12046790号-1</span>
+</p>
+
+<nav id="bottom" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+</nav>
+
+</div>
+</footer>
+    <script src="/javascripts/libs/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
+<script src="/javascripts/libs/bootstrap-3.0.0/js/modal.js"></script>
+<script src="/javascripts/modernizr-2.0.js"></script>
+
+
+
+<div style="display: none">
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F4f39bbcadcf4912235432a7ce6ba5cb2' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
+
+
+
+
+    </div>
+
+  </body>
+</html>

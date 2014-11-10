@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: equals | CNHALO]]></title>
+  <link href="http://cnhalo.com/blog/categories/equals/atom.xml" rel="self"/>
+  <link href="http://cnhalo.com/"/>
+  <updated>2014-10-30T18:39:13+08:00</updated>
+  <id>http://cnhalo.com/</id>
+  <author>
+    <name><![CDATA[HENRY_HUANGS]]></name>
+    <email><![CDATA[huangyijie1989@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[JAVA对象equals的技巧]]></title>
+    <link href="http://cnhalo.com/blog/2013/12/06/java-object-equals/"/>
+    <updated>2013-12-06T21:40:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/12/06/java-object-equals</id>
+    <content type="html"><![CDATA[<h3>1.   测试</h3>
+
+<p>又一次在写代码，突然想到这么个问题：java里的equals比较对象的顺序不同会有什么不同的效果？于是乎写了以下测试代码：</p>
+
+<p>```java</p>
+
+<p>/<em>*
+ * cnhalo.mrhuang.equalstest.Main <TODO>
+ *
+ * @author  huangyijie
+ * @date    2013年12月6日 下午9:33:33
+ *
+ </em>/
+public class Main {</p>
+
+<pre><code>public static void main(String[] args) {
+
+    TestObject a1 = null;
+    TestObject a2 = new TestObject();
+
+    test1(a1, a2);
+    test2(a1, a2);
+
+}
+
+public static void test1(TestObject a1, TestObject a2) {
+
+    try {
+        System.out.println("test1:" + a1.equals(a2));
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+}
+
+public static void test2(TestObject a1, TestObject a2) {
+
+    try {
+        System.out.println("test2:" + a2.equals(a1));
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+}
+</code></pre>
+
+<p>}</p>
+
+<p>class TestObject {</p>
+
+<p>}</p>
+
+<p>```</p>
+
+<h3>2.   分析</h3>
+
+<p>在test1中抛出java.lang.NullPointerException异常，而test2打印出false，对于test2的情况，查看源码的注释可以知道：</p>
+
+<pre><code>For any non-null reference value x, x.equals(null) should return false.
+</code></pre>
+
+<p>而对于空指针异常：</p>
+
+<p>引发空指针异常，往往是在获取对象实例地址的时候，由于获取的对象实例并不存在，因此返回的地址为null，而又没进行判断，直接使用了该对象实例（地址）引发的。</p>
+
+<h3>3.   总结</h3>
+
+<p>因此，这是一个技巧了，为了避免空指针异常，我们在对对象进行比较的时候，得把常量或者我们认为不会有null的值放在前面： "constant".equals("object");</p>
+]]></content>
+  </entry>
+  
+</feed>

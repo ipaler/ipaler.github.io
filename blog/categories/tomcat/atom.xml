@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: tomcat | CNHALO]]></title>
+  <link href="http://cnhalo.com/blog/categories/tomcat/atom.xml" rel="self"/>
+  <link href="http://cnhalo.com/"/>
+  <updated>2014-10-30T18:39:13+08:00</updated>
+  <id>http://cnhalo.com/</id>
+  <author>
+    <name><![CDATA[HENRY_HUANGS]]></name>
+    <email><![CDATA[huangyijie1989@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Tomcat打开远程调试]]></title>
+    <link href="http://cnhalo.com/blog/2013/10/29/tomcat-remote-debug/"/>
+    <updated>2013-10-29T22:59:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/10/29/tomcat-remote-debug</id>
+    <content type="html"><![CDATA[<h2>配置</h2>
+
+<h3>1.   Linux下</h3>
+
+<p>在bin/startup.sh 或者 bin/catalina.sh 开头添加</p>
+
+<p><code>sh
+declare -x CATALINA_OPTS="-server -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8787"
+</code></p>
+
+<h3>2.   Windows下</h3>
+
+<p>在bin/startup.bat 或者 bin/catalina.bat 开头添加</p>
+
+<p><code>bat
+SET CATALINA_OPTS=-server -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8787
+</code></p>
+
+<h2>调试</h2>
+
+<p>这样启动以后，就会监听8787端口，通过IDE进行调试，这里以Eclipse示例</p>
+
+<p>依次打开Run --> Debug Configurations --> Remote Java Application --> 右键New --> 填写tomcat相关信息，端口就是8787</p>
+
+<p>这样启动tomcat后，再进行Debug后就可以了。</p>
+]]></content>
+  </entry>
+  
+</feed>

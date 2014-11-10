@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: markdown | CNHALO]]></title>
+  <link href="http://cnhalo.com/blog/categories/markdown/atom.xml" rel="self"/>
+  <link href="http://cnhalo.com/"/>
+  <updated>2014-10-30T18:39:13+08:00</updated>
+  <id>http://cnhalo.com/</id>
+  <author>
+    <name><![CDATA[HENRY_HUANGS]]></name>
+    <email><![CDATA[huangyijie1989@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Java中使用Markdown]]></title>
+    <link href="http://cnhalo.com/blog/2013/11/16/java-markdown-lib/"/>
+    <updated>2013-11-16T00:39:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/11/16/java-markdown-lib</id>
+    <content type="html"><![CDATA[<p>由于需要将输入的markdown内容转换成html，所以找到了这个包：<a href="http://markdown.tautua.org/">MarkdownPapers</a></p>
+
+<p>Maven依赖：</p>
+
+<p>```xml
+<dependency></p>
+
+<pre><code>&lt;groupId&gt;org.tautua.markdownpapers&lt;/groupId&gt;
+&lt;artifactId&gt;markdownpapers-core&lt;/artifactId&gt;
+&lt;version&gt;${use latest}&lt;/version&gt;
+</code></pre>
+
+<p></dependency>
+```</p>
+
+<p>使用起来非常简单：</p>
+
+<p>```java 示例
+Reader in = new FileReader("in.md");
+Writer out = new FileWriter("out.html");</p>
+
+<p>Markdown md = new Markdown();
+md.transform(in, out);
+```</p>
+]]></content>
+  </entry>
+  
+</feed>

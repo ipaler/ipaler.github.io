@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Groovy | CNHALO]]></title>
+  <link href="http://cnhalo.com/blog/categories/groovy/atom.xml" rel="self"/>
+  <link href="http://cnhalo.com/"/>
+  <updated>2014-10-30T18:39:13+08:00</updated>
+  <id>http://cnhalo.com/</id>
+  <author>
+    <name><![CDATA[HENRY_HUANGS]]></name>
+    <email><![CDATA[huangyijie1989@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Groovy开始]]></title>
+    <link href="http://cnhalo.com/blog/2014/10/28/groovy-starting/"/>
+    <updated>2014-10-28T19:54:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2014/10/28/groovy-starting</id>
+    <content type="html"><![CDATA[<p>之前看了《Java程序员修炼之道》，第三部分JVM上的多语言编程里面讲到JVM上面的一些脚本语言，有Groovy，Scala，Clojure，没有等。于是这两天学了一下Groovy，发现还真是方便，最明显的（当然我是处在比较初级阶段的认识）他的闭包Closure。</p>
+
+<p>平时在用Java编程的时候，写着写着总是有点烦，一个很简单的方法都要写一堆代码，其实具体逻辑就一行，想着用闭包多好，那么Groovy完全就可以用得上。</p>
+
+<!-- more -->
+
+
+<h3>1. Groovy的安装</h3>
+
+<p>推荐使用<a href="http://gvmtool.net">GVM</a>(the Groovy enVironment Manager)进行安装和版本管理，进行版本的随意切换，GVM的概念可以说是来自RVM，它不仅可以管理Groovy，还可以管理crash, gaiden, glide, gradle, grails, griffon</p>
+
+<h3>2. Groovy的编程</h3>
+
+<h4>2.1 Hello World</h4>
+
+<p>Groovy可以不像Java那样每个class文件必须有一个类，它就像很多脚本一样，一行代码：</p>
+
+<p><code>
+print "Hello World"
+</code></p>
+
+<p>保存为hw.groovy，</p>
+
+<p><code>
+groovy hw.groovy
+</code>
+解决！而在Java里，则要这么麻烦</p>
+
+<p>```
+public class HelloWorld {</p>
+
+<pre><code>public static void main(String[] args) {
+    System.out.println("Hello World!");
+}
+</code></pre>
+
+<p>}</p>
+
+<p>```
+保存hw.java，</p>
+
+<p><code>
+javac hw.java
+java hw.class
+</code>
+这一点Groovy还是挺方便的了。</p>
+
+<p>另外，Groovy还提供了GroovyConsole，一个简单的IDE，也是挺方便的。</p>
+
+<h4>2.2 闭包</h4>
+
+<p>对于闭包，官方的解释是：</p>
+
+<p>What is a Closure?
+A Groovy Closure is like a "code block" or a method pointer. It is a
+piece of code that is defined and then executed at a later point. It has some special properties like implicit variables, support for currying and support for free variables (which we'll see later on). We'll ignore the nitty gritty details for now (see the formal definition if you want those) and look at some simple examples.</p>
+
+<p>一个最简单的例子：</p>
+
+<p><code>
+def clos = { println "hello!"}
+println "Executing the Closure:"
+clos()
+</code></p>
+
+<p>更多的说明在官网文档<a href="http://groovy.codehaus.org/Closures">Closures</a>还有。</p>
+
+<p>Groovy里很多的类都有专门传闭包方法，比如List：</p>
+
+<p>```
+def list = ['c', 'n', 'h', 'a', 'l', 'o']
+def newList = []</p>
+
+<p>def clos = {</p>
+
+<pre><code>it.toUpperCase()
+</code></pre>
+
+<p>}
+list.collect(newList, clos)
+println newList</p>
+
+<p>// 输出：[C, N, H, A, L, O]</p>
+
+<p>```</p>
+
+<h4>2.3 一个具体的闭包例子</h4>
+
+<p>代码竟然搞丢了。。稍后补上。</p>
+
+<h3>3. 结语</h3>
+
+<p>Groovy有很多很亮的特性，使得它可以成为和Java共用的语言，这也是我为什么要选择Groovy作为JVM脚本语言入门的最大的理由（最为对比，另一个是Scala），他的语法和Java很像，本来用Java实现的逻辑可以用Groovy更简短的语句实现。Groovy和Java之间的相互调用也是很方便的。</p>
+
+<p>希望在自己接触的项目中可以很快用上Groovy。</p>
+]]></content>
+  </entry>
+  
+</feed>
