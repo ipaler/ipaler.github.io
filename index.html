@@ -1,0 +1,38 @@
+blog---
+layout: default
+navbar: Blog
+---
+
+<div class="row">
+  <div class="page-content {% unless site.default_asides == empty and site.blog_index_asides == empty %}col-md-12{% endunless %}">
+    <div class="blog-index">
+      {% assign index = true %}
+      {% for post in paginator.posts %}
+      {% assign content = post.content %}
+        <article class="post">
+          {% include article.html %}
+        </article>
+      {% endfor %}
+    </div>
+
+    <ul class="pager">
+      {% if paginator.next_page %}
+        <li class="previous"><a href="{{paginator.next_page}}" class="pag_older_label">&larr;&nbsp;更早</a></li>
+      {% else %}
+        <li class="previous disabled"><a href="#" class="pag_older_label">&larr;&nbsp;更早</a></li>
+      {% endif %}
+      <li><a href="/blog/archives" id="label_blog_archives">归档</a></li>
+      {% if paginator.previous_page %}
+        <li class="next"><a href="{{paginator.previous_page}}" class="pag_newer_label">更晚&nbsp;&rarr;</a></li>
+      {% else %}
+        <li class="next disabled"><a href="#" class="pag_newer_label">更晚&nbsp;&rarr;</a></li>
+      {% endif %}
+    </ul>
+    
+  </div>
+
+  <!--
+  {% include side_recent_posts.html %}
+  -->
+  
+</div>

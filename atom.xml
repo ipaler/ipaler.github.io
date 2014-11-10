@@ -1,0 +1,2300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[CNHALO]]></title>
+  <link href="http://cnhalo.com/atom.xml" rel="self"/>
+  <link href="http://cnhalo.com/"/>
+  <updated>2014-10-30T18:39:13+08:00</updated>
+  <id>http://cnhalo.com/</id>
+  <author>
+    <name><![CDATA[HENRY_HUANGS]]></name>
+    <email><![CDATA[huangyijie1989@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Groovy开始]]></title>
+    <link href="http://cnhalo.com/blog/2014/10/28/groovy-starting/"/>
+    <updated>2014-10-28T19:54:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2014/10/28/groovy-starting</id>
+    <content type="html"><![CDATA[<p>之前看了《Java程序员修炼之道》，第三部分JVM上的多语言编程里面讲到JVM上面的一些脚本语言，有Groovy，Scala，Clojure，没有等。于是这两天学了一下Groovy，发现还真是方便，最明显的（当然我是处在比较初级阶段的认识）他的闭包Closure。</p>
+
+<p>平时在用Java编程的时候，写着写着总是有点烦，一个很简单的方法都要写一堆代码，其实具体逻辑就一行，想着用闭包多好，那么Groovy完全就可以用得上。</p>
+
+<!-- more -->
+
+
+<h3>1. Groovy的安装</h3>
+
+<p>推荐使用<a href="http://gvmtool.net">GVM</a>(the Groovy enVironment Manager)进行安装和版本管理，进行版本的随意切换，GVM的概念可以说是来自RVM，它不仅可以管理Groovy，还可以管理crash, gaiden, glide, gradle, grails, griffon</p>
+
+<h3>2. Groovy的编程</h3>
+
+<h4>2.1 Hello World</h4>
+
+<p>Groovy可以不像Java那样每个class文件必须有一个类，它就像很多脚本一样，一行代码：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>print "Hello World"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>保存为hw.groovy，</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>groovy hw.groovy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>解决！而在Java里，则要这么麻烦</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public class HelloWorld {
+</span><span class='line'>
+</span><span class='line'>  public static void main(String[] args) {
+</span><span class='line'>      System.out.println("Hello World!");
+</span><span class='line'>  }
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>保存hw.java，</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>javac hw.java
+</span><span class='line'>java hw.class</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这一点Groovy还是挺方便的了。</p>
+
+<p>另外，Groovy还提供了GroovyConsole，一个简单的IDE，也是挺方便的。</p>
+
+<h4>2.2 闭包</h4>
+
+<p>对于闭包，官方的解释是：</p>
+
+<p>What is a Closure?
+A Groovy Closure is like a &#8220;code block&#8221; or a method pointer. It is a
+piece of code that is defined and then executed at a later point. It has some special properties like implicit variables, support for currying and support for free variables (which we&#8217;ll see later on). We&#8217;ll ignore the nitty gritty details for now (see the formal definition if you want those) and look at some simple examples.</p>
+
+<p>一个最简单的例子：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def clos = { println "hello!"}
+</span><span class='line'>println "Executing the Closure:"
+</span><span class='line'>clos()</span></code></pre></td></tr></table></div></figure>
+
+
+<p>更多的说明在官网文档<a href="http://groovy.codehaus.org/Closures">Closures</a>还有。</p>
+
+<p>Groovy里很多的类都有专门传闭包方法，比如List：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def list = ['c', 'n', 'h', 'a', 'l', 'o']
+</span><span class='line'>def newList = []
+</span><span class='line'>      
+</span><span class='line'>def clos = {
+</span><span class='line'>  it.toUpperCase()
+</span><span class='line'>}
+</span><span class='line'>list.collect(newList, clos)
+</span><span class='line'>println newList
+</span><span class='line'>
+</span><span class='line'>// 输出：[C, N, H, A, L, O]
+</span><span class='line'>      </span></code></pre></td></tr></table></div></figure>
+
+
+<h4>2.3 一个具体的闭包例子</h4>
+
+<p>代码竟然搞丢了。。稍后补上。</p>
+
+<h3>3. 结语</h3>
+
+<p>Groovy有很多很亮的特性，使得它可以成为和Java共用的语言，这也是我为什么要选择Groovy作为JVM脚本语言入门的最大的理由（最为对比，另一个是Scala），他的语法和Java很像，本来用Java实现的逻辑可以用Groovy更简短的语句实现。Groovy和Java之间的相互调用也是很方便的。</p>
+
+<p>希望在自己接触的项目中可以很快用上Groovy。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[设计模式学习笔记]油漆工模式]]></title>
+    <link href="http://cnhalo.com/blog/2014/08/16/design-pattern-decorator/"/>
+    <updated>2014-08-16T19:17:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2014/08/16/design-pattern-decorator</id>
+    <content type="html"><![CDATA[<h1>设计模式之Decorator(油漆工)</h1>
+
+<p>文章转自 <a href="http://www.jdon.com">解道</a></p>
+
+<p>查看 <a href="https://github.com/henryhuang/designpatterns/tree/master/src/cnhalo/twoa/designpatterns/structure/decorator">代码</a></p>
+
+<p>装饰模式:Decorator常被翻译成&#8221;装饰&#8221;,我觉得翻译成&#8221;油漆工&#8221;更形象点,油漆工(decorator)是用来刷油漆的,那么被刷油漆的对象我们称decoratee.这两种实体在Decorator模式中是必须的.</p>
+
+<h3>Decorator定义:</h3>
+
+<p>动态给一个对象添加一些额外的职责,就象在墙上刷油漆.使用Decorator模式相比用生成子类方式达到功能的扩充显得更为灵活.</p>
+
+<!-- more -->
+
+
+<h3>为什么使用Decorator?</h3>
+
+<p>我们通常可以使用继承来实现功能的拓展,如果这些需要拓展的功能的种类很繁多,那么势必生成很多子类,增加系统的复杂性,同时,使用继承实现功能拓展,我们必须可预见这些拓展功能,这些功能是编译时就确定了,是静态的.
+使用Decorator的理由是:这些功能需要由用户动态决定加入的方式和时机.Decorator提供了&#8221;即插即用&#8221;的方法,在运行期间决定何时增加何种功能.</p>
+
+<h3>如何使用?</h3>
+
+<p>举Adapter中的打桩示例,在Adapter中有两种类:方形桩 圆形桩,Adapter模式展示如何综合使用这两个类,在Decorator模式中,我们是要在打桩时增加一些额外功能,比如,挖坑 在桩上钉木板等,不关心如何使用两个不相关的类.</p>
+
+<p>我们先建立一个接口:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/**
+</span><span class='line'> *
+</span><span class='line'> *
+</span><span class='line'> * @author    HuangYijie
+</span><span class='line'> * @date  2014年8月6日 下午1:42:20
+</span><span class='line'> * 
+</span><span class='line'> */
+</span><span class='line'>public interface Work {
+</span><span class='line'>
+</span><span class='line'>  public void insert();
+</span><span class='line'>  
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>接口Work有一个具体实现:插入方形桩或圆形桩,这两个区别对Decorator是无所谓.我们以插入方形桩为例:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/**
+</span><span class='line'> *
+</span><span class='line'> *
+</span><span class='line'> * @author    HuangYijie
+</span><span class='line'> * @date  2014年8月6日 下午1:42:34
+</span><span class='line'> * 
+</span><span class='line'> */
+</span><span class='line'>public class SquarePeg implements Work {
+</span><span class='line'>
+</span><span class='line'>  @Override
+</span><span class='line'>  public void insert() {
+</span><span class='line'>      System.out.println("方形桩插入");
+</span><span class='line'>  }
+</span><span class='line'>
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>现在有一个应用:需要在桩打入前,挖坑,在打入后,在桩上钉木板,这些额外的功能是动态,可能随意增加调整修改,比如,可能又需要在打桩之后钉架子(只是比喻).</p>
+
+<p>那么我们使用Decorator模式,这里方形桩SquarePeg是decoratee(被刷油漆者),我们需要在decoratee上刷些&#8221;油漆&#8221;,这些油漆就是那些额外的功能.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/**
+</span><span class='line'> *
+</span><span class='line'> *
+</span><span class='line'> * @author    HuangYijie
+</span><span class='line'> * @date  2014年8月6日 下午1:42:47
+</span><span class='line'> * 
+</span><span class='line'> */
+</span><span class='line'>public class Decorator implements Work{
+</span><span class='line'>  
+</span><span class='line'>  private Work work;
+</span><span class='line'>  
+</span><span class='line'>  // 额外增加的功能被打包在List中
+</span><span class='line'>  private List&lt;String&gt; others = new ArrayList&lt;String&gt;();
+</span><span class='line'>  
+</span><span class='line'>  // 在构造器中使用组合new方式，引入Work对象
+</span><span class='line'>  public Decorator(Work work) {
+</span><span class='line'>      this.work = work;
+</span><span class='line'>      others.add("挖坑");
+</span><span class='line'>      others.add("钉木板");
+</span><span class='line'>  }
+</span><span class='line'>  
+</span><span class='line'>  @Override
+</span><span class='line'>  public void insert() {
+</span><span class='line'>      newMethod();
+</span><span class='line'>  }
+</span><span class='line'>
+</span><span class='line'>  //在新方法中，在insert之前增加其他方法，这里次序先后由用户灵活指定
+</span><span class='line'>  public void newMethod() {
+</span><span class='line'>      otherMethod();
+</span><span class='line'>      work.insert();
+</span><span class='line'>  }
+</span><span class='line'>  
+</span><span class='line'>  public void otherMethod() {
+</span><span class='line'>      ListIterator&lt;String&gt; iterator = others.listIterator();
+</span><span class='line'>      while (iterator.hasNext()) {
+</span><span class='line'>          System.out.println(iterator.next());
+</span><span class='line'>      }
+</span><span class='line'>  }
+</span><span class='line'>  
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在上例中,我们把挖坑和钉木板都排在了打桩insert前面,这里只是举例说明额外功能次序可以任意安排.</p>
+
+<p>好了,Decorator模式出来了,我们看如何调用:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/**
+</span><span class='line'> *
+</span><span class='line'> *
+</span><span class='line'> * @author    HuangYijie
+</span><span class='line'> * @date  2014年8月6日 下午2:21:25
+</span><span class='line'> * 
+</span><span class='line'> */
+</span><span class='line'>public class Main {
+</span><span class='line'>
+</span><span class='line'>  public static void main(String[] args) {
+</span><span class='line'>      
+</span><span class='line'>      Work squrePeg = new SquarePeg();
+</span><span class='line'>      Work decorator = new Decorator(squrePeg);
+</span><span class='line'>      decorator.insert();
+</span><span class='line'>      
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Decorator模式至此完成.</p>
+
+<p>如果你细心,会发现,上面调用类似我们读取文件时的调用:</p>
+
+<p>FileReader fr = new FileReader(filename);
+BufferedReader br = new BufferedReader(fr);</p>
+
+<p>实际上Java 的I/O API就是使用Decorator实现的,I/O变种很多,如果都采取继承方法,将会产生很多子类,显然相当繁琐.</p>
+
+<h3>Jive中的Decorator实现</h3>
+
+<p>在论坛系统中,有些特别的字是不能出现在论坛中如&#8221;打倒XXX&#8221;,我们需要过滤这些&#8221;反动&#8221;的字体.不让他们出现或者高亮度显示.</p>
+
+<p>在IBM Java专栏中专门谈Jive的文章中,有谈及Jive中ForumMessageFilter.java使用了Decorator模式,其实,该程序并没有真正使用Decorator,而是提示说:针对特别论坛可以设计额外增加的过滤功能,那么就可以重组ForumMessageFilter作为Decorator模式了.</p>
+
+<p>所以,我们在分辨是否真正是Decorator模式,以及会真正使用Decorator模式,一定要把握好Decorator模式的定义,以及其中参与的角色(Decoratee 和Decorator).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[跑步]]></title>
+    <link href="http://cnhalo.com/blog/2014/05/18/running/"/>
+    <updated>2014-05-18T22:57:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2014/05/18/running</id>
+    <content type="html"><![CDATA[<p>俗话说得好：五月不减肥，六月徒伤悲，七月徒伤悲，八月徒伤悲。。。</p>
+
+<p>在今年过完春节，就给自己下了今年的一个目标，减肥，减到正常体重。说到减肥，或许对于很多人来说首先想到的就是从吃下手，少吃，甚至不吃，对此我表示很荒谬，从吃这里下手，是可以达到目的，但是反弹很容易的，稍微不注意就会多吃，然后就反弹，再者就没动力了。</p>
+
+<p>但是，不从吃下手，不代表可以随便吃，要吃热量低的，每当一个东西要入口的时候，都要注意这货进嘴以后我所要付出的代价，要多跑多远？</p>
+
+<h3>一日三餐</h3>
+
+<p>在吃这里，我给自己一日三餐基本如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>早饭：首先要进肚子半瓶矿泉水（一瓶是550ml那种），然后吃苏打饼干（这货很省钱）
+</span><span class='line'>午饭：米饭（我都会对着阿姨说：少打一点），半荤一份，素菜两份（我把西红柿炒鸡蛋也算是素材）
+</span><span class='line'>晚饭：米饭（依旧少打），素菜三份，汤一份（白送的，但是我认为应该不会有什么）
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以上我会先吃了菜，吃到一半再吃米饭，因为我想先填下肚子，这样吃到最后，我都会（或者说是象征性地）留下一点米饭，毕竟想到多个两三口饭要多跑一点路，就不爽，对此我表示对不起农民伯伯。</p>
+
+<p>饮食要养成吃好的习惯，但饮食只是第一步，最重要的是有氧运动。</p>
+
+<h3>有氧运动的定义</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>有氧运动是指人体在氧气充分供应的情况下进行的体育锻炼。
+</span><span class='line'>即在运动过程中，人体吸入的氧气与需求相等，达到生理上的平衡状态。
+</span><span class='line'>简单来说，有氧运动是指任何富韵律性的运动，其运动时间较长（约15分钟或以上），
+</span><span class='line'>运动强度在中等或中上的程度(最大心率之75%至85%)。
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>我没有很迫切地想瘦下来，因为我的目标是今年之内减下来。</p>
+
+<p>刚开始每天跑步30-40分钟，后来减少到每周跑3次，然后到现在竟然不跑了（惰性啊），但是饮食绝对需要控制，多吃素菜。</p>
+
+<p>截止2014年6月22日，还没恢复跑步。</p>
+
+<p>（待续）</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mac下Eclipse快捷键]]></title>
+    <link href="http://cnhalo.com/blog/2014/04/05/shortcuts-of-eclipse-on-mac/"/>
+    <updated>2014-04-05T21:29:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2014/04/05/shortcuts-of-eclipse-on-mac</id>
+    <content type="html"><![CDATA[<p>实在是记不住，虽然windows下的和mac下的差不多，但是还是有那么点区别。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Command + O：显示大纲
+</span><span class='line'>Command + 1：快速修复
+</span><span class='line'>Command + D：删除当前行
+</span><span class='line'>Command + Option + ↓：复制当前行到下一行
+</span><span class='line'>Command + Option + ↑：复制当前行到上一行
+</span><span class='line'>Option + ↓：当前行和下面一行交互位置
+</span><span class='line'>Option + ↑：当前行和上面一行交互位置
+</span><span class='line'>Option + ←：前一个编辑的页面
+</span><span class='line'>Option + →：下一个编辑的页面
+</span><span class='line'>Option + Return：显示当前选择资源的属性
+</span><span class='line'>Shift + Return：在当前行的下一行插入空行
+</span><span class='line'>Shift + Control + Return：在当前行插入空行
+</span><span class='line'>Control + Q：定位到最后编辑的地方
+</span><span class='line'>Control + M：最大化当前的Edit或View（再按则最小化）
+</span><span class='line'>Control + /：注释当前行，再按则取消注释
+</span><span class='line'>Command + T：快速显示当前类的继承结构
+</span><span class='line'>Command + W：关闭当前Editer
+</span><span class='line'>Command + K：参照当前选中的Word快速定位到下一个
+</span><span class='line'>Command + E：快速显示当前Editer的下拉列表（如果当前页面没有显示的用黑体表示）
+</span><span class='line'>Option + /：代码助手完成一些代码的插入（俗称“智能提示”）
+</span><span class='line'>Command + Shift + E：显示管理当前打开的所有的View的管理器
+</span><span class='line'>Command + J：正向增量查找（按下Command + J后，你所输入的每个字母编辑器都提供快速匹配定位到某个单词，如果没有，则在Stutes Line中显示没有找到了）
+</span><span class='line'>Command + Shift + J：反向增量查找
+</span><span class='line'>Command + Shift + W：关闭所有打开的Editer
+</span><span class='line'>Command + Shift + X：把当前选中的文本全部变为大写
+</span><span class='line'>Command + Shift + Y：把当前选中的文本全部变为小写
+</span><span class='line'>Command + Shift + F：格式化当前代码
+</span><span class='line'>Command + Shift + P：定位到对于的匹配符（譬如{}）（从前面定位后面时，光标要在匹配符里面，后面到前面，则反之）
+</span><span class='line'>Option + Command + R：重命名（尤其是变量和类的Rename效果比较明显）
+</span><span class='line'>Option + Shift + M：抽取方法（这是重构里面最常用的方法之一了，尤其是对一大堆泥团代码有用）
+</span><span class='line'>Option + Command + C：修改函数结构（有N个函数调用了这个方法，修改一次就搞定）
+</span><span class='line'>Option + Command + L：抽取本地变量（可以直接把一些魔法数字和字符串抽取成一个变量，尤其是多处调用的时候）
+</span><span class='line'>Option + Shift + F：把Class中的Local变量变为Field变量（比较实用的功能）
+</span><span class='line'>Option + Command + Z：重构的后悔药（Undo）</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JAVA对象equals的技巧]]></title>
+    <link href="http://cnhalo.com/blog/2013/12/06/java-object-equals/"/>
+    <updated>2013-12-06T21:40:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/12/06/java-object-equals</id>
+    <content type="html"><![CDATA[<h3>1.   测试</h3>
+
+<p>又一次在写代码，突然想到这么个问题：java里的equals比较对象的顺序不同会有什么不同的效果？于是乎写了以下测试代码：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * cnhalo.mrhuang.equalstest.Main &lt;TODO&gt;</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * @author   huangyijie</span>
+</span><span class='line'><span class="cm"> * @date 2013年12月6日 下午9:33:33</span>
+</span><span class='line'><span class="cm"> * </span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="n">TestObject</span> <span class="n">a1</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span><span class='line'>      <span class="n">TestObject</span> <span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TestObject</span><span class="o">();</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="n">test1</span><span class="o">(</span><span class="n">a1</span><span class="o">,</span> <span class="n">a2</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">test2</span><span class="o">(</span><span class="n">a1</span><span class="o">,</span> <span class="n">a2</span><span class="o">);</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test1</span><span class="o">(</span><span class="n">TestObject</span> <span class="n">a1</span><span class="o">,</span> <span class="n">TestObject</span> <span class="n">a2</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="k">try</span> <span class="o">{</span>
+</span><span class='line'>          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;test1:&quot;</span> <span class="o">+</span> <span class="n">a1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">a2</span><span class="o">));</span>
+</span><span class='line'>      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>          <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+</span><span class='line'>      <span class="o">}</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test2</span><span class="o">(</span><span class="n">TestObject</span> <span class="n">a1</span><span class="o">,</span> <span class="n">TestObject</span> <span class="n">a2</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">try</span> <span class="o">{</span>
+</span><span class='line'>          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;test2:&quot;</span> <span class="o">+</span> <span class="n">a2</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">a1</span><span class="o">));</span>
+</span><span class='line'>      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>          <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+</span><span class='line'>      <span class="o">}</span>
+</span><span class='line'>      
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">class</span> <span class="nc">TestObject</span> <span class="o">{</span>
+</span><span class='line'>  
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>2.   分析</h3>
+
+<p>在test1中抛出java.lang.NullPointerException异常，而test2打印出false，对于test2的情况，查看源码的注释可以知道：</p>
+
+<pre><code>For any non-null reference value x, x.equals(null) should return false.
+</code></pre>
+
+<p>而对于空指针异常：</p>
+
+<p>引发空指针异常，往往是在获取对象实例地址的时候，由于获取的对象实例并不存在，因此返回的地址为null，而又没进行判断，直接使用了该对象实例（地址）引发的。</p>
+
+<h3>3.   总结</h3>
+
+<p>因此，这是一个技巧了，为了避免空指针异常，我们在对对象进行比较的时候，得把常量或者我们认为不会有null的值放在前面： &#8220;constant&#8221;.equals(&#8220;object&#8221;);</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MAC下JDK版本的切换]]></title>
+    <link href="http://cnhalo.com/blog/2013/12/02/jdk-version-switch-in-mac/"/>
+    <updated>2013-12-02T19:31:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/12/02/jdk-version-switch-in-mac</id>
+    <content type="html"><![CDATA[<p>原来系统里安装的是1.6的，这是最后一个由提供的jdk，1.7开始Oracle提供mac平台的jdk了。</p>
+
+<p>现在安装了1.7的，觉得需要进行多个版本的切换，以下是方法：</p>
+
+<h3>临时更改版本（单会话有效）</h3>
+
+<p>首先运行：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>/usr/libexec/java_home
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>可以知道当前环境的JAVA_HOME是：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这是1.7的JAVA_HOME，我们可以使用 -v 标识来获取1.6的JAVA_HOME</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>/usr/libexec/java_home -v <span class="s1">&#39;1.6*&#39;</span>
+</span><span class='line'>
+</span><span class='line'>/Library/Java/JavaVirtualMachines/1.6.0_65-b14-462.jdk/Contents/Home
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后我们可以手动地设置JAVA_HOME</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">JAVA_HOME</span><span class="o">=</span><span class="sb">`</span>/usr/libexec/java_home -v <span class="s1">&#39;1.6*&#39;</span><span class="sb">`</span>
+</span><span class='line'>
+</span><span class='line'>java -version
+</span><span class='line'>
+</span><span class='line'>java version <span class="s2">&quot;1.6.0_65&quot;</span>
+</span><span class='line'>Java<span class="o">(</span>TM<span class="o">)</span> SE Runtime Environment <span class="o">(</span>build 1.6.0_65-b14-462-11M4609<span class="o">)</span>
+</span><span class='line'>Java HotSpot<span class="o">(</span>TM<span class="o">)</span> 64-Bit Server VM <span class="o">(</span>build 20.65-b04-462, mixed mode<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>所有会话生效</h3>
+
+<p>以上只是在一个终端会话中临时设置的，如果要运用到所有的会话中，则需要在.bash_profile中写入：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">JAVA_HOME</span><span class="o">=</span><span class="sb">`</span>/usr/libexec/java_home -v <span class="s1">&#39;1.6*&#39;</span><span class="sb">`</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后运行</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">source</span> ~/.bash_profile
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Java使用反射设置值]]></title>
+    <link href="http://cnhalo.com/blog/2013/11/25/java-reflect-set-value/"/>
+    <updated>2013-11-25T17:37:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/11/25/java-reflect-set-value</id>
+    <content type="html"><![CDATA[<p>今天敲代码，遇到个问题，需要实现一个方法：给一个类的成员变量设置值，数字类型的设置为0，布尔类型的设置为false，其他设置为null，变量不知道是什么类型的。</p>
+
+<p>这里面有几个要点：</p>
+
+<ul>
+<li>给变量设值</li>
+<li>区分变量是什么类型（数字，布尔或其他）</li>
+<li>基本类型的处理情况</li>
+</ul>
+
+
+<!-- more -->
+
+
+<h3>1. 给变量设值</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Field</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">,</span> <span class="n">Object</span> <span class="n">value</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>2. 区分变量是什么类型（数字，布尔或其他）</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'> <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">clazz</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="na">getType</span><span class="o">();</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">// 判断是否是数字的, 查看java源码可以知道基本类型里面除了char和boolean，其他的都是  // java.lang。Number 的子类</span>
+</span><span class='line'>  <span class="k">if</span><span class="o">(</span><span class="n">Number</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="n">type</span><span class="o">))</span>
+</span><span class='line'>      <span class="n">field</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">cfg</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+</span><span class='line'>  <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">Boolean</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="n">type</span><span class="o">))</span>
+</span><span class='line'>      <span class="n">field</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">cfg</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>      <span class="n">field</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">cfg</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span><span class='line'>  
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Class.isAssignableFrom(Class&lt;?> cls)查看源码，得知：</p>
+
+<pre><code>判定此 Class 对象所表示的类或接口与指定的 Class 参数所表示的类或接口是否相同，或是否是其超类或超接口。如果是则返回 true；否则返回 false。如果该 Class 表示一个基本类型，且指定的 Class 参数正是该 Class 对象，则该方法返回 true；否则返回 false。 
+
+特别地，通过身份转换或扩展引用转换，此方法能测试指定 Class 参数所表示的类型能否转换为此 Class 对象所表示的类型。有关详细信息，请参阅 Java Language Specification 的第 5.1.1 和 5.1.4 节。 
+
+
+参数：
+cls - 要检查的 Class 对象 
+返回：
+表明 cls 类型的对象能否赋予此类对象的 boolean 值 
+抛出： 
+NullPointerException - 如果指定的 Class 参数为 null。
+</code></pre>
+
+<h3>3. 基本类型的处理情况</h3>
+
+<p>使用 Class.isAssignableFrom，并不能处理基本类型的情况，找来找去，并没有发现相关的方法，所以就自己写了个方法，来转换基本类型和包装类：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'> <span class="kd">private</span> <span class="kd">static</span> <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">getWrapperClass</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">primitiveClass</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">if</span><span class="o">(!</span><span class="n">primitiveClass</span><span class="o">.</span><span class="na">isPrimitive</span><span class="o">())</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">primitiveClass</span><span class="o">;</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="k">if</span><span class="o">(</span><span class="n">primitiveClass</span> <span class="o">==</span> <span class="n">Boolean</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">Boolean</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">primitiveClass</span> <span class="o">==</span> <span class="n">Character</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">Character</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">primitiveClass</span> <span class="o">==</span> <span class="n">Byte</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">Byte</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">primitiveClass</span> <span class="o">==</span> <span class="n">Short</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">Short</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">primitiveClass</span> <span class="o">==</span> <span class="n">Integer</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">primitiveClass</span> <span class="o">==</span> <span class="n">Long</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">Long</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">primitiveClass</span> <span class="o">==</span> <span class="n">Float</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">Float</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">primitiveClass</span> <span class="o">==</span> <span class="n">Double</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">Double</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">else</span> <span class="k">return</span> <span class="n">Void</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+</span><span class='line'>      
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>  
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样，在获取到Field的类型（Field.getType()）后，可以根据Class.isPrimitive()来判断是不是基本类型，然后再使用此方法进行转换</p>
+
+<h3>4. 完整示例</h3>
+
+<p>以上是关键点的代码，下面是具体的代码实现：</p>
+
+<p>Config.class</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * cnhalo.mrhuang.field.Config &lt;示例&gt;</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * @author   huangyijie</span>
+</span><span class='line'><span class="cm"> * @date 2013年11月25日 下午3:35:57</span>
+</span><span class='line'><span class="cm"> * </span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Config</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">double</span> <span class="n">doubleVar</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">;</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="n">Integer</span> <span class="n">integerWrapperVar</span> <span class="o">=</span> <span class="mi">14</span><span class="o">;</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="n">String</span> <span class="n">stringVar</span> <span class="o">=</span> <span class="s">&quot;stringVar&quot;</span><span class="o">;</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">boolean</span> <span class="n">booleanVar</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="n">Config</span> <span class="n">instance</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Config</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">if</span><span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span>
+</span><span class='line'>          <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Config</span><span class="o">();</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="cm">/**</span>
+</span><span class='line'><span class="cm">  * Config. &lt;说明&gt;</span>
+</span><span class='line'><span class="cm">  *</span>
+</span><span class='line'><span class="cm">  */</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="nf">Config</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">doubleVar</span> <span class="o">+</span> <span class="s">&quot;, &quot;</span> <span class="o">+</span> <span class="n">integerWrapperVar</span> <span class="o">+</span> <span class="s">&quot;, &quot;</span> <span class="o">+</span> <span class="n">stringVar</span> <span class="o">+</span> <span class="s">&quot;, &quot;</span> <span class="o">+</span> <span class="n">booleanVar</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>  
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Main.class</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * cnhalo.mrhuang.field.Main &lt;示例&gt;</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * @author   huangyijie</span>
+</span><span class='line'><span class="cm"> * @date 2013年11月25日 下午3:35:04</span>
+</span><span class='line'><span class="cm"> * </span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="cm">/**</span>
+</span><span class='line'><span class="cm">  * </span>
+</span><span class='line'><span class="cm">  * main: 实现的功能： &lt;br&gt;</span>
+</span><span class='line'><span class="cm">  * </span>
+</span><span class='line'><span class="cm">  * 给一个类的成员变量设置值，数字类型的设置为0，布尔类型的设置为false，其他设置为null，变量不知道是什么类型的 &lt;br&gt;</span>
+</span><span class='line'><span class="cm">  *</span>
+</span><span class='line'><span class="cm">  * @param args</span>
+</span><span class='line'><span class="cm">  * @throws SecurityException</span>
+</span><span class='line'><span class="cm">  * @throws NoSuchFieldException</span>
+</span><span class='line'><span class="cm">  * @throws IllegalArgumentException</span>
+</span><span class='line'><span class="cm">  * @throws IllegalAccessException</span>
+</span><span class='line'><span class="cm">  */</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">SecurityException</span><span class="o">,</span> <span class="n">NoSuchFieldException</span><span class="o">,</span> <span class="n">IllegalArgumentException</span><span class="o">,</span> <span class="n">IllegalAccessException</span> <span class="o">{</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="n">Config</span> <span class="n">cfg</span> <span class="o">=</span> <span class="n">Config</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+</span><span class='line'>      <span class="c1">// 打印一下初始值</span>
+</span><span class='line'>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cfg</span><span class="o">);</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="n">Field</span><span class="o">[]</span> <span class="n">fields</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getFields</span><span class="o">();</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="k">for</span><span class="o">(</span><span class="n">Field</span> <span class="n">field</span> <span class="o">:</span> <span class="n">fields</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>          <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">clazz</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="na">getType</span><span class="o">();</span>
+</span><span class='line'>          <span class="c1">// 如果是基本类型</span>
+</span><span class='line'>          <span class="k">if</span><span class="o">(</span><span class="n">clazz</span><span class="o">.</span><span class="na">isPrimitive</span><span class="o">())</span>
+</span><span class='line'>              <span class="c1">// 转换为包装类</span>
+</span><span class='line'>              <span class="n">clazz</span> <span class="o">=</span> <span class="n">getWrapperClass</span><span class="o">(</span><span class="n">clazz</span><span class="o">);</span>
+</span><span class='line'>          <span class="c1">// 判断为数字类型</span>
+</span><span class='line'>          <span class="k">if</span><span class="o">(</span><span class="n">Number</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="n">clazz</span><span class="o">))</span>
+</span><span class='line'>              <span class="n">field</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">cfg</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+</span><span class='line'>          <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">Boolean</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="n">clazz</span><span class="o">))</span>
+</span><span class='line'>              <span class="n">field</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">cfg</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+</span><span class='line'>          <span class="k">else</span>
+</span><span class='line'>              <span class="n">field</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">cfg</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span><span class='line'>      <span class="o">}</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">// 打印一下修改后的值</span>
+</span><span class='line'>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cfg</span><span class="o">);</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="cm">/**</span>
+</span><span class='line'><span class="cm">  * </span>
+</span><span class='line'><span class="cm">  * getWrapperClass: 将基本类型转换为包装类 &lt;br&gt;</span>
+</span><span class='line'><span class="cm">  * </span>
+</span><span class='line'><span class="cm">  * 我暂时找不到java中相关的方法，如果有的话可以替换，现在先自己写一个 &lt;br&gt;</span>
+</span><span class='line'><span class="cm">  *</span>
+</span><span class='line'><span class="cm">  * @param primitiveClass</span>
+</span><span class='line'><span class="cm">  * @return</span>
+</span><span class='line'><span class="cm">  */</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">getWrapperClass</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">primitiveClass</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">if</span><span class="o">(!</span><span class="n">primitiveClass</span><span class="o">.</span><span class="na">isPrimitive</span><span class="o">())</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">primitiveClass</span><span class="o">;</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="k">if</span><span class="o">(</span><span class="n">primitiveClass</span> <span class="o">==</span> <span class="n">Boolean</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">Boolean</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">primitiveClass</span> <span class="o">==</span> <span class="n">Character</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">Character</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">primitiveClass</span> <span class="o">==</span> <span class="n">Byte</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">Byte</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">primitiveClass</span> <span class="o">==</span> <span class="n">Short</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">Short</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">primitiveClass</span> <span class="o">==</span> <span class="n">Integer</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">primitiveClass</span> <span class="o">==</span> <span class="n">Long</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">Long</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">primitiveClass</span> <span class="o">==</span> <span class="n">Float</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">Float</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">primitiveClass</span> <span class="o">==</span> <span class="n">Double</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">Double</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">else</span> <span class="k">return</span> <span class="n">Void</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+</span><span class='line'>      
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>5. 相关扩展</h3>
+
+<h4>5.1 [转]Java中判断字符串是否为数字的三种方法</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="c1">// 用JAVA自带的函数</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isNumeric</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">){</span>
+</span><span class='line'>  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">();--</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">;){</span>
+</span><span class='line'>   <span class="k">if</span> <span class="o">(!</span><span class="n">Character</span><span class="o">.</span><span class="na">isDigit</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">))){</span>
+</span><span class='line'>    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span><span class='line'>   <span class="o">}</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>  <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+</span><span class='line'> <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// 用正则表达式</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isNumeric</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">){</span>
+</span><span class='line'>    <span class="n">Pattern</span> <span class="n">pattern</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="s">&quot;[0-9]*&quot;</span><span class="o">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">pattern</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">str</span><span class="o">).</span><span class="na">matches</span><span class="o">();</span>
+</span><span class='line'> <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// 用ascii码</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isNumeric</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">){</span>
+</span><span class='line'>   <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">();--</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">;){</span>
+</span><span class='line'>      <span class="kt">int</span> <span class="n">chr</span><span class="o">=</span><span class="n">str</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+</span><span class='line'>      <span class="k">if</span><span class="o">(</span><span class="n">chr</span><span class="o">&lt;</span><span class="mi">48</span> <span class="o">||</span> <span class="n">chr</span><span class="o">&gt;</span><span class="mi">57</span><span class="o">)</span>
+</span><span class='line'>         <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span><span class='line'>   <span class="o">}</span>
+</span><span class='line'>   <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[VIM对于文件字符编码的转换]]></title>
+    <link href="http://cnhalo.com/blog/2013/11/18/vim-encoding-convert/"/>
+    <updated>2013-11-18T16:29:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/11/18/vim-encoding-convert</id>
+    <content type="html"><![CDATA[<h3>使用vim自己的方式</h3>
+
+<h4>fenc, enc</h4>
+
+<p>在Vim中输入:set fenc=编码  即可将文档的编码转换为相应的编码格式,这是只需要保存文档,文档的编码就变了。</p>
+
+<p>如果在Vim中输入:set enc=编码  即可改变Vim的显示编码,这是就可以看到文档中的乱码了,不过这是即使对文档做了修改并保存,文档仍旧以之前的文档编码保存。</p>
+
+<!-- more -->
+
+
+<h4>fileencoding</h4>
+
+<p>Vim中输入:set fileencoding=编码</p>
+
+<h3>使用iconv</h3>
+
+<p>iconv命令用于转换指定文件的编码,默认输出到标准输出设备,亦可指定输出文件。</p>
+
+<h4>用法</h4>
+
+<p>iconv [选项&#8230;] [文件&#8230;]</p>
+
+<h4>参数</h4>
+
+<ul>
+<li><p>输入/输出格式规范：</p>
+
+<p>  -f, &#8211;from-code=名称 原始文本编码</p>
+
+<p>  -t, &#8211;to-code=名称 输出编码</p></li>
+<li><p>信息：</p>
+
+<p>  -l, &#8211;list 列举所有已知的字符集</p></li>
+<li><p>输出控制：</p>
+
+<p>  -c 从输出中忽略无效的字符</p>
+
+<p>  -o, &#8211;output=FILE 输出文件</p>
+
+<p>  -s, &#8211;silent 关闭警告</p>
+
+<p>  &#8211;verbose 打印进度信息</p></li>
+<li><p>其他：</p>
+
+<p>  -?, &#8211;help 给出该系统求助列表</p>
+
+<p>  &#8211;usage 给出简要的用法信息</p>
+
+<p>  -V, &#8211;version 打印程序版本号</p></li>
+</ul>
+
+
+<h4>示例</h4>
+
+<p>iconv -f utf-8 -t gb2312 filebackupscheme.ini > filebackupscheme2.ini</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Java中使用Markdown]]></title>
+    <link href="http://cnhalo.com/blog/2013/11/16/java-markdown-lib/"/>
+    <updated>2013-11-16T00:39:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/11/16/java-markdown-lib</id>
+    <content type="html"><![CDATA[<p>由于需要将输入的markdown内容转换成html，所以找到了这个包：<a href="http://markdown.tautua.org/">MarkdownPapers</a></p>
+
+<p>Maven依赖：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;groupId&gt;</span>org.tautua.markdownpapers<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;artifactId&gt;</span>markdownpapers-core<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;version&gt;</span>${use latest}<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/dependency&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用起来非常简单：</p>
+
+<figure class='code'><figcaption><span>示例</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Reader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="s">&quot;in.md&quot;</span><span class="o">);</span>
+</span><span class='line'><span class="n">Writer</span> <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileWriter</span><span class="o">(</span><span class="s">&quot;out.html&quot;</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">Markdown</span> <span class="n">md</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Markdown</span><span class="o">();</span>
+</span><span class='line'><span class="n">md</span><span class="o">.</span><span class="na">transform</span><span class="o">(</span><span class="n">in</span><span class="o">,</span> <span class="n">out</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[设计模式学习笔记]观察者模式]]></title>
+    <link href="http://cnhalo.com/blog/2013/11/12/design-patterns-observer/"/>
+    <updated>2013-11-12T22:41:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/11/12/design-patterns-observer</id>
+    <content type="html"><![CDATA[<h3>1. 模式定义</h3>
+
+<p>观察者模式（Observer Pattern）也叫做发布订阅模式（Publish/subscribe），它使一个在项目中经常使用的模式。</p>
+
+<h3>2. 模式各角色</h3>
+
+<p><strong>Subject被观察者</strong>：定义被观察者必须实现的职责，它必须能够动态地增加、取消观察者。它一般是抽象类或者是实现类，仅仅完成作为被观察者必须实现的职责：管理观察者并通知观察者。</p>
+
+<p><strong>Observer观察者</strong>：观察者接收到消息后，即进行update（更新方法）操作，对接收到的信息进行处理。</p>
+
+<p><strong>ConcreteSubject具体的被观察者</strong>：定义被观察者自己的业务逻辑，同时定义对哪些事件进行通知。</p>
+
+<p><strong>ConcreteObserver具体的观察者</strong>：每个观察在接收到消息后的处理反应是不同，各个观察者有自己的处理逻辑。</p>
+
+<h3>3. 模式类图</h3>
+
+<p><img src="http://githubimg.qiniudn.com/designpatterns/patterns_observer.png" alt="观察者模式类图" /></p>
+
+<!-- more -->
+
+
+<h3>4. 通用代码</h3>
+
+<p><strong>被观察者</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Subject</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// 定义一个观察者数组</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Observer</span><span class="o">&gt;</span> <span class="n">obsVector</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Observer</span><span class="o">&gt;();</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addObserver</span><span class="o">(</span><span class="n">Observer</span> <span class="n">observer</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">this</span><span class="o">.</span><span class="na">obsVector</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">observer</span><span class="o">);</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">// 删除一个观察者</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">delObserver</span><span class="o">(</span><span class="n">Observer</span> <span class="n">observer</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">this</span><span class="o">.</span><span class="na">obsVector</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">observer</span><span class="o">);</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">// 通知所有观察者</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">notifyObservers</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">for</span><span class="o">(</span><span class="n">Observer</span> <span class="n">observer</span> <span class="o">:</span> <span class="k">this</span><span class="o">.</span><span class="na">obsVector</span><span class="o">)</span>
+</span><span class='line'>          <span class="n">observer</span><span class="o">.</span><span class="na">update</span><span class="o">();</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>  
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>具体被观察者</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConcreteSubject</span> <span class="kd">extends</span> <span class="n">Subject</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// 具体的业务</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doSomething</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;被观察者做点啥&quot;</span><span class="o">);</span>
+</span><span class='line'>      
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>  
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>观察者</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Observer</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// 更新方法</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="o">();</span>
+</span><span class='line'>  
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>具体观察者</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConcreteObserver</span> <span class="kd">implements</span> <span class="n">Observer</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// 实现更新方法</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;接收到信息，并进行处理！&quot;</span><span class="o">);</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>场景类</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Client</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">// 创建一个被观察者</span>
+</span><span class='line'>      <span class="n">ConcreteSubject</span> <span class="n">subject</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ConcreteSubject</span><span class="o">();</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">// 定义一个观察者</span>
+</span><span class='line'>      <span class="n">Observer</span> <span class="n">observer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ConcreteObserver</span><span class="o">();</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">// 观察者观察被观察者</span>
+</span><span class='line'>      <span class="n">subject</span><span class="o">.</span><span class="na">addObserver</span><span class="o">(</span><span class="n">observer</span><span class="o">);</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">// 观察者开始活动</span>
+</span><span class='line'>      <span class="n">subject</span><span class="o">.</span><span class="na">doSomething</span><span class="o">();</span>
+</span><span class='line'>      
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以上摘自秦小波老师的《设计模式之禅》</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tomcat打开远程调试]]></title>
+    <link href="http://cnhalo.com/blog/2013/10/29/tomcat-remote-debug/"/>
+    <updated>2013-10-29T22:59:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/10/29/tomcat-remote-debug</id>
+    <content type="html"><![CDATA[<h2>配置</h2>
+
+<h3>1.   Linux下</h3>
+
+<p>在bin/startup.sh 或者 bin/catalina.sh 开头添加</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">declare</span> -x <span class="nv">CATALINA_OPTS</span><span class="o">=</span><span class="s2">&quot;-server -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8787&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>2.   Windows下</h3>
+
+<p>在bin/startup.bat 或者 bin/catalina.bat 开头添加</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bat'><span class='line'><span class="k">SET</span> <span class="nv">CATALINA_OPTS</span><span class="o">=</span>-server -Xdebug -Xnoagent -Djava.compiler<span class="o">=</span>NONE -Xrunjdwp:transport<span class="o">=</span>dt_socket<span class="p">,</span>server<span class="o">=</span>y<span class="p">,</span>suspend<span class="o">=</span>n<span class="p">,</span>address<span class="o">=</span><span class="m">8787</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>调试</h2>
+
+<p>这样启动以后，就会监听8787端口，通过IDE进行调试，这里以Eclipse示例</p>
+
+<p>依次打开Run &#8211;> Debug Configurations &#8211;> Remote Java Application &#8211;> 右键New &#8211;> 填写tomcat相关信息，端口就是8787</p>
+
+<p>这样启动tomcat后，再进行Debug后就可以了。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[LESS学习]]></title>
+    <link href="http://cnhalo.com/blog/2013/08/10/learn-less/"/>
+    <updated>2013-08-10T14:59:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/08/10/learn-less</id>
+    <content type="html"><![CDATA[<p>今天下午没事学了一下less，发现用来写样式表真是方便。</p>
+
+<h3>1. 什么是LESS</h3>
+
+<p>LESS是一种动态样式语言，属于CSS预处理语言的一种，它使用类似CSS的语法，为CSS的赋予了动态语言的特性，如变量、继承、运算、函数等，更方便CSS的编写和维护。</p>
+
+<p>LESS可以在多种语言、环境中使用，包括浏览器端、桌面客户端、服务端。</p>
+
+<p>LESS的很多特性，其实对于一个有编程思想的人来看其实很简单，在这就不列举了。</p>
+
+<p>详细的LESS学习传送门：<a href="http://www.lesscss.net/article/document.html">http://www.lesscss.net/article/document.html</a></p>
+
+<h3>2. JavaScript求值</h3>
+
+<p>最让我觉得兴奋的是，LESS可以支持JavaScript求值，想想以后写一个页面，需要由浏览器的大小来决定某个元素的大小，那是相当方便呀：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="k">@divColor</span><span class="o">:</span> <span class="nt">black</span><span class="p">;</span>
+</span><span class='line'><span class="k">@windowWidth</span><span class="o">:</span> <span class="err">`</span><span class="nt">document</span><span class="nc">.body.clientWidth</span><span class="err">`</span><span class="p">;</span>
+</span><span class='line'><span class="k">@windowHeight</span><span class="o">:</span> <span class="err">`</span><span class="nt">document</span><span class="nc">.body.clientHeight</span><span class="err">`</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.block</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">width</span><span class="o">:</span> <span class="o">@</span><span class="n">windowWidth</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">height</span><span class="o">:</span> <span class="o">@</span><span class="n">windowHeight</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="o">@</span><span class="n">divColor</span> <span class="k">solid</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>3. 注意事项</h3>
+
+<p>需要注意的是，less.js的引入需要放到文档的最后，否则会报错:SyntaxError: JavaScript evaluation error: &#8216;TypeError: document.body is null&#8217;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JAVA中判断日期是上午还是下午]]></title>
+    <link href="http://cnhalo.com/blog/2013/08/01/java-date-am-or-pm/"/>
+    <updated>2013-08-01T17:11:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/08/01/java-date-am-or-pm</id>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">GregorianCalendar</span> <span class="n">cal</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GregorianCalendar</span><span class="o">();</span>
+</span><span class='line'><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="n">cal</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">GregorianCalendar</span><span class="o">.</span><span class="na">AM_PM</span><span class="o">)</span> <span class="o">==</span> <span class="n">GregorianCalendar</span><span class="o">.</span><span class="na">PM</span><span class="o">)?</span> <span class="s">&quot;下午&quot;</span> <span class="o">:</span> <span class="s">&quot;上午&quot;</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>当然，通过GregorianCalendar.get()还可以获取更多的信息。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[macvim配置]]></title>
+    <link href="http://cnhalo.com/blog/2013/08/01/macvim-config/"/>
+    <updated>2013-08-01T17:04:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/08/01/macvim-config</id>
+    <content type="html"><![CDATA[<p>虽然我还没用，但是记下总是好的吧，这种东西网站一输如就能找到，就不放到笔记里了。</p>
+
+<!-- more -->
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+<span class='line-number'>134</span>
+<span class='line-number'>135</span>
+<span class='line-number'>136</span>
+<span class='line-number'>137</span>
+<span class='line-number'>138</span>
+<span class='line-number'>139</span>
+<span class='line-number'>140</span>
+<span class='line-number'>141</span>
+<span class='line-number'>142</span>
+<span class='line-number'>143</span>
+<span class='line-number'>144</span>
+<span class='line-number'>145</span>
+<span class='line-number'>146</span>
+<span class='line-number'>147</span>
+<span class='line-number'>148</span>
+<span class='line-number'>149</span>
+<span class='line-number'>150</span>
+<span class='line-number'>151</span>
+<span class='line-number'>152</span>
+<span class='line-number'>153</span>
+<span class='line-number'>154</span>
+<span class='line-number'>155</span>
+<span class='line-number'>156</span>
+<span class='line-number'>157</span>
+<span class='line-number'>158</span>
+<span class='line-number'>159</span>
+<span class='line-number'>160</span>
+<span class='line-number'>161</span>
+<span class='line-number'>162</span>
+<span class='line-number'>163</span>
+<span class='line-number'>164</span>
+<span class='line-number'>165</span>
+<span class='line-number'>166</span>
+<span class='line-number'>167</span>
+<span class='line-number'>168</span>
+<span class='line-number'>169</span>
+<span class='line-number'>170</span>
+<span class='line-number'>171</span>
+<span class='line-number'>172</span>
+<span class='line-number'>173</span>
+<span class='line-number'>174</span>
+<span class='line-number'>175</span>
+<span class='line-number'>176</span>
+<span class='line-number'>177</span>
+<span class='line-number'>178</span>
+<span class='line-number'>179</span>
+<span class='line-number'>180</span>
+<span class='line-number'>181</span>
+<span class='line-number'>182</span>
+<span class='line-number'>183</span>
+<span class='line-number'>184</span>
+<span class='line-number'>185</span>
+<span class='line-number'>186</span>
+<span class='line-number'>187</span>
+<span class='line-number'>188</span>
+<span class='line-number'>189</span>
+<span class='line-number'>190</span>
+<span class='line-number'>191</span>
+<span class='line-number'>192</span>
+<span class='line-number'>193</span>
+<span class='line-number'>194</span>
+<span class='line-number'>195</span>
+<span class='line-number'>196</span>
+<span class='line-number'>197</span>
+<span class='line-number'>198</span>
+<span class='line-number'>199</span>
+<span class='line-number'>200</span>
+<span class='line-number'>201</span>
+<span class='line-number'>202</span>
+<span class='line-number'>203</span>
+<span class='line-number'>204</span>
+<span class='line-number'>205</span>
+<span class='line-number'>206</span>
+<span class='line-number'>207</span>
+<span class='line-number'>208</span>
+<span class='line-number'>209</span>
+<span class='line-number'>210</span>
+<span class='line-number'>211</span>
+<span class='line-number'>212</span>
+<span class='line-number'>213</span>
+<span class='line-number'>214</span>
+<span class='line-number'>215</span>
+<span class='line-number'>216</span>
+<span class='line-number'>217</span>
+<span class='line-number'>218</span>
+<span class='line-number'>219</span>
+<span class='line-number'>220</span>
+<span class='line-number'>221</span>
+<span class='line-number'>222</span>
+<span class='line-number'>223</span>
+<span class='line-number'>224</span>
+<span class='line-number'>225</span>
+<span class='line-number'>226</span>
+<span class='line-number'>227</span>
+<span class='line-number'>228</span>
+<span class='line-number'>229</span>
+<span class='line-number'>230</span>
+<span class='line-number'>231</span>
+<span class='line-number'>232</span>
+<span class='line-number'>233</span>
+<span class='line-number'>234</span>
+<span class='line-number'>235</span>
+<span class='line-number'>236</span>
+<span class='line-number'>237</span>
+<span class='line-number'>238</span>
+<span class='line-number'>239</span>
+<span class='line-number'>240</span>
+<span class='line-number'>241</span>
+<span class='line-number'>242</span>
+<span class='line-number'>243</span>
+<span class='line-number'>244</span>
+<span class='line-number'>245</span>
+<span class='line-number'>246</span>
+<span class='line-number'>247</span>
+<span class='line-number'>248</span>
+<span class='line-number'>249</span>
+<span class='line-number'>250</span>
+<span class='line-number'>251</span>
+<span class='line-number'>252</span>
+<span class='line-number'>253</span>
+<span class='line-number'>254</span>
+<span class='line-number'>255</span>
+<span class='line-number'>256</span>
+<span class='line-number'>257</span>
+<span class='line-number'>258</span>
+<span class='line-number'>259</span>
+<span class='line-number'>260</span>
+<span class='line-number'>261</span>
+<span class='line-number'>262</span>
+<span class='line-number'>263</span>
+<span class='line-number'>264</span>
+<span class='line-number'>265</span>
+<span class='line-number'>266</span>
+<span class='line-number'>267</span>
+<span class='line-number'>268</span>
+<span class='line-number'>269</span>
+<span class='line-number'>270</span>
+<span class='line-number'>271</span>
+<span class='line-number'>272</span>
+<span class='line-number'>273</span>
+<span class='line-number'>274</span>
+<span class='line-number'>275</span>
+<span class='line-number'>276</span>
+<span class='line-number'>277</span>
+<span class='line-number'>278</span>
+<span class='line-number'>279</span>
+<span class='line-number'>280</span>
+<span class='line-number'>281</span>
+<span class='line-number'>282</span>
+<span class='line-number'>283</span>
+<span class='line-number'>284</span>
+<span class='line-number'>285</span>
+<span class='line-number'>286</span>
+<span class='line-number'>287</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="s2">&quot;设置菜单语言</span>
+</span><span class='line'><span class="s2">setlangmenu=zh_cn</span>
+</span><span class='line'><span class="s2">&quot;</span> <span class="o">=========</span>
+</span><span class='line'><span class="s2">&quot; 功能函数</span>
+</span><span class='line'><span class="s2">&quot;</span> <span class="o">=========</span>
+</span><span class='line'><span class="s2">&quot; 获取当前目录</span>
+</span><span class='line'><span class="s2">func GetPWD()</span>
+</span><span class='line'><span class="s2">returnsubstitute(getcwd(), &quot;&quot;, &quot;&quot;, &quot;</span>g<span class="s2">&quot;)</span>
+</span><span class='line'><span class="s2">endf</span>
+</span><span class='line'><span class="s2">&quot;</span> <span class="o">=========</span>
+</span><span class='line'><span class="s2">&quot; 环境配置</span>
+</span><span class='line'><span class="s2">&quot;</span> <span class="o">=========</span>
+</span><span class='line'><span class="s2">&quot; 保留历史记录</span>
+</span><span class='line'><span class="s2">sethistory=400</span>
+</span><span class='line'><span class="s2">&quot;</span> 命令行于状态行
+</span><span class='line'><span class="nv">setch</span><span class="o">=</span>1
+</span><span class='line'><span class="nv">setstl</span><span class="o">=</span><span class="se">\ </span><span class="o">[</span>File<span class="o">]</span><span class="se">\ </span>%F%m%r%h%y<span class="o">[</span>%<span class="o">{</span>&amp;fileformat<span class="o">}</span>,%<span class="o">{</span>&amp;fileencoding<span class="o">}]</span><span class="se">\ </span>%w<span class="se">\ \ </span><span class="o">[</span>PWD<span class="o">]</span><span class="se">\ </span>%r%<span class="o">{</span>GetPWD<span class="o">()}</span>%h<span class="se">\ </span>%<span class="o">=</span><span class="se">\ </span><span class="o">[</span>Line<span class="o">]</span><span class="se">\ </span>%l,%c<span class="se">\ </span>%<span class="o">=</span><span class="se">\ </span>%P
+</span><span class='line'><span class="nv">setls</span><span class="o">=</span>2 <span class="s2">&quot; 始终显示状态行</span>
+</span><span class='line'><span class="s2">&quot;</span> 制表符
+</span><span class='line'><span class="nv">settabstop</span><span class="o">=</span>4
+</span><span class='line'>setexpandtab
+</span><span class='line'>setsmarttab
+</span><span class='line'><span class="nv">setshiftwidth</span><span class="o">=</span>4
+</span><span class='line'><span class="nv">setsofttabstop</span><span class="o">=</span>4
+</span><span class='line'><span class="s2">&quot; 状态栏显示目前所执行的指令</span>
+</span><span class='line'><span class="s2">setshowcmd</span>
+</span><span class='line'><span class="s2">&quot;</span> 行控制
+</span><span class='line'>setlinebreak
+</span><span class='line'>setnocompatible
+</span><span class='line'><span class="nv">settextwidth</span><span class="o">=</span>80
+</span><span class='line'>setwrap
+</span><span class='line'><span class="s2">&quot; 行号和标尺</span>
+</span><span class='line'><span class="s2">setnumber</span>
+</span><span class='line'><span class="s2">setruler</span>
+</span><span class='line'><span class="s2">setrulerformat=%15(%c%V\ %p%%%)</span>
+</span><span class='line'><span class="s2">&quot;</span> 控制台响铃
+</span><span class='line'>:setnoerrorbells
+</span><span class='line'>:setnovisualbell
+</span><span class='line'>:sett_vb<span class="o">=</span> <span class="s2">&quot;close visual bell</span>
+</span><span class='line'><span class="s2">&quot;</span> 插入模式下使用 、
+</span><span class='line'><span class="nv">setbackspace</span><span class="o">=</span>indent,eol,start
+</span><span class='line'><span class="s2">&quot; 标签页</span>
+</span><span class='line'><span class="s2">settabpagemax=20</span>
+</span><span class='line'><span class="s2">setshowtabline=2</span>
+</span><span class='line'><span class="s2">&quot;</span> 缩进
+</span><span class='line'>setautoindent
+</span><span class='line'>setcindent
+</span><span class='line'>setsmartindent
+</span><span class='line'><span class="s2">&quot; 自动重新读入</span>
+</span><span class='line'><span class="s2">setautoread</span>
+</span><span class='line'><span class="s2">&quot;</span> 代码折叠
+</span><span class='line'><span class="nv">setfoldmethod</span><span class="o">=</span>manual
+</span><span class='line'><span class="s2">&quot;setfoldmethod=indent</span>
+</span><span class='line'><span class="s2">&quot;</span> 自动切换到文件当前目录
+</span><span class='line'>setautochdir
+</span><span class='line'><span class="s2">&quot;在查找时忽略大小写</span>
+</span><span class='line'><span class="s2">setignorecase</span>
+</span><span class='line'><span class="s2">setincsearch</span>
+</span><span class='line'><span class="s2">sethlsearch</span>
+</span><span class='line'><span class="s2">&quot;</span>显示匹配的括号
+</span><span class='line'>setshowmatch
+</span><span class='line'><span class="s2">&quot;实现全能补全功能，需要打开文件类型检测</span>
+</span><span class='line'><span class="s2">&quot;</span>filetype plugin indent on
+</span><span class='line'><span class="s2">&quot;打开vim的文件类型自动检测功能</span>
+</span><span class='line'><span class="s2">filetype on</span>
+</span><span class='line'><span class="s2">&quot;</span>在所有模式下都允许使用鼠标，还可以是n,v,i,c等
+</span><span class='line'><span class="nv">setmouse</span><span class="o">=</span>a
+</span><span class='line'><span class="s2">&quot; 恢复上次文件打开位置</span>
+</span><span class='line'><span class="s2">setviminfo=&#39;10,\&quot;100,:20,%,n~/.viminfo</span>
+</span><span class='line'><span class="s2">&quot;</span> <span class="o">=====================</span>
+</span><span class='line'><span class="s2">&quot; 多语言环境</span>
+</span><span class='line'><span class="s2">&quot;</span>    默认为 UTF-8 编码
+</span><span class='line'><span class="s2">&quot; =====================</span>
+</span><span class='line'><span class="s2">ifhas(&quot;</span>multi_byte<span class="s2">&quot;)</span>
+</span><span class='line'><span class="s2">setencoding=utf-8</span>
+</span><span class='line'><span class="s2">&quot;</span> English messages only
+</span><span class='line'><span class="s2">&quot;language messages zh_CN.utf-8</span>
+</span><span class='line'><span class="s2">ifhas(&#39;win32&#39;)</span>
+</span><span class='line'><span class="s2">language english</span>
+</span><span class='line'><span class="s2">let&amp;termencoding=&amp;encoding</span>
+</span><span class='line'><span class="s2">endif</span>
+</span><span class='line'><span class="s2">setfencs=ucs-bom,utf-8,gbk,cp936,latin1</span>
+</span><span class='line'><span class="s2">setformatoptions+=mM</span>
+</span><span class='line'><span class="s2">setnobomb &quot;</span> 不使用 Unicode 签名
+</span><span class='line'>ifv:lang <span class="o">=</span>~? <span class="s1">&#39;^\(zh\)\|\(ja\)\|\(ko\)&#39;</span>
+</span><span class='line'><span class="nv">setambiwidth</span><span class="o">=</span>double
+</span><span class='line'>endif
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>echoerr <span class="s2">&quot;Sorry, this version of (g)vim was not compiled with +multi_byte&quot;</span>
+</span><span class='line'>endif
+</span><span class='line'><span class="s2">&quot; =========</span>
+</span><span class='line'><span class="s2">&quot;</span> 图形界面
+</span><span class='line'><span class="s2">&quot; =========</span>
+</span><span class='line'><span class="s2">ifhas(&#39;gui_running&#39;)</span>
+</span><span class='line'><span class="s2">&quot;</span> 只显示菜单
+</span><span class='line'><span class="nv">setguioptions</span><span class="o">=</span>mcr
+</span><span class='line'><span class="s2">&quot; 高亮光标所在的行</span>
+</span><span class='line'><span class="s2">setcursorline</span>
+</span><span class='line'><span class="s2">&quot;</span> 编辑器配色
+</span><span class='line'><span class="s2">&quot;colorscheme zenburn</span>
+</span><span class='line'><span class="s2">&quot;</span>colorscheme dusk
+</span><span class='line'>ifhas<span class="o">(</span><span class="s2">&quot;win32&quot;</span><span class="o">)</span>
+</span><span class='line'><span class="s2">&quot; Windows 兼容配置</span>
+</span><span class='line'><span class="s2">source$VIMRUNTIME/mswin.vim</span>
+</span><span class='line'><span class="s2">&quot;</span> f11 最大化
+</span><span class='line'>nmap :call libcallnr<span class="o">(</span><span class="s1">&#39;fullscreen.dll&#39;</span>, <span class="s1">&#39;ToggleFullScreen&#39;</span>, 0<span class="o">)</span>
+</span><span class='line'>nmap ff :call libcallnr<span class="o">(</span><span class="s1">&#39;fullscreen.dll&#39;</span>, <span class="s1">&#39;ToggleFullScreen&#39;</span>, 0<span class="o">)</span>
+</span><span class='line'><span class="s2">&quot; 自动最大化窗口</span>
+</span><span class='line'><span class="s2">au GUIEnter * simalt ~x</span>
+</span><span class='line'><span class="s2">&quot;</span> 给 Win32 下的 gVim 窗口设置透明度
+</span><span class='line'>au GUIEnter * call libcallnr<span class="o">(</span><span class="s2">&quot;vimtweak.dll&quot;</span>, <span class="s2">&quot;SetAlpha&quot;</span>, 250<span class="o">)</span>
+</span><span class='line'><span class="s2">&quot; 字体配置</span>
+</span><span class='line'><span class="s2">exec&#39;set guifont=&#39;.iconv(&#39;Courier_New&#39;, &amp;enc, &#39;gbk&#39;).&#39;:h11:cANSI&#39;</span>
+</span><span class='line'><span class="s2">exec&#39;set guifontwide=&#39;.iconv(&#39;微软雅黑&#39;, &amp;enc, &#39;gbk&#39;).&#39;:h11&#39;</span>
+</span><span class='line'><span class="s2">endif</span>
+</span><span class='line'><span class="s2">ifhas(&quot;</span>unix<span class="s2">&quot;) &amp;&amp; !has(&#39;gui_macvim&#39;)</span>
+</span><span class='line'><span class="s2">setguifont=Courier\ 10\ Pitch\ 11</span>
+</span><span class='line'><span class="s2">setguifontwide=YaHei\ Consolas\ Hybrid\ 11</span>
+</span><span class='line'><span class="s2">endif</span>
+</span><span class='line'><span class="s2">ifhas(&quot;</span>gui_macvim<span class="s2">&quot;)</span>
+</span><span class='line'><span class="s2">&quot;</span> MacVim 下的字体配置
+</span><span class='line'><span class="nv">setguifont</span><span class="o">=</span>Menlo:h12
+</span><span class='line'><span class="nv">setguifontwide</span><span class="o">=</span>Hei:h12
+</span><span class='line'><span class="s2">&quot; 半透明和窗口大小</span>
+</span><span class='line'><span class="s2">settransparency=2</span>
+</span><span class='line'><span class="s2">setlines=40 columns=110</span>
+</span><span class='line'><span class="s2">&quot;</span> 使用MacVim原生的全屏幕功能
+</span><span class='line'>lets:lines<span class="o">=</span>&amp;lines
+</span><span class='line'>lets:columns<span class="o">=</span>&amp;columns
+</span><span class='line'>func! FullScreenEnter<span class="o">()</span>
+</span><span class='line'><span class="nv">setlines</span><span class="o">=</span>999 <span class="nv">columns</span><span class="o">=</span>999
+</span><span class='line'>setfu
+</span><span class='line'>endf
+</span><span class='line'>func! FullScreenLeave<span class="o">()</span>
+</span><span class='line'><span class="nb">let</span>&amp;lines<span class="o">=</span>s:lines
+</span><span class='line'><span class="nb">let</span>&amp;columns<span class="o">=</span>s:columns
+</span><span class='line'>setnofu
+</span><span class='line'>endf
+</span><span class='line'>func! FullScreenToggle<span class="o">()</span>
+</span><span class='line'><span class="k">if</span>&amp;fullscreen
+</span><span class='line'>call FullScreenLeave<span class="o">()</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>call FullScreenEnter<span class="o">()</span>
+</span><span class='line'>endif
+</span><span class='line'>endf
+</span><span class='line'><span class="s2">&quot; Mac 下，按 \\ 切换全屏</span>
+</span><span class='line'><span class="s2">nmap   :call FullScreenToggle()</span>
+</span><span class='line'><span class="s2">&quot;</span> Set input method off
+</span><span class='line'>setimdisable
+</span><span class='line'><span class="s2">&quot; Set QuickTemplatePath</span>
+</span><span class='line'><span class="s2">letguickTemplatePath = $HOME.&#39;/.vim/templates/&#39;</span>
+</span><span class='line'><span class="s2">&quot;</span> 如果为空文件，则自动设置当前目录为桌面
+</span><span class='line'>lcd ~/Desktop/
+</span><span class='line'><span class="s2">&quot; 自动切换到文件当前目录</span>
+</span><span class='line'><span class="s2">setautochdir</span>
+</span><span class='line'><span class="s2">&quot;</span> Set QuickTemplatePath
+</span><span class='line'><span class="nv">letguickTemplatePath</span> <span class="o">=</span> <span class="nv">$HOME</span>.<span class="s1">&#39;/.vim/templates/&#39;</span>
+</span><span class='line'>endif
+</span><span class='line'>endif
+</span><span class='line'><span class="s2">&quot; =========</span>
+</span><span class='line'><span class="s2">&quot;</span> 插件
+</span><span class='line'><span class="s2">&quot; =========</span>
+</span><span class='line'><span class="s2">filetype plugin indent on</span>
+</span><span class='line'><span class="s2">&quot;</span> <span class="o">=========</span>
+</span><span class='line'><span class="s2">&quot; AutoCmd</span>
+</span><span class='line'><span class="s2">&quot;</span> <span class="o">=========</span>
+</span><span class='line'>ifhas<span class="o">(</span><span class="s2">&quot;autocmd&quot;</span><span class="o">)</span>
+</span><span class='line'>filetype plugin indent on
+</span><span class='line'><span class="s2">&quot; 括号自动补全</span>
+</span><span class='line'><span class="s2">func! AutoClose()</span>
+</span><span class='line'><span class="s2">:inoremap ( ()i</span>
+</span><span class='line'><span class="s2">:inoremap &quot;</span> <span class="s2">&quot;&quot;</span>i
+</span><span class='line'>:inoremap <span class="s1">&#39; &#39;&#39;i</span>
+</span><span class='line'><span class="s1">:inoremap { {}i</span>
+</span><span class='line'><span class="s1">:inoremap [ []i</span>
+</span><span class='line'><span class="s1">:inoremap } =ClosePair(&#39;</span><span class="o">}</span><span class="s1">&#39;)</span>
+</span><span class='line'><span class="s1">:inoremap ] =ClosePair(&#39;</span><span class="o">]</span><span class="s1">&#39;)</span>
+</span><span class='line'><span class="s1">:inoremap ) =ClosePair(&#39;</span><span class="o">)</span><span class="s1">&#39;)</span>
+</span><span class='line'><span class="s1">endf</span>
+</span><span class='line'><span class="s1">func! ClosePair(char)</span>
+</span><span class='line'><span class="s1">ifgetline(&#39;</span>.<span class="s1">&#39;)[col(&#39;</span>.<span class="s1">&#39;) - 1] == a:char</span>
+</span><span class='line'><span class="s1">return&quot;\&quot;</span>
+</span><span class='line'><span class="s1">else</span>
+</span><span class='line'><span class="s1">returna:char</span>
+</span><span class='line'><span class="s1">endif</span>
+</span><span class='line'><span class="s1">endf</span>
+</span><span class='line'><span class="s1">&quot;auto close quotation marks forPHP, Javascript, etc, file</span>
+</span><span class='line'><span class="s1">au FileType php,c,python,javascript exe AutoClose()</span>
+</span><span class='line'><span class="s1">&quot; Auto Check Syntax</span>
+</span><span class='line'><span class="s1">&quot;au BufWritePost,FileWritePost *.js,*.php call CheckSyntax(1)</span>
+</span><span class='line'><span class="s1">&quot; JavaScript 语法高亮</span>
+</span><span class='line'><span class="s1">au FileType html,javascript letg:javascript_enable_domhtmlcss = 1</span>
+</span><span class='line'><span class="s1">&quot; 给 Javascript 文件添加 Dict</span>
+</span><span class='line'><span class="s1">ifhas(&#39;</span>gui_macvim<span class="s1">&#39;) || has(&#39;</span>unix<span class="s1">&#39;)</span>
+</span><span class='line'><span class="s1">au FileType javascript setlocal dict+=~/.vim/dict/javascript.dict</span>
+</span><span class='line'><span class="s1">else</span>
+</span><span class='line'><span class="s1">au FileType javascript setlocal dict+=$VIM/vimfiles/dict/javascript.dict</span>
+</span><span class='line'><span class="s1">endif</span>
+</span><span class='line'><span class="s1">&quot; 格式化 JavaScript 文件</span>
+</span><span class='line'><span class="s1">&quot;au FileType javascript map :call g:Jsbeautify()</span>
+</span><span class='line'><span class="s1">au FileType javascript setomnifunc=javascriptcomplete#CompleteJS</span>
+</span><span class='line'><span class="s1">&quot; 给 CSS 文件添加 Dict</span>
+</span><span class='line'><span class="s1">ifhas(&#39;</span>gui_macvim<span class="s1">&#39;) || has(&#39;</span>unix<span class="s1">&#39;)</span>
+</span><span class='line'><span class="s1">au FileType css setlocal dict+=~/.vim/dict/css.dict</span>
+</span><span class='line'><span class="s1">else</span>
+</span><span class='line'><span class="s1">au FileType css setlocal dict+=$VIM/vimfiles/dict/css.dict</span>
+</span><span class='line'><span class="s1">endif</span>
+</span><span class='line'><span class="s1">&quot; 增加 ActionScript 语法支持</span>
+</span><span class='line'><span class="s1">au BufNewFile,BufRead *.as setf actionscript</span>
+</span><span class='line'><span class="s1">&quot; CSS3 语法支持</span>
+</span><span class='line'><span class="s1">au BufRead,BufNewFile *.css setft=css syntax=css3</span>
+</span><span class='line'><span class="s1">&quot; 增加 Objective-C 语法支持</span>
+</span><span class='line'><span class="s1">au BufNewFile,BufRead,BufEnter,WinEnter,FileType *.m,*.h setf objc</span>
+</span><span class='line'><span class="s1">&quot; 将指定文件的换行符转换成 UNIX 格式</span>
+</span><span class='line'><span class="s1">au FileType php,javascript,html,css,python,vim,vimwiki setff=unix</span>
+</span><span class='line'><span class="s1">&quot; 保存编辑状态</span>
+</span><span class='line'><span class="s1">au BufWinLeave * ifexpand(&#39;</span>%<span class="s1">&#39;) != &#39;&#39;&amp;&amp; &amp;buftype == &#39;&#39;| mkview | endif</span>
+</span><span class='line'><span class="s1">au BufRead     * ifexpand(&#39;</span>%<span class="s1">&#39;) != &#39;&#39;&amp;&amp; &amp;buftype == &#39;&#39;| silent loadview | syntax on | endif</span>
+</span><span class='line'><span class="s1">&quot; 自动最大化窗口</span>
+</span><span class='line'><span class="s1">ifhas(&#39;</span>gui_running<span class="s1">&#39;)</span>
+</span><span class='line'><span class="s1">ifhas(&quot;win32&quot;)</span>
+</span><span class='line'><span class="s1">au GUIEnter * simalt ~x</span>
+</span><span class='line'><span class="s1">&quot;elseif has(&quot;unix&quot;)</span>
+</span><span class='line'><span class="s1">&quot;au GUIEnter * winpos 0 0</span>
+</span><span class='line'><span class="s1">&quot;setlines=999 columns=999</span>
+</span><span class='line'><span class="s1">endif</span>
+</span><span class='line'><span class="s1">endif</span>
+</span><span class='line'><span class="s1">endif</span>
+</span><span class='line'><span class="s1">&quot;acp 自动补全插件</span>
+</span><span class='line'><span class="s1">letg:AutoComplPop_Behavior = {</span>
+</span><span class='line'><span class="s1">\ &#39;</span>c<span class="s1">&#39;: [ {&#39;</span><span class="nb">command</span><span class="s1">&#39;: &quot;\\&quot;,</span>
+</span><span class='line'><span class="s1">\ &#39;</span>pattern<span class="s1">&#39;: &quot;.&quot;,</span>
+</span><span class='line'><span class="s1">\ &#39;</span>repeat<span class="s1">&#39;: 0}</span>
+</span><span class='line'><span class="s1">\ ]</span>
+</span><span class='line'><span class="s1">\}</span>
+</span><span class='line'><span class="s1">&quot; =========</span>
+</span><span class='line'><span class="s1">&quot; 快捷键</span>
+</span><span class='line'><span class="s1">&quot; =========</span>
+</span><span class='line'><span class="s1">map cal:Calendar</span>
+</span><span class='line'><span class="s1">letNERDTreeWinSize=22</span>
+</span><span class='line'><span class="s1">map ntree :NERDTree</span>
+</span><span class='line'><span class="s1">map nk :NERDTreeClose</span>
+</span><span class='line'><span class="s1">map n :NERDTreeToggle</span>
+</span><span class='line'><span class="s1">map cse :ColorSchemeExplorer</span>
+</span><span class='line'><span class="s1">&quot; 标签相关的快捷键 Ctrl</span>
+</span><span class='line'><span class="s1">map tn :tabnext</span>
+</span><span class='line'><span class="s1">map tp :tabprevious</span>
+</span><span class='line'><span class="s1">map tc :tabclose</span>
+</span><span class='line'><span class="s1">map :tabnew</span>
+</span><span class='line'><span class="s1">map :tabprevious</span>
+</span><span class='line'><span class="s1">map :tabnext</span>
+</span><span class='line'><span class="s1">map :tabclose</span>
+</span><span class='line'><span class="s1">map :tabnext</span>
+</span><span class='line'><span class="s1">&quot; 新建 XHTML 、PHP、Javascript 文件的快捷键</span>
+</span><span class='line'><span class="s1">nmap :NewQuickTemplateTab xhtml</span>
+</span><span class='line'><span class="s1">nmap :NewQuickTemplateTab php</span>
+</span><span class='line'><span class="s1">nmap :NewQuickTemplateTab javascript</span>
+</span><span class='line'><span class="s1">nmap :NewQuickTemplateTab css</span>
+</span><span class='line'><span class="s1">&quot; 在文件名上按gf时，在新的tab中打开</span>
+</span><span class='line'><span class="s1">map gf :tabnew</span>
+</span><span class='line'><span class="s1">&quot;jquery 配色</span>
+</span><span class='line'><span class="s1">au BufRead,BufNewFile *.js setsyntax=jquery</span>
+</span><span class='line'><span class="s1">&quot; jsLint forVim</span>
+</span><span class='line'><span class="s1">letg:jslint_highlight_color  = &#39;</span><span class="c">#996600&#39;</span>
+</span><span class='line'><span class="s2">&quot; 指定 jsLint 调用路径，通常不用更改</span>
+</span><span class='line'><span class="s2">letg:jslint_command = $HOME . &#39;\/.vim\/jsl\/jsl&#39;</span>
+</span><span class='line'><span class="s2">&quot;</span> 指定 jsLint 的启动参数，可以指定相应的配置文件
+</span><span class='line'>letg:jslint_command_options <span class="o">=</span> <span class="s1">&#39;-nofilelisting -nocontext -nosummary -nologo -process&#39;</span>
+</span><span class='line'><span class="s2">&quot; 返回当前时间</span>
+</span><span class='line'><span class="s2">func! GetTimeInfo()</span>
+</span><span class='line'><span class="s2">&quot;</span>returnstrftime<span class="o">(</span><span class="s1">&#39;%Y-%m-%d %A %H:%M:%S&#39;</span><span class="o">)</span>
+</span><span class='line'>returnstrftime<span class="o">(</span><span class="s1">&#39;%Y-%m-%d %H:%M:%S&#39;</span><span class="o">)</span>
+</span><span class='line'>endfunction
+</span><span class='line'><span class="s2">&quot; 插入模式按 Ctrl + D(ate) 插入当前时间</span>
+</span><span class='line'><span class="s2">imap =GetTimeInfo()</span>
+</span><span class='line'><span class="s2">&quot;</span> <span class="o">==================</span>
+</span><span class='line'><span class="s2">&quot; plugin list</span>
+</span><span class='line'><span class="s2">&quot;</span> <span class="o">==================</span>
+</span><span class='line'><span class="s2">&quot;Color Scheme Explorer</span>
+</span><span class='line'><span class="s2">&quot;</span>jsbeauty <span class="se">\f</span>f
+</span><span class='line'><span class="s2">&quot;NERDTree</span>
+</span><span class='line'><span class="s2">&quot;</span>Calendar
+</span><span class='line'><span class="s2">&quot;conquer_term</span>
+</span><span class='line'><span class="s2">&quot;</span>nerd_commenter
+</span><span class='line'><span class="err">&quot;</span>setup forC and C++
+</span><span class='line'>filetype plugin on
+</span><span class='line'>setnocp
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[怎么突然下雨了]]></title>
+    <link href="http://cnhalo.com/blog/2013/07/21/sudden-rain/"/>
+    <updated>2013-07-21T21:02:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/07/21/sudden-rain</id>
+    <content type="html"><![CDATA[<p>怎么就突然下雨了？前一阵来台风还只是刮风不下雨，估计现在是高温吸水太多了，该排掉再吸了。</p>
+
+<p><img src="http://img.cnhalo.com/u/78119169/images/20130721/sky.jpg" title="来台风那阵" alt="来台风那阵" /></p>
+
+<p>说到高温，还是有点好处的，比如最近新闻关于撞伤人的新闻基本没了，因为你想想，把人“撞倒”在地上，那地面的温度看还敢躺下不。</p>
+
+<p><img src="http://img.cnhalo.com/u/78119169/images/20130721/morning.jpg" title="早上" alt="早上" /></p>
+
+<p>好久没写博客了，前一阵子着实很忙，经历了周末加班，还是来了个通宵，那种感觉就想我初一的时候人生的第一次网吧通宵，当晚和爸妈说不回家的电话还历历在目。</p>
+
+<p>一个项目算是结束了，心里一块大石算是可以放下了，但是貌似又一个大石已经又到了心头上了？小房间搞开发还是挺安静地，不用去理会那两个电话不停地响。想想，当那丝思绪出现在脑子里的瞬间，一个电话响起那是什么感觉？</p>
+
+<p>这两天在看一本书，吉莉安.罗宾逊的《我的小探险》，讲述的是她得一些旅行的故事。我一直觉得我有一颗对于旅行蠢蠢欲动的心，但是又不怎么喜欢爬山，所以比较向往平原海边的旅行。一直想去鼓浪屿什么的，但是不知道现在这种地方商业味会不会更重了。作为一个上班族，想要安心地旅行不是件容易的事情，正常情况下能出去的一年也就那么几天，但是全中国人大部分都和我一样，也就这几天，哎，人山人海啊，所以就一直没机会去。人挤人的旅行那真的是种折磨，没必要去耗这口，旅行的目的是让人心情变好。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Eclipse创建Maven的Web工程]]></title>
+    <link href="http://cnhalo.com/blog/2013/06/29/eclipse-maven-web-project/"/>
+    <updated>2013-06-29T01:03:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/06/29/eclipse-maven-web-project</id>
+    <content type="html"><![CDATA[<p>折腾很长时间，终于弄出可以调试的了，遇到了很多问题，但是一步一步查资料，求助，终于弄出来了。</p>
+
+<p>首先，因为Eclipse更新到了4.3Kepler，所以一开始我就下的它来使用，结果里面的maven插件包括了m2e-wtp，这实在让人头疼。按照步骤也算是整出来了一个，但是，在使用Server打开的时候，却总是找不到类，找了很多解决方法也没不好解决，说是Server读的class的位置和项目的class位置不一样类似的原因，于是我想是不是因为m2e-wtp创建的项目会有所特殊，需要特别配置什么的，找资料也找不到解决的方法，于是就想着不要这个插件了，刚好有Juno版本的包，就重新安装了。</p>
+
+<p>安装Juno后，是按照这个老外的方法来创建项目的，挺详细的：
+<a href="http://fruzenshtein.com/setup-of-dynamic-web-project-using-maven/">http://fruzenshtein.com/setup-of-dynamic-web-project-using-maven/
+</a></p>
+
+<p>但是在直接右键通过Server打开的时候，遇到了包查不到，那是因为没有将Maven的依赖包放到WEB-INF/lib下，于是找到了下面这篇文章来解决：
+<a href="http://www.micmiu.com/software/build/eclipse-maven-web-lib/">http://www.micmiu.com/software/build/eclipse-maven-web-lib/</a></p>
+
+<p>最后遇到个问题，在需要执行jsp的时候，报无法解析jsp的错误，思前想后，找到原因：因为pom.xml里有依赖servlet和jsp，这两个虽然写的是部署的时候不加入，但是因为我直接将Maven的依赖放入lib下，这样就导致了冲突，所以就暂时也不将这两个相关的放到pom依赖里面了，最后成功解决。</p>
+
+<p>虽然解决了，但是这毕竟不是正确地开发需要的方式，这只是小程序可以搞搞，但是在大项目有很多很多测试的时候，要解决就必须按照Maven的结构来了，那我想m2e-wtp才真正有他的优势吧。还有在原来的pom里有servlet和jsp的依赖，是为了代码里能使用到他们，但是在部署的时候是不需要的，所以采用直接不放到依赖里显然不是真正解决的方法。</p>
+
+<p>待日后研究研究m2e-wtp。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Python配置ini，大小写敏感]]></title>
+    <link href="http://cnhalo.com/blog/2013/06/21/python-ini/"/>
+    <updated>2013-06-21T22:56:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/06/21/python-ini</id>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">ConfigParser</span><span class="o">,</span> <span class="nn">string</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">CaseSensConfigParser</span><span class="p">(</span><span class="n">ConfigParser</span><span class="o">.</span><span class="n">ConfigParser</span><span class="p">):</span>
+</span><span class='line'>    <span class="sd">&#39;&#39;&#39;</span>
+</span><span class='line'><span class="sd">    override</span>
+</span><span class='line'><span class="sd">    config option&#39;s key case sensitive</span>
+</span><span class='line'><span class="sd">    &#39;&#39;&#39;</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">optionxform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">optionstr</span><span class="p">):</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">optionstr</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+</span><span class='line'>    <span class="n">kubini</span> <span class="o">=</span> <span class="n">CaseSensConfigParser</span><span class="p">()</span>
+</span><span class='line'>    <span class="n">kubini</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;cfg.ini&#39;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">kubini</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">&#39;SessionName&#39;</span><span class="p">,</span> <span class="s">&#39;KeyName&#39;</span><span class="p">,</span> <span class="s">&#39;KeyValue&#39;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">kubini</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s">&#39;cfg.ini&#39;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Wicket使用Link加JS的Confirm]]></title>
+    <link href="http://cnhalo.com/blog/2013/06/21/wicket-link-confirm/"/>
+    <updated>2013-06-21T22:42:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/06/21/wicket-link-confirm</id>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Link</span> <span class="n">logoutLink</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Link</span><span class="o">(</span><span class="n">LOGOUT_ID</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="mi">1L</span><span class="o">;</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">getUbSession</span><span class="o">().</span><span class="na">setLogin</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">};</span>
+</span><span class='line'><span class="n">SimpleAttributeModifier</span> <span class="n">sam</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleAttributeModifier</span><span class="o">(</span>
+</span><span class='line'>    <span class="s">&quot;onclick&quot;</span><span class="o">,</span><span class="s">&quot;if(!confirm(&#39;确定退出？&#39;)) return false;&quot;</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">logoutLink</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">sam</span><span class="o">);</span>
+</span><span class='line'><span class="n">add</span><span class="o">(</span><span class="n">logoutLink</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[随便说说应用的界面]]></title>
+    <link href="http://cnhalo.com/blog/2013/06/05/say-about-app-ui-design/"/>
+    <updated>2013-06-05T00:49:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/06/05/say-about-app-ui-design</id>
+    <content type="html"><![CDATA[<p>整天拿着手机没事，当然就是安装应用来玩玩。随着应用安装多了，总能感觉到不同公司对于应用的设计理念的不同，下面就以我个人的角度，还随便说说这些感想。</p>
+
+<p>总的来说，我是比较喜欢网易的应用设计，而不是很喜欢腾讯的，甚至因为这一点，现在很少去用微信和手机QQ了，而新浪在我心目中就介于两者之间了。</p>
+
+<h1>因为Android的标准</h1>
+
+<p>我用的是魅族MX2，从一拿到手就从不后悔，不管外界对Smartbar的评价如何，我坚信这种做法是对的。我可以感受到魅族在设计的时候考虑的有多深。对于Smartbar的解释网上已经有很多文章了。</p>
+
+<p>网易的应用现在基本是按照Android的设计来，虽然在刚开始，网易新闻还是出现两排按键，但是现在不断地更新，已经体验到Smartbar真的Smart的地方了。</p>
+
+<h3>网易新闻</h3>
+
+<p><img src="http://githubimg.qiniudn.com/20130605_app_imgs/163_news.jpg" title="网易新闻" alt="网易新闻" /></p>
+
+<!-- more -->
+
+
+<h3>网易音乐</h3>
+
+<p><img src="http://githubimg.qiniudn.com/20130605_app_imgs/163_music.jpg" title="网易音乐" alt="网易音乐" /></p>
+
+<h3>Lofter</h3>
+
+<p><img src="http://githubimg.qiniudn.com/20130605_app_imgs/lofter.jpg" title="Lofter" alt="Lofter" /></p>
+
+<p>对于腾讯的产品，已经很长时间了，不对的更新，但是始终还是处于两排的状态，或许可以说是因为腾讯产品的使用人群多，需要按照使用多标准去设计，但是我觉得嘛，他们就是先设计iphone的，然后安卓就不去有针对性的设计，直接搬过来了。</p>
+
+<h3>微信</h3>
+
+<p><img src="http://githubimg.qiniudn.com/20130605_app_imgs/wechat.jpg" title="微信" alt="微信" /></p>
+
+<h3>手机QQ</h3>
+
+<p><img src="http://githubimg.qiniudn.com/20130605_app_imgs/phone_qq.jpg" title="手机QQ" alt="手机QQ" /></p>
+
+<p>当然，最好的还是谷歌，谷歌的产品应该算是标准了。但是因为天朝这个原因么，所以也不是经常去使用，自然就对他们的东西感情不是很深。</p>
+
+<h3>谷歌地图</h3>
+
+<p><img src="http://githubimg.qiniudn.com/20130605_app_imgs/googl_map.jpg" title="谷歌地图" alt="谷歌地图" /></p>
+
+<h3>GooglePlus</h3>
+
+<p><img src="http://githubimg.qiniudn.com/20130605_app_imgs/googleplus.jpg" title="GooglePlus" alt="GooglePlus" /></p>
+
+<p>还有很多很多的应用，就不细说了。。。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[多浏览器支持pre固定宽度]]></title>
+    <link href="http://cnhalo.com/blog/2013/05/28/pre-tag-in-html-with-fixed-width/"/>
+    <updated>2013-05-28T11:18:00+08:00</updated>
+    <id>http://cnhalo.com/blog/2013/05/28/pre-tag-in-html-with-fixed-width</id>
+    <content type="html"><![CDATA[<p>之前将pre设置css属性width：xpx，一直使用的chrome来测试，还没发现有问题，放到ie下就没用了，通过以下解决：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">pre</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">white-space</span><span class="o">:</span> <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">pre</span><span class="o">-</span><span class="n">wrap</span><span class="p">;</span> <span class="c">/* Mozilla, supported since 1999 */</span>
+</span><span class='line'>    <span class="k">white-space</span><span class="o">:</span> <span class="o">-</span><span class="n">pre</span><span class="o">-</span><span class="n">wrap</span><span class="p">;</span> <span class="c">/* Opera */</span>
+</span><span class='line'>    <span class="k">white-space</span><span class="o">:</span> <span class="o">-</span><span class="n">o</span><span class="o">-</span><span class="n">pre</span><span class="o">-</span><span class="n">wrap</span><span class="p">;</span> <span class="c">/* Opera */</span>
+</span><span class='line'>    <span class="k">white-space</span><span class="o">:</span> <span class="n">pre</span><span class="o">-</span><span class="n">wrap</span><span class="p">;</span> <span class="c">/* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */</span>
+</span><span class='line'>    <span class="n">word</span><span class="o">-</span><span class="n">wrap</span><span class="o">:</span> <span class="n">break</span><span class="o">-</span><span class="n">word</span><span class="p">;</span> <span class="c">/* IE 5.5+ */</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+</feed>
