@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://ipaler.com/sitemap.xml 

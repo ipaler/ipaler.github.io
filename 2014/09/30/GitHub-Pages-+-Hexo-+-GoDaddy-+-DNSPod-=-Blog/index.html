@@ -3,17 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Ipaler.com</title>
+  <title>GitHub Pages + Hexo + GoDaddy + DNSPod = Blog | ipaler</title>
   <meta name="author" content="ipaler">
+  
+  <meta name="description" content="一直想折腾个自己的博客网站写点东西，之前想的解决方案是 GitHub Pages + Octopress，后来了解到 Hexo，可能因为后出的缘故，就选择它了。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="GitHub Pages + Hexo + GoDaddy + DNSPod = Blog"/>
   <meta property="og:site_name" content="ipaler"/>
 
   
-  <meta property="og:image" content="undefined"/>
+    <meta property="og:image" content="undefined"/>
   
 
   <link href="/favicon.ico" rel="shortcut icon">
@@ -43,7 +45,7 @@
 <body>
   <header id="header" class="inner"><div id="nav-top">
   <div class="alignleft main-title">
-    <h1>Ipaler.com</h1>
+    <h1>ipaler</h1>
     <h2></h2>
   </div>
   <nav id="main-nav" class="alignright">
@@ -61,57 +63,7 @@
   <div class="clearfix"></div>
 </div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="alignright">
-          <a href="http://ipaler.com/2014/10/03/Hexo-主题修改为博客实现更多功能/#disqus_thread" class="comment-link"></a>
-        </div>
-      
-      
-        <div class="icon"></div>
-        <time datetime="2014-10-03T14:37:02.000Z"><a href="/2014/10/03/Hexo-主题修改为博客实现更多功能/">Oct 3 2014</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/10/03/Hexo-主题修改为博客实现更多功能/">Hexo 主题修改:为博客实现更多功能</a></h1>
-  
-
-      
-    </header>
-    <div class="entry">
-      
-        <p>主要介绍快速导航、返回顶部、Swiftype 搜索等功能的实现，代码实现细节直戳 <a href="https://github.com/ipaler/hexo-theme-BsLight/" target="_blank" rel="external">GitHub</a></p>
-
-      
-    </div>
-    <footer>
-      
-      
-  
-  <div class="tags">
-    <a href="/tags/Log/">Log</a>
-  </div>
-
-      
-        
-          <div class="alignright">
-            <a href="/2014/10/03/Hexo-主题修改为博客实现更多功能/" class="more-link">Read More</a>
-          </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
   <div class="post-content">
     <header>
@@ -126,14 +78,37 @@
       
       
   
-    <h1 class="title"><a href="/2014/09/30/GitHub-Pages-+-Hexo-+-GoDaddy-+-DNSPod-=-Blog/">GitHub Pages + Hexo + GoDaddy + DNSPod = Blog</a></h1>
+    <h1 class="title">GitHub Pages + Hexo + GoDaddy + DNSPod = Blog</h1>
   
 
       
     </header>
     <div class="entry">
       
+        
+          
+        
         <p>一直想折腾个自己的博客网站写点东西，之前想的解决方案是 GitHub Pages + Octopress，后来了解到 Hexo，可能因为后出的缘故，就选择它了。</p>
+<a id="more"></a>
+
+<h2 id="Start">Start</h2>
+<h3 id="GitHub_Pages">GitHub Pages</h3>
+<p><a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a> 是 GitHub 为个人主页或项目主页提供的免费静态资源空间，可配合博客系统搭建自己的博客网站。</p>
+<h3 id="Hexo">Hexo</h3>
+<p><a href="http://hexo.io/" target="_blank" rel="external">Hexo</a> 是基于 Node.js 的博客系统，只需简单的几个命令即可完成博客的生成与部署。Hexo 本地将博客生成静态页面，然后再将其部署至 GitHub。</p>
+<h2 id="Then">Then</h2>
+<h3 id="GoDaddy">GoDaddy</h3>
+<p><a href="https://www.godaddy.com/" target="_blank" rel="external">GoDaddy</a> 是一家域名服务商，支持支付宝结算。GitHub Pages 会提供一个二级域名供外界访问 <code>http://username.github.io</code>，如果你不满意这个默认域名，可以自行购买一个，然后与 GitHub 绑定使用。</p>
+<h3 id="DNSPod">DNSPod</h3>
+<p><a href="https://www.dnspod.cn/" target="_blank" rel="external">DNSPod</a> 是国内域名解析服务提供商，现被腾讯收购了，其免费服务够用。主要是 GoDaddy 自己的域名解析不稳定，而且速度也会受墙影响。</p>
+<h3 id="域名邮箱">域名邮箱</h3>
+<p>有了自己的域名后，就可以使用域名邮箱服务，自定义邮箱地址。推荐<a href="https://exmail.qq.com/" target="_blank" rel="external">腾讯企业邮箱</a>。</p>
+<h2 id="End">End</h2>
+<p>了解以上信息之后，就可以按照以上介绍的顺序一个个去弄了。每项服务都有新手向导，链接和关键词也都给出来了。</p>
+<h3 id="参考">参考</h3>
+<ul>
+<li><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">hexo你的博客</a></li>
+</ul>
 
       
     </div>
@@ -146,11 +121,9 @@
   </div>
 
       
-        
-          <div class="alignright">
-            <a href="/2014/09/30/GitHub-Pages-+-Hexo-+-GoDaddy-+-DNSPod-=-Blog/" class="more-link">Read More</a>
-          </div>
-        
+        <div class="alignright share-box">
+  
+</div>
       
       <div class="clearfix"></div>
     </footer>
@@ -158,58 +131,28 @@
 </article>
 
 
+<section id="comment">
+  <h1 class="title">Comments</h1>
 
-
-  <article class="post">
   
-  <div class="post-content">
-    <header>
-      
-      
-        <div class="icon"></div>
-        <time datetime="2014-08-17T11:12:59.000Z"><a href="/2014/08/17/hello-world/">Aug 17 2014</a></time>
-      
-      
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ipaler'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   
-    <h1 class="title"><a href="/2014/08/17/hello-world/">Hello World</a></h1>
-  
+</section>
 
-      
-    </header>
-    <div class="entry">
-      
-        <p>
-      
-    </div>
-    <footer>
-      
-      
-  
-  <div class="tags">
-    <a href="/tags/Log/">Log</a>
-  </div>
-
-      
-        
-          <div class="alignright">
-            <a href="/2014/08/17/hello-world/" class="more-link">Read More</a>
-          </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-<nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav></div></div>
+</div></div>
     <aside id="sidebar" class="alignright">
   
 <div class="widget tag">
@@ -247,9 +190,9 @@
   <footer id="footer" class="inner"><div id="foot-nav">
   <ul class="social">
     
-      <li><a class="weibo" href="http://weibo.com/longer20y" title="weibo">weibo</a></li>
+      <li><a class="weibo" href="http://weibo.com/ipalerty" title="weibo">weibo</a></li>
     
-      <li><a class="twitter" href="https://twitter.com/wangmingzhong" title="twitter">twitter</a></li>
+      <li><a class="twitter" href="https://twitter.com/ipaler0919" title="twitter">twitter</a></li>
     
       <li><a class="google" href="https://plus.google.com/111981717585872445427" title="google">google</a></li>
     
@@ -263,7 +206,7 @@
 </div>
 <div>
   
-    &copy; 2014 Ipaler.com  关于本站 | 网站地图 | 友情链接 | 还有那啥
+    &copy; 2014 ipaler
   
 </div>
 <div class="clearfix"></div></footer>
