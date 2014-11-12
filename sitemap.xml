@@ -1,34 +1,21 @@
+---
+layout: nil
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <url>
-    <loc>http://ipaler.com/2014/10/03/Hexo-%E4%B8%BB%E9%A2%98%E4%BF%AE%E6%94%B9%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%AE%9E%E7%8E%B0%E6%9B%B4%E5%A4%9A%E5%8A%9F%E8%83%BD/</loc>
-    <lastmod>2014-10-16T15:47:53.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ipaler.com/resume/index.html</loc>
-    <lastmod>2014-10-12T15:39:13.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ipaler.com/resume/index.html</loc>
-    <lastmod>2014-10-12T15:11:10.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ipaler.com/2014/08/17/hello-world/</loc>
-    <lastmod>2014-09-30T14:46:24.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ipaler.com/2014/09/30/GitHub-Pages-+-Hexo-+-GoDaddy-+-DNSPod-=-Blog/</loc>
-    <lastmod>2014-09-30T14:41:33.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ipaler.com/about/index.html</loc>
-    <lastmod>2014-09-06T09:41:50.000Z</lastmod>
-  </url>
-  
+    {% for post in site.posts %}
+    <url>
+        <loc>{{site.url}}{{ post.url | remove: 'index.html' }}</loc>
+    </url>
+    {% endfor %}
+
+    {% for page in site.pages %}
+    {% if page.layout != nil %}
+    {% if page.layout != 'feed' %}
+    <url>
+        <loc>{{site.url}}{{ page.url | remove: 'index.html' }}</loc>
+    </url>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
 </urlset>
