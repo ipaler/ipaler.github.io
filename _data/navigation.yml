@@ -1,16 +1,17 @@
 # Site navigation links
 
-- title: About
-  url: /about/
 
-- title: Articles
+- title: 文章
   url: /articles/
 
-- title: Blog
+- title: 博客
   url: /blog/
 
-- title: Theme Setup
-  url: /theme-setup/
+- title: 主题安装
+  url: /theme-setup2/
+  
+- title: 关于我
+  url: /about/
 
-- title: Made Mistakes
-  url: http://mademistakes.com
+- title: LOFTER
+  url: http://ipaler.lofter.com/
