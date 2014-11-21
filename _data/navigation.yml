@@ -1,13 +1,19 @@
 # Site navigation links
 
 
-- title: 文章
+- title: 文章列表
   url: /articles/
 
-- title: 博客
+- title: 我的博客
   url: /blog/
 
 - title: 主题安装
+  url: /theme-setup2/
+  
+- title: 精彩博文
+  url: /theme-setup2/
+  
+- title: 轻松时刻
   url: /theme-setup2/
   
 - title: 关于我
