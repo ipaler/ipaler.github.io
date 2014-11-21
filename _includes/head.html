@@ -1,98 +1,53 @@
-<head>
-  <link href="http://gmpg.org/xfn/11" rel="profile">
-  <meta charset="UTF-8">
-  {% if page.keywords %}
-	<meta name="keywords" content="{{page.keywords}}">
-  {% else %}
-  <meta name="keywords" content="{{site.keywords}}">
-  {% endif %}
-  {% if page.description %}
-	<meta name="description" content="{{page.description}}">
-  {% else %}
-  <meta name="description" content="{{site.description}}">
-  {% endif %}
-  <meta name="author" content="{{site.author}}">
+<meta charset="utf-8">
+<title>{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}</title>
+{% if page.excerpt %}<meta name="description" content="{{ page.excerpt | strip_html }}">{% endif %}
+{% if page.tags %}<meta name="keywords" content="{{ page.tags | join: ', ' }}">{% endif %}
+{% if page.author %}
+  {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %}
+{% endif %}
 
-  <!-- Enable responsiveness on mobile devices-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+{% include open-graph.html %}
 
-  <title>
-    {% if page.title == "Home" %}
-      {{ site.title }} &middot; {{ site.tagline }}
-    {% else %}
-      {{ page.title }} &middot; {{ site.title }}
-    {% endif %}
-  </title>
+{% if site.owner.google.verify %}<!-- Webmaster Tools verfication -->
+<meta name="google-site-verification" content="{{ site.owner.google.verify }}">{% endif %}
+{% if site.owner.bing-verify %}<meta name="msvalidate.01" content="{{ site.owner.bing-verify }}">{% endif %}
 
-  {% if page.path contains '_posts' %}
-  <!-- Twitter Card data -->
-  <meta name="twitter:card" value="summary">
-  <!-- Open Graph data -->
-  <meta property="og:title" content="{{page.title}}" />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="{{page.url}}" />
-  <meta property="og:keywords" content="{{page.keywords}}" />
-  <meta property="og:description" content="{{page.description}}" />
-  {% endif %}
+{% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
+<link rel="canonical" href="{{ canonical }}">
+<link href="{{ site.url }}/feed.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+{% if site.owner.google.plus %}<link rel="author" href="http://plus.google.com/+{{ site.owner.google.plus }}?rel=author">{% endif %}
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="{{site.url}}/assets/css/all.css">
-  <!-- Javascript -->
-  <script src="/assets/js/all.js"></script>
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  {% if page.bloghome == true %}
-  <style type="text/css">
-        a,a:hover,a:focus {
-          color:#DC572E;
-        }
-  </style>
-  {% endif %}
+<!-- For all browsers -->
+<link rel="stylesheet" href="{{ site.url }}/assets/css/main.css">
+<!-- Webfonts -->
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
 
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+<meta http-equiv="cleartype" content="on">
 
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="{{ site.url }}/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="{{ site.url }}/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
 
-  <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="128x128" href="{{site.url}}/assets/images/favicon-128.png">
-  <link rel="shortcut icon" href="{{site.url}}/assets/images/favicon-16.ico">
+<!-- Modernizr -->
+<script src="{{ site.url }}/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
 
-  <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
-  
-  <script>
-		window._bd_share_config = {
-			"common" : {
-				"bdSnsKey" : {},
-				"bdText" : "{{page.title}}",
-				"bdMini" : "2",
-				"bdMiniList" : false,
-				"bdPic" : "{{site.url}}/assets/images/favicon-128.png",
-				"bdStyle" : "0",
-				"bdSize" : "16"
-			},
-			"slide" : {
-				"type" : "slide",
-				"bdImg" : "1",
-				"bdPos" : "right",
-				"bdTop" : "130"
-			},
-			"image" : {
-				"viewList" : [ "qzone", "tsina", "weixin", "tqq", "youdao" ],
-				"viewText" : "猛戳这里：",
-				"viewSize" : "16"
-			}
-		};
-		with (document)
-			0[(getElementsByTagName('head')[0] || body)
-					.appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='
-					+ ~(-new Date() / 36e5)];
-	</script>
-	<script>
-		var _hmt = _hmt || [];
-		(function() {
-			var hm = document.createElement("script");
-			hm.src = "//hm.baidu.com/hm.js?82a6f93e2f1b5ab9330b41f749fab26e";
-			var s = document.getElementsByTagName("script")[0];
-			s.parentNode.insertBefore(hm, s);
-		})();
-	</script>
-</head>
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="{{ site.url }}/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="{{ site.url }}/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="{{ site.url }}/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ site.url }}/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ site.url }}/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.url }}/images/apple-touch-icon-144x144-precomposed.png">
