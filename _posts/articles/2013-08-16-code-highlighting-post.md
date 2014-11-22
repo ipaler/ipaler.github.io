@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Syntax Highlighting Post
-excerpt: "Demo post displaying the various ways of highlighting code in Markdown."
+title: 语法高亮显示源代码
+excerpt: "显示高亮代码的各种方式"
 categories: articles
 tags: [sample-post, code, highlighting]
 image:
@@ -12,13 +12,13 @@ comments: true
 share: true
 ---
 
-Syntax highlighting is a feature that displays source code, in different colors and fonts according to the category of terms. This feature facilitates writing in a structured language such as a programming language or a markup language as both structures and syntax errors are visually distinct. Highlighting does not affect the meaning of the text itself; it is intended only for human readers.[^1]
+语法高亮是显示源代码的一个特点，在不同的颜色和字体按类别。此功能有助于在一个结构化的语言作为编程语言或标记语言结构和语法错误的写作是视觉上不同。强调不影响文本自身的意义；它是只为人类读者.[^1]
 
 [^1]: <http://en.wikipedia.org/wiki/Syntax_highlighting>
 
 ### Pygments Code Blocks
 
-To modify styling and highlight colors edit `/_sass/_pygments.scss`.
+修改的样式和高亮颜色编辑 `/_sass/_pygments.scss`.
 
 {% highlight css %}
 #container {

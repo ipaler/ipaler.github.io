@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Blog
-excerpt: "An archive of blog posts sorted by date."
+title: 博客
+excerpt: "存档的博客文章按日期排序"
 ---
 
 <ul class="post-list">

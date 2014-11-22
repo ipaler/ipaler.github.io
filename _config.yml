@@ -33,17 +33,18 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 # Site owner
 owner:
   name: Ryan
-  avatar: michael-rose-photo.jpg
+  avatar: me-400-400-photo.jpg
   email: ipaler@ipaler.com
   disqus-shortname: ipaler
   twitter: wangmingzhong
   facebook: wangmingzhong
   github: ipaler
-  stackexchange:
-  linkedin:
+  stackexchange: ipaler
+  linkedin: ipaler
   instagram: ipaler
-  flickr:
-  tumblr: ipaler
+  flickr: ipaler
+  tumblr: wangmingzhong
+  weibo: longer20y
   google:
     plus: RyanDesign
     analytics: UA-2011187-2

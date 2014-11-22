@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "A Post with a Video"
-excerpt: "Custom written post descriptions are the way to go... if you're not lazy."
+title: "一篇视频而已"
+excerpt: ""
 categories: articles
 tags: [sample-post, video]
 comments: true

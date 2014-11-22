@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Sample Post
-excerpt: "Just about everything you'll need to style in the theme: headings, paragraphs, blockquotes, tables, code blocks, and more."
+excerpt: "一切你需要风格的主题:标题、段落、blockquote、表,代码块等等。"
 modified: 2013-05-31
 categories: articles
 tags: [sample-post]
@@ -93,4 +93,4 @@ Non Pygments code example
 
 Make any link standout more when applying the `.btn` class.
 
-<div markdown="0"><a href="http://mademistakes.com" class="btn">This is a button</a></div>
+<div markdown="0"><a href="http://ipaler.com" class="btn">This is a button</a></div>

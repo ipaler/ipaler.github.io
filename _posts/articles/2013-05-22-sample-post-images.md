@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A Post with Images"
+title: "一篇文章和图片"
 excerpt: "Examples and code for displaying images in posts."
 categories: articles
 tags: [sample-post, images, test]
