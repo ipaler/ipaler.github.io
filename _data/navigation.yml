@@ -10,6 +10,9 @@
 - title: 我的博客
   url: /blog/
 
+- title: 我的标签
+  url: /tags/
+  
 - title: 主题安装
   url: /theme-setup2/
   

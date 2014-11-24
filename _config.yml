@@ -35,7 +35,8 @@ owner:
   name: Ryan
   avatar: me-400-400-photo.jpg
   email: ipaler@ipaler.com
-  disqus-shortname: ipaler
+  disqus-shortname:
+  duoshuo: ipaler 
   twitter: wangmingzhong
   facebook: wangmingzhong
   github: ipaler
