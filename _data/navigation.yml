@@ -1,6 +1,9 @@
 # Site navigation links
 
 
+- title: 乐乎
+  url: http://ipaler.lofter.com/
+  
 - title: 文章列表
   url: /articles/
 
@@ -18,6 +21,3 @@
   
 - title: 关于我
   url: /about/
-
-- title: LOFTER
-  url: http://ipaler.lofter.com/
