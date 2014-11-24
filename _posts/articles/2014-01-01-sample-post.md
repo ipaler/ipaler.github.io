@@ -2,7 +2,7 @@
 layout: post
 title: Sample Post
 excerpt: "一切你需要风格的主题:标题、段落、blockquote、表,代码块等等。"
-modified: 2013-05-31
+modified: 2014-01-01
 categories: articles
 tags: [sample-post]
 image:
