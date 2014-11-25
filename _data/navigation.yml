@@ -4,23 +4,23 @@
 - title: 乐乎
   url: http://ipaler.lofter.com/
   
-- title: 文章列表
+- title: 干货
   url: /articles/
 
-- title: 我的博客
+- title: 博客
   url: /blog/
 
-- title: 我的标签
+- title: 标签
   url: /tags/
   
-- title: 主题安装
+- title: 主题
   url: /theme-setup2/
   
-- title: 精彩博文
+- title: 工具
   url: /theme-setup2/
   
-- title: 轻松时刻
+- title: 维基
   url: /theme-setup2/
   
-- title: 关于我
+- title: 关于
   url: /about/

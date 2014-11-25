@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Sample Articles
+title: 干货
 excerpt: "An archive of articles sorted by date."
 ---
 
