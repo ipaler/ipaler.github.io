@@ -11,9 +11,9 @@
             jsonFile            : '/search.json',
             template            : '<a href="{url}" title="{desc}">{title}</a>',
             searchResults       : '.results',
-            searchResultsTitle  : '<h4>Search results</h4>',
+            searchResultsTitle  : '<h4>芝麻开门！！！</h4>',
             limit               : '10',
-            noResults           : '<p>Oh shucks<br/><small>Nothing found :(</small></p>'
+            noResults           : '<p><small>糟了,没找到...... :(</small></p>'
         }, options);
 
         var jsonData = [],
