@@ -33,8 +33,9 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 # Site owner
 owner:
   name: Ryan
+  website: IPALER.COM
   avatar: me-400-400-photo.jpg
-  email: ipaler@ipaler.com
+  email: wangmingzhong.cncq@gmail.com
   disqus-shortname:
   duoshuo: ipaler 
   twitter: wangmingzhong
@@ -45,6 +46,7 @@ owner:
   instagram: ipaler
   flickr: ipaler
   tumblr: wangmingzhong
+  weibo: longer20y
   google:
     plus: RyanDesign
     analytics: UA-2011187-2

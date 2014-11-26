@@ -10,5 +10,3 @@ image:
 ---
 
 <a markdown="0" href="http://ipaler.github.io/" class="btn">Show Time</a>
-
-[^1]: Example: *domain.com/category-name/post-title*

@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "报表技术研究"
+title: "现主流Web报表技术的研究与分享"
 modified:
 categories: blog
 excerpt:
-tags: [报表技术]
+tags: [报表]
 image:
   feature:
 date: 2014-11-24T10:39:55-04:00

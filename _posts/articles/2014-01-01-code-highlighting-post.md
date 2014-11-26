@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 语法高亮显示源代码
+title: 语法高亮显示源代码的各种方式
 excerpt: "显示高亮代码的各种方式"
 categories: articles
-tags: [sample-post, code, highlighting]
+tags: [语法高亮, highlight]
 image:
   feature: so-simple-sample-image-5.jpg
   credit: WeGraphics

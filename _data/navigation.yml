@@ -4,6 +4,9 @@
 - title: 乐乎
   url: http://ipaler.lofter.com/
   
+- title: 知乎
+  url: http://www.zhihu.com/people/ipaler/
+  
 - title: 干货
   url: /articles/
 
@@ -13,11 +16,11 @@
 - title: 标签
   url: /tags/
   
-- title: 主题
-  url: /theme-setup2/
+- title: 资讯
+  url: /new/
   
 - title: 工具
-  url: /theme-setup2/
+  url: /
   
 - title: 维基
   url: /theme-setup2/
