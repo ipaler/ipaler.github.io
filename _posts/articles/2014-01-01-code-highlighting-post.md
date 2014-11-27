@@ -3,7 +3,7 @@ layout: post
 title: 语法高亮显示源代码的各种方式
 excerpt: "显示高亮代码的各种方式"
 categories: articles
-tags: [语法高亮, highlight]
+tags: [highlight]
 image:
   feature: so-simple-sample-image-5.jpg
   credit: WeGraphics

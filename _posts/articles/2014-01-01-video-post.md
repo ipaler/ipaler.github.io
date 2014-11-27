@@ -3,7 +3,7 @@ layout: post
 title: "一篇视频而已"
 excerpt: ""
 categories: articles
-tags: [视频, video]
+tags: [视频]
 comments: true
 share: true
 ---

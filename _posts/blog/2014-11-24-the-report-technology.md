@@ -7,7 +7,7 @@ excerpt:
 tags: [报表]
 image:
   feature:
-date: 2014-11-24T10:39:55-04:00
+date: 2014-11-24T10:39:55 +08:00
 ---
 
 目前市场上主流的Web报表工具，典型代表有如下四种：水晶报表（Crystal Reports）、Style Report、数巨报表（Max@X Reports）、润乾报表。

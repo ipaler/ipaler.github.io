@@ -3,7 +3,7 @@ layout: post
 title: "一篇文章和图片"
 excerpt: "Examples and code for displaying images in posts."
 categories: articles
-tags: [图片, images, 文章]
+tags: [images]
 comments: true
 share: true
 ---
