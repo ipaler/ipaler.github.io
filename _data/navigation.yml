@@ -1,20 +1,13 @@
 # Site navigation links
-
-
-- title: 乐乎
-  url: http://ipaler.lofter.com/
   
-- title: 知乎
-  url: http://www.zhihu.com/people/ipaler/
-  
-- title: 干货
-  url: /articles/
+- title: 标签
+  url: /tags/
 
 - title: 博客
   url: /blog/
-
-- title: 标签
-  url: /tags/
+  
+- title: 干货
+  url: /articles/
   
 - title: 资讯
   url: /news/
@@ -24,6 +17,12 @@
   
 - title: 维基
   url: /wiki/
+  
+- title: 乐乎
+  url: http://ipaler.lofter.com/
+  
+- title: 知乎
+  url: http://www.zhihu.com/people/ipaler/
   
 - title: 关于
   url: /about/
