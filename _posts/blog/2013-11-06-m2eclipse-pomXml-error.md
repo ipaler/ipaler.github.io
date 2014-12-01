@@ -6,9 +6,6 @@ categories: blog
 excerpt: "解决M2eclipse插件引起的Pom.Xml校验错误"
 tags: [Java,eclipse,pom.xml,m2eclipse,maven,plugin]
 image:
-  feature: so-simple-sample-image-5.jpg
-  credit: WeGraphics
-  creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/
 comments: true
 share: true
 date: 2013-11-06T12:30:49 +08:00

@@ -6,9 +6,6 @@ categories: blog
 excerpt:
 tags: [Hibernate,JavaEE]
 image:
-  feature: so-simple-sample-image-5.jpg
-  credit: WeGraphics
-  creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/
 comments: true
 share: true
 date: 2013-11-07T09:21:00 +08:00

@@ -6,7 +6,8 @@ categories: blog
 excerpt:
 tags: [报表]
 image:
-  feature:
+comments: true
+share: true
 date: 2014-11-24T10:39:55 +08:00
 ---
 
