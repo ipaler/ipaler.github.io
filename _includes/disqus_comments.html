@@ -1,4 +1,4 @@
-{% if site.owner.duoshuo %}
+{% if site.owner.disqus-shortname %}
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = '{{ site.owner.disqus-shortname }}'; // required: replace example with your forum shortname
@@ -22,10 +22,9 @@
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 {% endif %}
 
-{% if site.owner.disqus-shortname %}
+{% if site.owner.duoshuo %}
 <script type="text/javascript">
-	var duoshuoQuery = {short_name:'{{ site.owner.disqus-shortname }}'};
-// 	var duoshuoQuery = {short_name:"{{ site.owner.duoshuo }}"};
+	var duoshuoQuery = {short_name:"{{ site.owner.duoshuo }}"};
 	(function() {
 		var ds = document.createElement('script');
 		ds.type = 'text/javascript';ds.async = true;

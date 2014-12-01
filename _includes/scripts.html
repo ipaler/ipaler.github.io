@@ -10,7 +10,7 @@
           searchResults: '.search-results',
           template: '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
           fuzzy: true,
-          noResults: '<p>Nothing found.</p>'
+          noResults: '<p>呵呵，我这儿不支持火星文的搜索哦亲.</p>'
         });
   });
 
@@ -60,6 +60,6 @@
 -->
 {% endif %}
 
-{% if page.comments %}
-  {% include disqus_comments.html %}
-{% endif %}
+<!-- {% if page.comments %} -->
+<!--   {% include disqus_comments.html %} -->
+<!-- {% endif %} -->
