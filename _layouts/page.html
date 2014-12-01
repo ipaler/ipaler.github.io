@@ -28,10 +28,10 @@
 	        <div class="entry-content">
 	        	{{ content }}
 	        </div><!-- /.entry-content -->
+	        {% if page.comments %}
+	 				{% include disqus_comments.html %}
+			{% endif %}
 	    </div><!-- /.entry-wrapper -->
-        {% if page.comments %}
- 				{% include disqus_comments.html %}
-		{% endif %}
     </article>
 </div><!-- /#main -->
 
