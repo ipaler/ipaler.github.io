@@ -44,11 +44,8 @@
       </footer>
       <div class="entry-content">
         {{ content }}
-        {% if site.owner.disqus-shortname and page.comments == true %}
 <!--         	<div id="disqus_thread"></div> -->
         	<!-- /#disqus_thread -->
-        	{% include disqus_comments.html %}
-        {% endif %}
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
     
@@ -59,6 +56,9 @@
       {% if page.next %}
         <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">下一篇</a>
       {% endif %}
+	  {% if site.owner.disqus-shortname and page.comments == true %}
+		  {% include disqus_comments.html %}
+	  {% endif %}
     </nav><!-- /.pagination -->
   </article>
 </div><!-- /#main -->
