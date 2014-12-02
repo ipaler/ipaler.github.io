@@ -42,6 +42,16 @@
         {% if page.share %}{% include social-share.html %}{% endif %}
         {% if page.ads != true %}{% include ad-sidebar.html %}{% endif %}
       </footer>
+      
+      <nav class="pagination" role="navigation">
+	      {% if page.previous %}
+	        <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">上一篇</a>
+	      {% endif %}
+	      {% if page.next %}
+	        <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">下一篇</a>
+	      {% endif %}
+	  </nav><!-- /.pagination -->
+    
       <div class="entry-content">
         {{ content }}
 <!--         {% if site.owner.disqus-shortname and page.comments == true %} -->
@@ -52,19 +62,6 @@
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
     
-    <nav class="pagination" role="navigation">
-      {% if page.previous %}
-        <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">上一篇</a>
-      {% endif %}
-      {% if page.next %}
-        <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">下一篇</a>
-      {% endif %}
-    </nav><!-- /.pagination -->
-            {% if site.owner.disqus-shortname and page.comments == true %}
-<!--         	<div id="disqus_thread"></div> -->
-        	<!-- /#disqus_thread -->
-        	{% include disqus_comments.html %}
-        {% endif %}
   </article>
 </div><!-- /#main -->
 
