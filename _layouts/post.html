@@ -28,13 +28,15 @@
           {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %}
         {% endif %}
         {% if author.avatar contains 'http' %}
-          <img src="{{ author.avatar }}" class="bio-photo" alt="{{ author.name }} bio photo"></a>
+          <img src="{{ author.avatar }}" class="bio-photo" alt="{{ author.name }} bio photo"></img>
         {% else %}
-          <img src="{{ site.url }}/images/{{ author.avatar }}" class="bio-photo" alt="{{ author.name }} bio photo"></a>
+          <img src="{{ site.url }}/images/{{ author.avatar }}" class="bio-photo" alt="{{ author.name }} bio photo"></img>
         {% endif %}
         <span class="author vcard">
-			<!-- By <span class="fn">{{ author.name }}</span> -->
-        	<wb:follow-button uid="1833380601" type="red_2" ></wb:follow-button>
+			By <span class="fn">
+				{{ author.name }}  
+				<wb:follow-button uid="1833380601" type="red_2" ></wb:follow-button>
+			</span>
         </span>
         <span class="entry-date date published"><time datetime="{{ page.date | date_to_xmlschema }}"><i class="fa fa-calendar-o"></i> {{ page.date | date: "%B %d, %Y" }}</time></span>
         {% if page.modified %}<span class="entry-date date modified"><time datetime="{{ page.modified }}"><i class="fa fa-pencil"></i> {{ page.modified | date: "%B %d, %Y" }}</time></span>{% endif %}
@@ -48,10 +50,10 @@
         
         <nav class="pagination" role="navigation">
 	      {% if page.previous %}
-	        <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">上一篇</a>
+	        <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">《 {{ page.previous.title }}</a>
 	      {% endif %}
 	      {% if page.next %}
-	        <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">下一篇</a>
+	        <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">{{ page.next.title }} 》</a>
 	      {% endif %}
 	  	</nav><!-- /.pagination -->
         {% if site.owner.disqus-shortname and page.comments == true %}

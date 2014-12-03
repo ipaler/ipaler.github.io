@@ -1,9 +1,12 @@
 # Site navigation links
-  
+ 
+- title: 最新
+  url: /
+   
 - title: 标签
   url: /tags/
 
-- title: 博客
+- title: 博文
   url: /blog/
   
 - title: 干货
@@ -11,9 +14,6 @@
   
 - title: 资讯
   url: /news/
-  
-- title: 工具
-  url: /tools/
   
 - title: 维基
   url: /wiki/
