@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "博客模板示例"
+title: "ipaler.com"
 modified:
 categories: blog
 excerpt:

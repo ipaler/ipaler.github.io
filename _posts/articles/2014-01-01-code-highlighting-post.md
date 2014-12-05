@@ -3,7 +3,7 @@ layout: post
 title: 语法高亮显示源代码的各种方式
 excerpt: "显示高亮代码的各种方式"
 categories: articles
-tags: [highlight]
+tags: [语法高亮]
 image:
   feature: so-simple-sample-image-5.jpg
   credit: WeGraphics
@@ -18,7 +18,7 @@ share: true
 
 ### Pygments Code Blocks
 
-修改的样式和高亮颜色编辑 `/_sass/_pygments.scss`.
+## 修改的样式和高亮颜色编辑 
 
 {% highlight css %}
 #container {
@@ -60,28 +60,4 @@ module Jekyll
   end
 end
 {% endhighlight %}
-
-
-### 标准代码块
-
-	~~~ css
-	#container {
-	    float: left;
-	    margin: 0 -240px 0 0;
-	    width: 100%;
-	}
-	~~~
-	
-    {% raw %}
-    <nav class="pagination" role="navigation">
-        {% if page.previous %}
-            <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">Previous article</a>
-        {% endif %}
-        {% if page.next %}
-            <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">Next article</a>
-        {% endif %}
-    </nav><!-- /.pagination -->
-    {% endraw %}
-
-
 
