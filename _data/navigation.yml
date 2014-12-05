@@ -12,17 +12,20 @@
 - title: 干货
   url: /articles/
   
-- title: 资讯
-  url: /news/
-  
-- title: 维基
-  url: /wiki/
-  
 - title: 乐乎
   url: http://ipaler.lofter.com/
   
 - title: 知乎
   url: http://www.zhihu.com/people/ipaler/
+  
+- title: 媒体
+  url: /media/
+  
+- title: 资讯
+  url: /news/
+  
+- title: 维基
+  url: /wiki/
   
 - title: 关于
   url: /about/
