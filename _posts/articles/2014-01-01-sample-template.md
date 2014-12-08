@@ -17,11 +17,14 @@ date: 2014-01-01T12:00:00 +08:00
 
 ## Hello World
 
-{% highlight ruby %}
-	def print_hi(name)
-	  puts "Hi, #{name}"
-	end
-	print_hi('Tom')
-	#=> prints 'Hi, Tom' to STDOUT.
+{% highlight java %}
+    public class HelloWorld {
+        public static void main(String[] args) {
+        
+            System.out.println("Hello, World");
+            System.out.println("www.ipaler.com");
+            
+        }
+    }
 {% endhighlight %}
 
