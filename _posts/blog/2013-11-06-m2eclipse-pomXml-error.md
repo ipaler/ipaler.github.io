@@ -23,29 +23,29 @@ date: 2013-11-06T12:30:49 +08:00
 
 {% highlight xml %}
     <plugin>
-      <groupId>org.eclipse.m2e</groupId>
-      <artifactId>lifecycle-mapping</artifactId>
-      <version>1.0.0</version>
-      <configuration>
-        <lifecycleMappingMetadata>
-          <pluginExecutions>
-            <pluginExecution>
-              <pluginExecutionFilter>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <versionRange>[1.2,)</versionRange>
-                <goals>
-                <goal>resources</goal>
-                 <goal>testResources</goal>
-                </goals>
-              </pluginExecutionFilter>
-              <action>
-                <ignore />
-              </action>
-            </pluginExecution>
-          </pluginExecutions>
-        </lifecycleMappingMetadata>
-      </configuration>
+        <groupId>org.eclipse.m2e</groupId>
+        <artifactId>lifecycle-mapping</artifactId>
+        <version>1.0.0</version>
+        <configuration>
+            <lifecycleMappingMetadata>
+                <pluginExecutions>
+                    <pluginExecution>
+                        <pluginExecutionFilter>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-resources-plugin</artifactId>
+                            <versionRange>[1.2,)</versionRange>
+                            <goals>
+                                <goal>resources</goal>
+                                <goal>testResources</goal>
+                            </goals>
+                        </pluginExecutionFilter>
+                        <action>
+                            <ignore />
+                        </action>
+                    </pluginExecution>
+                </pluginExecutions>
+            </lifecycleMappingMetadata>
+        </configuration>
     </plugin>
 {% endhighlight %} 
 
