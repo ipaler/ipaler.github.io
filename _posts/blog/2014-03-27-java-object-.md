@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Hello World"
+title: "java的(PO,VO,TO,BO,DAO,POJO)解释"
 modified:
 categories: blog
 excerpt:
-tags: [模板]
+tags: [Java,对象]
 image:
   feature: so-simple-sample-image-5.jpg
   credit: WeGraphics
@@ -37,7 +37,7 @@ PO是持久化对象，它只是将物理数据实体的一种对象表示，为
 
 
 ----------------------------------------------------
-## java的(PO,VO,TO,BO,DAO,POJO)解释
+### java的(PO,VO,TO,BO,DAO,POJO)解释
  
 ### PO(persistant object) 持久对象 
 在o/r映射的时候出现的概念，如果没有o/r映射，没有这个概念存在了。通常对应数据模型(数据库),本身还有部分业务逻辑的处理。可以看成是与数据库中的表相映射的java对象。最简单的PO就是对应数据库中某个表中的一条记录，多个记录可以用PO的集合。PO中应该不包含任何对数据库的操作。 
@@ -127,11 +127,11 @@ data access object数据访问对象
 
 
 ---------------------------------------------
-### VO：值对象、视图对象
-### PO：持久对象
-### QO：查询对象
-### DAO：数据访问对象
-### DTO：数据传输对象
+VO：值对象、视图对象
+PO：持久对象
+QO：查询对象
+DAO：数据访问对象
+DTO：数据传输对象
 ----------------------------------------
 
 struts 里的 ActionForm 就是个VO;
