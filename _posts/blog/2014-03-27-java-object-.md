@@ -6,16 +6,10 @@ categories: blog
 excerpt:
 tags: [Java,对象]
 image:
-  feature: so-simple-sample-image-5.jpg
-  credit: WeGraphics
-  creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/
 comments: true
 share: true
 date: 2014-03-27T15:25:00 +08:00
 ---
-
-
-## java的(PO,VO,TO,BO,DAO,POJO)解释
  
  O/R Mapping 是 Object Relational Mapping（对象关系映射）的缩写。通俗点讲，就是将对象与关系数据库绑定，用对象来表示关系数据。在O/R Mapping的世界里，有两个基本的也是重要的东东需要了解，即VO，PO。
 　　VO，值对象(Value Object)，PO，持久对象(Persisent Object)，它们是由一组属性和属性的get和set方法组成。从结构上看，它们并没有什么不同的地方。但从其意义和本质上来看是完全不同的。
