@@ -1,6 +1,13 @@
 {% if site.owner.google.ad-client and site.owner.google.ad-slot %}{% include ad-footer.html %}{% endif %}
 
-<span>&copy; {{ site.time | date: '%Y' }} {{ site.owner.website }}. All Rights Reserved. </span>
+<span>
+    <a href="http://ipaler.lofter.com/" target="_blank">乐乎</a> | 
+    <a href="http://www.zhihu.com/people/ipaler/" target="_blank">知乎</a> | 
+    <a href="/wiki/">维基</a> | 
+    <a href="http://my.oschina.net/ipaler/" target="_blank">开源中国</a> | 
+    <a href="/sitemap/">网站地图</a> | 
+    <a href="/links/">友情链接</a>
+</span>
 <div class="social-icons">
 	{% if site.owner.google.plus %}<a href="http://plus.google.com/+{{ site.owner.google.plus }}" title="{{ site.owner.name}} on Google+" target="_blank"><i class="fa fa-google-plus-square fa-2x"></i></a>{% endif %}
 	{% if site.owner.facebook %}<a href="http://facebook.com/{{ site.owner.facebook }}" title="{{ site.owner.name}} on Facebook" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>{% endif %}
@@ -14,10 +21,4 @@
 <!-- 	{% if site.owner.weibo %}<a href="http://weibo.com/{{ site.owner.weibo }}" title="{{ site.owner.name}} on Weibo" target="_blank"><i class="fa fa-tencent-weibo-square fa-2x"></i></a>{% endif %} -->
   <a href="{{ site.url }}/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
 </div><!-- /.social-icons -->
-<span>
-    <a href="http://ipaler.lofter.com/">乐乎</a> | 
-    <a href="http://www.zhihu.com/people/ipaler/">知乎</a> | 
-    <a href="/wiki/">维基</a> | 
-    <a href="/sitemap/">网站地图</a> | 
-    <a href="/links/">友情链接</a> | 
-</span>
+<span>&copy; {{ site.time | date: '%Y' }} {{ site.owner.website }}. All Rights Reserved. </span>
