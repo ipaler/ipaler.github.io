@@ -5,8 +5,8 @@ locale: zh_CN
 description: 思绪虽来去匆匆，却能为我在此停留.
 logo: site-logo.png
 search: true
-url: //ipaler.com
-website: www.ipaler.com
+url: //blog.ipaler.com
+website: blog.ipaler.com
 
 
 # Jekyll configuration
@@ -34,7 +34,7 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 # Site owner
 owner:
   name: King
-  website: IPALER.COM
+  website: BLOG.IPALER.COM
   avatar: me-400-400-photo.jpg
   email: wangmingzhong.cncq@gmail.com
   disqus-shortname: 

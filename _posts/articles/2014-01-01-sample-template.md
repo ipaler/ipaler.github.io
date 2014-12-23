@@ -21,7 +21,7 @@ date: 2014-01-01T12:00:00 +08:00
     public class HelloWorld {
         public static void main(String[] args) {
             System.out.println("Hello, World");
-            System.out.println("www.ipaler.com");
+            System.out.println("blog.ipaler.com");
         }
     }
 {% endhighlight %}
