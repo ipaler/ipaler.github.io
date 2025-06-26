@@ -1,19 +1,16 @@
 # Site navigation links
  
-- title: 最新文章
+- title: 首页
   url: /
    
-- title: 我的标签
+- title: 标签
   url: /tags/
 
-- title: 干货分享
+- title: 文章
   url: /articles/
   
-- title: 精彩博文
+- title: 博客
   url: /blog/
   
-- title: 乐乎
-  url: http://ipaler.lofter.com/
-  
-- title: 关于我
+- title: 关于
   url: /about/

@@ -1,12 +1,12 @@
 # Site wide configuration
 
-title: 不开心你好我叫没烦恼
+title: ipaler.github.io
 locale: zh_CN
 description: 思绪虽来去匆匆，却能为我在此停留.
 logo: site-logo.png
 search: true
-url: //blog.ipaler.com
-website: blog.ipaler.com
+url: //ipaler.github.io
+website: ipaler.github.io
 
 
 # Jekyll configuration
@@ -33,24 +33,24 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 
 # Site owner
 owner:
-  name: King
-  website: BLOG.IPALER.COM
+  name: ipaLer
+  website: ipaler.github.io
   avatar: me-400-400-photo.jpg
-  email: wangmingzhong.cncq@gmail.com
+  email: 9226023@gmail.com
   disqus-shortname: 
   duoshuo: ipaler
-  twitter: wangmingzhong
-  facebook: wangmingzhong
+  twitter: 
+  facebook: 
   github: ipaler
-  stackexchange: ipaler
-  linkedin: ipaler
-  instagram: ipaler
-  flickr: ipaler
-  tumblr: wangmingzhong
+  stackexchange: 
+  linkedin: 
+  instagram: 
+  flickr: 
+  tumblr: 
   google:
-    plus: King
-    analytics: UA-2011187-2
-    verify: UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8
-    ad-client: ca-pub-7328585512091257
-    ad-slot: 7855747535
-  bing-verify: D81F4C18A6CB3018F64D7C827D953DFD
+    plus: 
+    analytics: 
+    verify: 
+    ad-client: 
+    ad-slot: 
+  bing-verify: 
